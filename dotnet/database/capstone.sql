@@ -30,3 +30,16 @@ INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg4
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
 GO
 
+CREATE TABLE FlashCards (
+	flash_card_id int IDENTITY(1,1) NOT NULL,
+	front_text varchar(100) NOT NULL,
+	back_text varchar(100) NOT NULL,
+	user_id int NOT NULL
+	CONSTRAINT PK_flashcard_id PRIMARY KEY (flash_card_id)
+	CONSTRAINT FK_created_by FOREIGN KEY (user_id) references users(user_id)
+)
+
+INSERT INTO FlashCards (front_text, back_text, user_id)
+VALUES ('Test', 'testing', 2)
+GO
+
