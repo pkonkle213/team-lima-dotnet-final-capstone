@@ -34,7 +34,7 @@ CREATE TABLE Decks (
 	deck_id int IDENTITY(1,1) NOT NULL,
 	user_id int NOT NULL,
 	deck_name varchar(50) NOT NULL,
-	CONSTRAINT PK_Decks_deck_id_user_id PRIMARY KEY (deck_id, user_id),
+	CONSTRAINT PK_Decks_deck_id PRIMARY KEY (deck_id, user_id),
 	CONSTRAINT FK_Decks_users FOREIGN KEY (user_id) references Users (user_id)
 )
 
@@ -50,7 +50,11 @@ CREATE TABLE FlashCards (
 	back_text varchar(100) NOT NULL,
 	deck_id int NOT NULL
 	CONSTRAINT PK_flashcard_id PRIMARY KEY (flash_card_id),
-	CONSTRAINT FK_created_by FOREIGN KEY (deck_id) references Decks (user_id)
+	/*CONSTRAINT FK_created_by FOREIGN KEY (deck_id) references Decks (deck_id)*/
 )
 
-INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES (
+INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('What is 1+1','2',1);
+INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('What does immutable mean?','It cannot be changed',3);
+INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('What is 2+2','4',1);
+INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('How can you loop through a list without an index','Foreach',3);
+GO
