@@ -1,8 +1,8 @@
 <template>
-  <button v-on:click.prevent="handleClick()">
+  
     <!-- Display the front but on click it toggles to the back (and then front again) -->
-    <study-card v-bind:cardText="cardFace"/>
-  </button>
+    <study-card v-bind:card="card"/>
+  
 </template>
 
 <script>
@@ -28,14 +28,20 @@ export default {
     },
   },
   computed: {
-    cardFace() {
+    card() {
       if (this.cardDeck.length <= 0) {
-        return "loading"
+        
+        let message = {
+          frontText: "loading",
+          backText: "loading"
+        }
+        
+        return message
       }
       if (this.clickNum === 0) {
-        return this.cardDeck[this.index].frontText;
+        return this.cardDeck[this.index]
       } else if (this.clickNum === 1) {
-        return this.cardDeck[this.index].backText;
+        return this.cardDeck[this.index]
       }
       return "ARE YOU HAPPY COMPILER?!?!?!?!"
     },
@@ -44,4 +50,13 @@ export default {
 </script>
 
 <style>
+
+ .card-btn {
+  display: inline-block;
+  padding: 0;
+  background: none;
+  outline: none;
+  border: none;
+}
+
 </style>
