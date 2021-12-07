@@ -32,8 +32,8 @@ export default {
       if (this.cardDeck.length <= 0) {
         
         let message = {
-          frontText: "loading",
-          backText: "loading"
+          frontText: "loading...",
+          backText: "loading..."
         }
         
         return message
