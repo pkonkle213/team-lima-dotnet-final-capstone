@@ -12,12 +12,31 @@ namespace Capstone.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class FlashCardController : ControllerBase
     {
         private readonly IFlashCardDAO flashCardDAO;
         public FlashCardController(IFlashCardDAO flashCardDAO)
         {
             this.flashCardDAO = flashCardDAO;
+        }
+
+        // Consider creating a static method!
+        /// <summary>
+        /// Gets the current logged in user's ID
+        /// </summary>
+        /// <returns></returns>
+        private int GetCurrentUserID()
+        {
+            var user = this.User;
+            int id = 0;
+            if (user.Identity.Name != null)
+            {
+                var idClaim = user.FindFirst("sub");
+                string idString = idClaim.Value;
+                id = int.Parse(idString);
+            }
+            return id;
         }
 
         [HttpGet]
@@ -33,20 +52,19 @@ namespace Capstone.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("deck/{deckId}")]
-        [AllowAnonymous]
         public ActionResult GetFlashCardsFromDeck(int deckId)
         {
-            IEnumerable<FlashCard> results = flashCardDAO.GetFlashCardsFromDeck(deckId);
+            int userId = GetCurrentUserID();
+            IEnumerable<FlashCard> results = flashCardDAO.GetFlashCardsFromDeck(deckId, userId);
             return Ok(results);
         }
 
         [HttpPost("deck/{deckId}")]
         public ActionResult AddNewCard(int deckId, FlashCard cardToAdd)
         {
-            FlashCard addCard = flashCardDAO.AddNewCard(deckId, cardToAdd);
+            int userId = GetCurrentUserID();
+            FlashCard addCard = flashCardDAO.AddNewCard(deckId, cardToAdd, userId);
             return Ok();
         }
-
-
     }
 }

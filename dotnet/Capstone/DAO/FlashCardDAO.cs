@@ -24,7 +24,7 @@ namespace Capstone.DAO
         {
             List<FlashCard> cards = new List<FlashCard>();
 
-            const string sql = "SELECT flash_card_id, front_text, back_text, user_id FROM FlashCards";
+            const string sql = "SELECT flash_card_id, front_text, back_text FROM FlashCards";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -41,7 +41,7 @@ namespace Capstone.DAO
                             card.Id = Convert.ToInt32(reader["flash_card_id"]);
                             card.FrontText = Convert.ToString(reader["front_text"]);
                             card.BackText = Convert.ToString(reader["back_text"]);
-                            card.DeckId = Convert.ToInt32(reader["user_id"]);
+                            card.DeckId = Convert.ToInt32(reader["deck_id"]);
 
                             cards.Add(card);
                         }
@@ -57,7 +57,7 @@ namespace Capstone.DAO
         /// </summary>
         /// <param name="deckId"></param>
         /// <returns></returns>
-        public IEnumerable<FlashCard> GetFlashCardsFromDeck(int deckId)
+        public IEnumerable<FlashCard> GetFlashCardsFromDeck(int deckId, int userId)
         {
             List<FlashCard> cards = new List<FlashCard>();
 
@@ -96,7 +96,7 @@ namespace Capstone.DAO
         /// <param name="deckId"></param>
         /// <param name="cardToAdd"></param>
         /// <returns></returns>
-        public FlashCard AddNewCard(int deckId, FlashCard cardToAdd)
+        public FlashCard AddNewCard(int deckId, FlashCard cardToAdd, int userId)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

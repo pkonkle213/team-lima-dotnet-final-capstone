@@ -16,6 +16,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Capstone.Controllers.FlashCardController.GetCurrentUserID">
+            <summary>
+            Gets the current logged in user's ID
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Capstone.Controllers.FlashCardController.GetFlashCardsFromDeck(System.Int32)">
             <summary>
             Get all flashcards specific to a certain deck
@@ -51,8 +57,8 @@
         </member>
         <member name="M:Capstone.Models.DeckDAO.GetAllDecks(System.Int32)">
             <summary>
-            Returns a list of decks which are a representation of a flashcards associated with that deck id. Reads from the database all decks associated with a specific user.
-            Takes in a user's Id which will be identified by the currently logged in user.
+            Returns a list of decks all decks for a user.
+            Takes in a user's Id which will be identified by the currently logged in user to find associated decks.
             </summary>
             <returns></returns>
         </member>
@@ -78,20 +84,20 @@
         </member>
         <member name="M:Capstone.DAO.FlashCardDAO.GetAllFlashCards">
             <summary>
-            Getting all flashcards for all users
+            Getting all flashcards in the database
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Capstone.DAO.FlashCardDAO.GetFlashCardsFromDeck(System.Int32)">
+        <member name="M:Capstone.DAO.FlashCardDAO.GetFlashCardsFromDeck(System.Int32,System.Int32)">
             <summary>
-            Selects all flashcards from the database where they come from a specified deck using the deck_id passed in.
+            Selects all flashcards where they come from a specified deck using the deck_id passed in.
             </summary>
             <param name="deckId"></param>
             <returns></returns>
         </member>
-        <member name="M:Capstone.DAO.FlashCardDAO.AddNewCard(System.Int32,Capstone.Models.FlashCard)">
+        <member name="M:Capstone.DAO.FlashCardDAO.AddNewCard(System.Int32,Capstone.Models.FlashCard,System.Int32)">
             <summary>
-            Add a new flashcard to a specific deck of flashcards. This deck is already specific to a user.
+            Add a new flashcard to a specific deck of flashcards. This deck will already be specific to a user.
             </summary>
             <param name="deckId"></param>
             <param name="cardToAdd"></param>
