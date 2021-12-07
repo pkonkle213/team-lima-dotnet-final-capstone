@@ -5,6 +5,7 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import Register from "../views/Register.vue";
 import ViewDeck from "../views/ViewDeck.vue";
+import CreateCard from "../views/CreateCardView.vue";
 import store from "../store/index";
 
 Vue.use(Router);
@@ -58,6 +59,14 @@ const router = new Router({
       path: "/viewDeck",
       name: "viewDeck",
       component: ViewDeck,
+      meta: {
+        requiresAuth: true,
+      }
+    },
+    {
+      path: "/createCard",
+      name: "createCard",
+      component: CreateCard,
       meta: {
         requiresAuth: true,
       }
