@@ -25,7 +25,7 @@ export default {
     },
     created() {
       FlashCardService
-        .fetchDeck()
+        .fetchDeck(1)
         .then(response => {
           this.cardDeck = response.data
         })

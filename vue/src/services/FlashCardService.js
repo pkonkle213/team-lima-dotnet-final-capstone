@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default {
-    fetchDeck() {
-        return axios.get('api/FlashCard')
+    fetchDeck(deckId) {
+        return axios.get(`/FlashCard/${deckId}`)
       },
 }
