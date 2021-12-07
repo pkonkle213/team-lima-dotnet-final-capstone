@@ -5,18 +5,18 @@
     <p>This would be the back of the card</p> -->
     <!-- Call the study card component with specific information -->
 
-    <study-card v-for="card of cardDeck" v-bind:key="card.id" v-bind:card="card"/>
+    <study-session v-bind:cardDeck="cardDeck"/>
 
   </section>
 </template>
 
 <script>
-import StudyCard from '../components/StudyCard.vue'
+import StudySession from '../components/StudySession.vue'
 import FlashCardService from '../services/FlashCardService.js'
 
 export default {
     components: {
-        StudyCard,
+        StudySession,
     },
     data() {
         return {
