@@ -21,5 +21,7 @@ namespace Capstone.Models
         
         public int CreatedBy { get; set; }
 
+        public int DeckId { get; set; }
+
     }
 }
