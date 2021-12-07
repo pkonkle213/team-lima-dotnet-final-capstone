@@ -18,7 +18,7 @@ namespace Capstone.Models
         [MaxLength(100)] 
         
         public string BackText { get; set; }
-        
+
         public int CreatedBy { get; set; }
 
         public int DeckId { get; set; }
