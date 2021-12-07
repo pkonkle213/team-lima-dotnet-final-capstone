@@ -24,6 +24,13 @@
         v-if="$store.state.token">
         &nbsp;|&nbsp;Logout
       </router-link>
+      <router-link
+        class="nav-item"
+        v-bind:to="{ name: 'viewDeck' }"
+        v-if="$store.state.token">
+        &nbsp;|&nbsp; View Deck
+      </router-link>
+      
     </div>
     
     <router-view />
