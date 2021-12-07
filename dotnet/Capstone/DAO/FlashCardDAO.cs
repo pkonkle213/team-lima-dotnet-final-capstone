@@ -24,7 +24,7 @@ namespace Capstone.DAO
         {
             List<FlashCard> cards = new List<FlashCard>();
 
-            const string sql = "SELECT flash_card_id, front_text, back_text FROM FlashCards";
+            const string sql = "SELECT flash_card_id, front_text, back_text, deck_id FROM FlashCards";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -57,11 +57,11 @@ namespace Capstone.DAO
         /// </summary>
         /// <param name="deckId"></param>
         /// <returns></returns>
-        public IEnumerable<FlashCard> GetFlashCardsFromDeck(int deckId, int userId)
+        public IEnumerable<FlashCard> GetFlashCardsFromDeck(int deckId)
         {
             List<FlashCard> cards = new List<FlashCard>();
 
-            const string sql = "SELECT flash_card_id, front_text, back_text, user_id FROM FlashCards WHERE deck_id = @deckId";
+            const string sql = "SELECT flash_card_id, front_text, back_text, deck_id FROM FlashCards WHERE deck_id = @deckId";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -69,6 +69,8 @@ namespace Capstone.DAO
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
+                    command.Parameters.AddWithValue("@deckId", deckId);
+
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -78,7 +80,7 @@ namespace Capstone.DAO
                             card.Id = Convert.ToInt32(reader["flash_card_id"]);
                             card.FrontText = Convert.ToString(reader["front_text"]);
                             card.BackText = Convert.ToString(reader["back_text"]);
-                            card.DeckId = Convert.ToInt32(reader["user_id"]);
+                            card.DeckId = Convert.ToInt32(reader["deck_id"]);
 
                             cards.Add(card);
                         }
@@ -96,7 +98,7 @@ namespace Capstone.DAO
         /// <param name="deckId"></param>
         /// <param name="cardToAdd"></param>
         /// <returns></returns>
-        public FlashCard AddNewCard(int deckId, FlashCard cardToAdd, int userId)
+        public FlashCard AddNewCard(int deckId, FlashCard cardToAdd)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -118,46 +120,6 @@ namespace Capstone.DAO
             }
 
             return cardToAdd;
-        }
-        
-
-        /// <summary>
-        /// Get all flash cards specific to a particular user.
-        /// </summary>
-        /// <param name="deckId"></param>
-        /// <returns></returns>
-        public List<FlashCard> GetAllFlashCardsFromDeck(int deckId)
-        {
-            List<FlashCard> cards = new List<FlashCard>();
-
-            const string sql = "SELECT flash_card_id, front_text, back_text, user_id FROM FlashCards WHERE user_id=@userId";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-
-                using (SqlCommand command = new SqlCommand(sql, conn))
-                {
-                    command.Parameters.AddWithValue("@deckId", deckId);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            FlashCard card = new FlashCard();
-
-                            card.Id = Convert.ToInt32(reader["flash_card_id"]);
-                            card.FrontText = Convert.ToString(reader["front_text"]);
-                            card.BackText = Convert.ToString(reader["back_text"]);
-                            card.DeckId = deckId;
-
-                            cards.Add(card);
-                        }
-                    }
-                }
-            }
-
-            return cards;
-        }
+        }   
     }
 }

@@ -55,15 +55,22 @@ namespace Capstone.Controllers
         public ActionResult GetFlashCardsFromDeck(int deckId)
         {
             int userId = GetCurrentUserID();
-            IEnumerable<FlashCard> results = flashCardDAO.GetFlashCardsFromDeck(deckId, userId);
-            return Ok(results);
+            IEnumerable<FlashCard> results = flashCardDAO.GetFlashCardsFromDeck(deckId);
+            if (results != null)
+            {
+                return Ok(results);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         [HttpPost("deck/{deckId}")]
         public ActionResult AddNewCard(int deckId, FlashCard cardToAdd)
         {
             int userId = GetCurrentUserID();
-            FlashCard addCard = flashCardDAO.AddNewCard(deckId, cardToAdd, userId);
+            FlashCard addCard = flashCardDAO.AddNewCard(deckId, cardToAdd);
             return Ok();
         }
     }

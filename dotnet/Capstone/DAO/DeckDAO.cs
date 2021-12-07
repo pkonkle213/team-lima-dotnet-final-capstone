@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capstone.DAO;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Models
 {
-    public class DeckDAO
+    public class DeckDAO : IDeckDAO
     {
         private string connectionString;
 

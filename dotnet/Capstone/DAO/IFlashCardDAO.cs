@@ -7,8 +7,8 @@ namespace Capstone.DAO
     {
         List<FlashCard> GetAllFlashCards();
 
-        FlashCard AddNewCard(int deckId, FlashCard cardToAdd, int userId);
+        FlashCard AddNewCard(int deckId, FlashCard cardToAdd);
 
-        IEnumerable<FlashCard> GetFlashCardsFromDeck(int deckId, int userId);
+        IEnumerable<FlashCard> GetFlashCardsFromDeck(int deckId);
     }
 }
