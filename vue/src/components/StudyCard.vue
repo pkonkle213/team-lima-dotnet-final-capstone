@@ -1,29 +1,57 @@
 <template>
-  <div class="card">
-    <span class="cardText">{{ cardText }}</span>
-  </div>
+  <button class="card" v-on:click.prevent="handleClick()">
+    <h2 class="card-text">{{cardText}}</h2>
+  </button>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      showFront: true,
+    };
+  },
   props: {
-    cardText: String,
+    card: Object,
+    clickNum: Number,
+  },
+  methods: {
+    handleClick() {
+      if (this.showFront) {
+        this.showFront = false;
+      }
+      else if (!this.showFront) {
+        this.showFront = true;
+      }
+    }
+  },
+  computed: {
+    cardText() {
+      if (this.showFront) {
+        return this.card.frontText
+      }
+      else if (!this.showFront) {
+        return this.card.backText
+      }
+      return "";
+    }
   }
-}
+};
 </script>
 
 <style>
-
 .card {
-  border-color: green;
-  border-width: thick;
-  margin-top: 2rem;
-  padding-top: 30%;
-  padding-bottom: 30%
-}
-.cardText {
-  display: block;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid green;
+  border-radius: 10px;
+  width: 200px;
+  height: 350px;
+  margin: none;
 }
 
+.card-text {
+  
+}
 </style>
