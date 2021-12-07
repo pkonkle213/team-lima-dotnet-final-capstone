@@ -19,7 +19,6 @@ namespace Capstone.Models
         
         public string BackText { get; set; }
         
-        public int CreatedBy { get; set; }
-
+        public int DeckId { get; set; }
     }
 }

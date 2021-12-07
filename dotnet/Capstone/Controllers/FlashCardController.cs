@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Capstone.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class FlashCardController : ControllerBase
     {
@@ -27,7 +27,26 @@ namespace Capstone.Controllers
             IEnumerable<FlashCard> results = flashCardDAO.GetAllFlashCards();
             return Ok(results);
         }
-        
+
+        /// <summary>
+        /// Get all flashcards specific to a certain deck
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("deck/{deckId}")]
+        [AllowAnonymous]
+        public ActionResult GetFlashCardsFromDeck(int deckId)
+        {
+            IEnumerable<FlashCard> results = flashCardDAO.GetFlashCardsFromDeck(deckId);
+            return Ok(results);
+        }
+
+        [HttpPost("deck/{deckId}")]
+        public ActionResult AddNewCard(int deckId, FlashCard cardToAdd)
+        {
+            FlashCard addCard = flashCardDAO.AddNewCard(deckId, cardToAdd);
+            return Ok();
+        }
+
 
     }
 }
