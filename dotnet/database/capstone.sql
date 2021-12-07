@@ -15,7 +15,7 @@ USE final_capstone
 GO
 
 -- Create Tables
-CREATE TABLE users (
+CREATE TABLE Users (
 	user_id int IDENTITY(1,1) NOT NULL,
 	username varchar(50) NOT NULL,
 	password_hash varchar(200) NOT NULL,
@@ -26,20 +26,35 @@ CREATE TABLE users (
 
 -- Populate default data for testing: user and admin with password of 'password'
 -- These values should not be kept when going to Production
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+INSERT INTO Users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
+INSERT INTO Users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+GO
+
+CREATE TABLE Decks (
+	deck_id int IDENTITY(1,1) NOT NULL,
+	user_id int NOT NULL,
+	deck_name varchar(50) NOT NULL,
+	CONSTRAINT PK_Decks_deck_id PRIMARY KEY (deck_id, user_id),
+	CONSTRAINT FK_Decks_users FOREIGN KEY (user_id) references Users (user_id)
+)
+
+INSERT INTO Decks (user_id,deck_name) VALUES (1,'Math');
+INSERT INTO Decks (user_id,deck_name) VALUES (1,'Engrish');
+INSERT INTO Decks (user_id,deck_name) VALUES (1,'C Sharp');
+INSERT INTO Decks (user_id,deck_name) VALUES (1,'D Flat');
 GO
 
 CREATE TABLE FlashCards (
 	flash_card_id int IDENTITY(1,1) NOT NULL,
 	front_text varchar(100) NOT NULL,
 	back_text varchar(100) NOT NULL,
-	user_id int NOT NULL
-	CONSTRAINT PK_flashcard_id PRIMARY KEY (flash_card_id)
-	CONSTRAINT FK_created_by FOREIGN KEY (user_id) references users(user_id)
+	deck_id int NOT NULL
+	CONSTRAINT PK_flashcard_id PRIMARY KEY (flash_card_id),
+	/*CONSTRAINT FK_created_by FOREIGN KEY (deck_id) references Decks (deck_id)*/
 )
 
-INSERT INTO FlashCards (front_text, back_text, user_id)
-VALUES ('Test', 'testing', 2)
+INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('What is 1+1','2',1);
+INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('What does immutable mean?','It cannot be changed',3);
+INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('What is 2+2','4',1);
+INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('How can you loop through a list without an index','Foreach',3);
 GO
-
