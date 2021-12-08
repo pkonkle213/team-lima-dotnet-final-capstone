@@ -77,12 +77,12 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Capstone.Models.DeckDAO.UserHasAccessToDeck(System.Int32,System.Int32)">
+        <member name="M:Capstone.Models.DeckDAO.CreateDeck(System.Int32,System.String)">
             <summary>
-            This method checks that the deck the user has selected will be connected to the current user's account
+            Adding to the database a brand new deck for user account.
             </summary>
             <param name="userId"></param>
-            <param name="deckId"></param>
+            <param name="deckName"></param>
             <returns></returns>
         </member>
         <member name="T:Capstone.Models.LoginResponse">
@@ -104,6 +104,21 @@
             <summary>
             Model of user data to return upon successful login
             </summary>
+        </member>
+        <member name="M:Capstone.DAO.DeckHelperDAO.UserHasAccessToDeck(System.Int32,System.Int32)">
+            <summary>
+            This method checks that the deck the user has selected will be connected to the current user's account
+            </summary>
+            <param name="userId"></param>
+            <param name="deckId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Capstone.DAO.DeckHelperDAO.DeckExists(System.Int32)">
+            <summary>
+            To determine whether or not the deck exists in the database in order to know what the proper http status code should be
+            </summary>
+            <param name="deckId"></param>
+            <returns></returns>
         </member>
         <member name="M:Capstone.DAO.FlashCardDAO.GetAllFlashCards">
             <summary>

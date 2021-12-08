@@ -142,7 +142,5 @@ namespace Capstone.DAO
                 }
             }
         }
-
-
     }
 }
