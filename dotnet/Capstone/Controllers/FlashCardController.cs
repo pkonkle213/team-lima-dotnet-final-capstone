@@ -16,9 +16,11 @@ namespace Capstone.Controllers
     public class FlashCardController : ControllerBase
     {
         private readonly IFlashCardDAO flashCardDAO;
-        public FlashCardController(IFlashCardDAO flashCardDAO)
+        private readonly IDeckDAO deckDAO;
+        public FlashCardController(IFlashCardDAO flashCardDAO, IDeckDAO deckDAO)
         {
             this.flashCardDAO = flashCardDAO;
+            this.deckDAO = deckDAO;
         }
 
         // Consider creating a static method!
@@ -39,6 +41,10 @@ namespace Capstone.Controllers
             return id;
         }
 
+        /// <summary>
+        /// This is primarily for testing purposes in order to check all flashcards.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
         public ActionResult GetAllFlashCards()
@@ -48,21 +54,26 @@ namespace Capstone.Controllers
         }
 
         /// <summary>
-        /// Get all flashcards specific to a certain deck
+        /// Get all flashcards specific to a certain deck. The deck itself will already be associated to a specific user.
+        /// To prevent user from selecting any deck id that is not associated, forbidden status code will be sent if not correct user.
         /// </summary>
         /// <returns></returns>
         [HttpGet("deck/{deckId}")]
-        public ActionResult GetFlashCardsFromDeck(int deckId)
+        public ActionResult GetFlashCardsFromDeck(int deckId) // The specific deck Id selected
         {
             int userId = GetCurrentUserID();
-            IEnumerable<FlashCard> results = flashCardDAO.GetFlashCardsFromDeck(deckId);
-            if (results != null)
+            
+            // Checks that the current selected deck is owned by the current user.
+            bool userDeck = deckDAO.UserHasAccessToDeck(userId, deckId);
+
+            if (userDeck)
             {
+                IEnumerable<FlashCard> results = flashCardDAO.GetFlashCardsFromDeck(deckId, userId); // userId required here so that it limits the deck id by the currently logged in user.
                 return Ok(results);
             }
             else
             {
-                return NotFound();
+                return Unauthorized();
             }
         }
 

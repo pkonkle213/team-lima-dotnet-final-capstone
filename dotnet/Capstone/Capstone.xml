@@ -6,13 +6,13 @@
     <members>
         <member name="M:Capstone.Controllers.DeckController.GetCurrentUserID">
             <summary>
-            Gets the current logged in user's ID
+            Gets the current logged in user's ID to use elsewhere.
             </summary>
             <returns></returns>
         </member>
         <member name="M:Capstone.Controllers.DeckController.GetAllDecks">
             <summary>
-            Gets all of the user's decks for their account
+            Gets all of the user's decks for their account. Because the user id is specific to the current logged in user, the decks viewed are specific to ONLY the authorized user's account.
             </summary>
             <returns></returns>
         </member>
@@ -22,9 +22,16 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Capstone.Controllers.FlashCardController.GetAllFlashCards">
+            <summary>
+            This is primarily for testing purposes in order to check all flashcards.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Capstone.Controllers.FlashCardController.GetFlashCardsFromDeck(System.Int32)">
             <summary>
-            Get all flashcards specific to a certain deck
+            Get all flashcards specific to a certain deck. The deck itself will already be associated to a specific user.
+            To prevent user from selecting any deck id that is not associated, forbidden status code will be sent if not correct user.
             </summary>
             <returns></returns>
         </member>
@@ -62,6 +69,14 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Capstone.Models.DeckDAO.UserHasAccessToDeck(System.Int32,System.Int32)">
+            <summary>
+            This method checks that the deck the user has selected will be connected to the current user's account
+            </summary>
+            <param name="userId"></param>
+            <param name="deckId"></param>
+            <returns></returns>
+        </member>
         <member name="T:Capstone.Models.LoginResponse">
             <summary>
             Model to return upon successful login (user data + token)
@@ -88,11 +103,12 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Capstone.DAO.FlashCardDAO.GetFlashCardsFromDeck(System.Int32)">
+        <member name="M:Capstone.DAO.FlashCardDAO.GetFlashCardsFromDeck(System.Int32,System.Int32)">
             <summary>
             Selects all flashcards where they come from a specified deck using the deck_id passed in.
             </summary>
             <param name="deckId"></param>
+            /// <param name="userId"></param>
             <returns></returns>
         </member>
         <member name="M:Capstone.DAO.FlashCardDAO.AddNewCard(System.Int32,Capstone.Models.FlashCard)">

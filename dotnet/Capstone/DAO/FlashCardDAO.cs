@@ -56,12 +56,16 @@ namespace Capstone.DAO
         /// Selects all flashcards where they come from a specified deck using the deck_id passed in.
         /// </summary>
         /// <param name="deckId"></param>
+        /// /// <param name="userId"></param>
         /// <returns></returns>
-        public IEnumerable<FlashCard> GetFlashCardsFromDeck(int deckId)
+        public IEnumerable<FlashCard> GetFlashCardsFromDeck(int deckId, int userId)
         {
             List<FlashCard> cards = new List<FlashCard>();
 
-            const string sql = "SELECT flash_card_id, front_text, back_text, deck_id FROM FlashCards WHERE deck_id = @deckId";
+            const string sql = "SELECT flash_card_id, front_text, back_text, fc.deck_id FROM FlashCards fc " +
+                               "INNER JOIN Decks d ON d.deck_id = fc.deck_id " +
+                               "INNER JOIN Users u ON u.user_id = d.user_id " +
+                               "WHERE fc.deck_id = @deckId AND u.user_id = @userId";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -70,6 +74,7 @@ namespace Capstone.DAO
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@deckId", deckId);
+                    command.Parameters.AddWithValue("@userId", userId);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

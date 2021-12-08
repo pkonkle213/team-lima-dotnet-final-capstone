@@ -51,7 +51,7 @@ CREATE TABLE FlashCards (
 	back_text varchar(100) NOT NULL,
 	deck_id int NOT NULL
 	CONSTRAINT PK_flashcard_id PRIMARY KEY (flash_card_id),
-	CONSTRAINT FK_created_by FOREIGN KEY (deck_id) references dbo.Decks (deck_id)
+	CONSTRAINT FK_created_by FOREIGN KEY (deck_id) references Decks (deck_id)
 )
 
 INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('What is 1+1', '2', 1);
@@ -59,3 +59,4 @@ INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('What does immutab
 INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('What is 2+2', '4', 1);
 INSERT INTO FlashCards (front_text,back_text,deck_id) VALUES ('How can you loop through a list without an index','Foreach', 3);
 GO
+

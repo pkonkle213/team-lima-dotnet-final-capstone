@@ -21,7 +21,7 @@ namespace Capstone.Controllers
         }
 
         /// <summary>
-        /// Gets the current logged in user's ID
+        /// Gets the current logged in user's ID to use elsewhere.
         /// </summary>
         /// <returns></returns>
         private int GetCurrentUserID()
@@ -38,7 +38,7 @@ namespace Capstone.Controllers
         }
 
         /// <summary>
-        /// Gets all of the user's decks for their account
+        /// Gets all of the user's decks for their account. Because the user id is specific to the current logged in user, the decks viewed are specific to ONLY the authorized user's account.
         /// </summary>
         /// <returns></returns>
         [HttpGet()]
