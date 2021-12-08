@@ -24,7 +24,7 @@ namespace Capstone.Controllers
         /// <summary>
         /// A test endpoint to ensure that the server is running.
         /// </summary>
-        [AllowAnonymous]
+        [Microsoft.AspNetCore.Authorization.AllowAnonymous]
         [HttpGet("ready")]
         public string Ready()
         {

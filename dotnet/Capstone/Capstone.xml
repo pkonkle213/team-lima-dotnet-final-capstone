@@ -23,6 +23,20 @@
             <param name="newDeck"></param>
             <returns></returns>
         </member>
+        <member name="M:Capstone.Controllers.DeckController.UpdateDeck(Capstone.Models.Deck)">
+            <summary>
+            Updates a deck
+            </summary>
+            <param name="deck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Capstone.Controllers.DeckController.DeleteDeck(System.Int32)">
+            <summary>
+            Deletes a deck
+            </summary>
+            <param name="deckId"></param>
+            <returns></returns>
+        </member>
         <member name="M:Capstone.Controllers.FlashCardController.GetCurrentUserID">
             <summary>
             Gets the current logged in user's ID
@@ -48,6 +62,20 @@
             </summary>
             <param name="deckId"></param>
             <param name="cardToAdd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Capstone.Controllers.FlashCardController.UpdateCard(Capstone.Models.FlashCard)">
+            <summary>
+            Updates a specific card
+            </summary>
+            <param name="card"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Capstone.Controllers.FlashCardController.DeleteCard(System.Int32)">
+            <summary>
+            Deletes a specific card
+            </summary>
+            <param name="cardId"></param>
             <returns></returns>
         </member>
         <member name="M:Capstone.Controllers.LoginController.Ready">

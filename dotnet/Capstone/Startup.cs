@@ -99,8 +99,8 @@ namespace Capstone
                 s.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo()
                 {
                     Version = "v1",
-                    Title = "Customize me in Startup.cs",
-                    Description = "Or just leave it and hope no hiring manager notices..."
+                    Title = "Routes for Team Lima's final capstone",
+                    Description = "These routes help with the flash card system."
                 });
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";

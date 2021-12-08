@@ -10,5 +10,9 @@ namespace Capstone.DAO
         FlashCard AddNewCard(int deckId, FlashCard cardToAdd);
 
         IEnumerable<FlashCard> GetFlashCardsFromDeck(int deckId, int userId);
+
+        FlashCard UpdateCard(FlashCard cardToUpdate);
+
+        void DeleteCard(int cardId);
     }
 }

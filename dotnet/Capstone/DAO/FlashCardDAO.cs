@@ -127,7 +127,7 @@ namespace Capstone.DAO
             return cardToAdd;
         } 
 
-        public FlashCard UpdateCard(int cardId, int deckId, FlashCard cardToUpdate)
+        public FlashCard UpdateCard(FlashCard cardToUpdate)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -167,6 +167,5 @@ namespace Capstone.DAO
                 }
             }
         }
-
     }
 }

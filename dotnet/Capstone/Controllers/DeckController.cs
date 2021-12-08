@@ -1,5 +1,6 @@
 ﻿using Capstone.DAO;
 using Capstone.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ namespace Capstone.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class DeckController : ControllerBase
     {
 
@@ -63,6 +65,32 @@ namespace Capstone.Controllers
             Deck createDeck = deckDAO.CreateDeck(userId, newDeck);
 
             return Ok(createDeck);
+        }
+
+        /// <summary>
+        /// Updates a deck
+        /// </summary>
+        /// <param name="deck"></param>
+        /// <returns></returns>
+        [HttpPut("deck/")]
+        public ActionResult<Deck> UpdateDeck(Deck deck)
+        {
+            Deck updatedDeck = deckDAO.UpdateDeck(deck);
+
+            return Ok(updatedDeck);
+        }
+
+        /// <summary>
+        /// Deletes a deck
+        /// </summary>
+        /// <param name="deckId"></param>
+        /// <returns></returns>
+        [HttpDelete("deck/{deckId}")]
+        public ActionResult DeleteDeck(int deckId)
+        {
+            deckDAO.DeleteDeck(deckId);
+
+            return Ok();
         }
     }
 }

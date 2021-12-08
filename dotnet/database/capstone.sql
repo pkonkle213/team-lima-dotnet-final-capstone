@@ -34,15 +34,15 @@ CREATE TABLE Decks (
 	deck_id int IDENTITY(1,1) NOT NULL,
 	user_id int NOT NULL,
 	deck_name varchar(50) NOT NULL,
+	deck_description varchar(500) NOT NULL,
 	CONSTRAINT PK_Decks_deck_id PRIMARY KEY (deck_id),
 	CONSTRAINT FK_Decks_users FOREIGN KEY (user_id) references Users (user_id)
 )
-GO
 
-INSERT INTO Decks (user_id, deck_name) VALUES (1, 'Math');
-INSERT INTO Decks (user_id, deck_name) VALUES (1, 'Engrish');
-INSERT INTO Decks (user_id, deck_name) VALUES (1, 'C Sharp');
-INSERT INTO Decks (user_id, deck_name) VALUES (1, 'D Flat');
+INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, 'Math','Random Math Questions');
+INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, 'Engrish','Funny questions about Engrish');
+INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, 'C Sharp','Trivia about a programming language');
+INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, 'D Flat','Jokes about how terms used for music can be translated into other forms');
 GO
 
 CREATE TABLE FlashCards (

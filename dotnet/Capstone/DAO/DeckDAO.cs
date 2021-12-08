@@ -82,5 +82,48 @@ namespace Capstone.Models
 
             return newDeck;
         }
+
+        public Deck UpdateDeck(Deck deckToUpdate)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                const string sql = "UPDATE Decks " +
+                    "SET deck_name = @deck_name, deck_description = @deck_description " +
+                    "WHERE deck_id = @deck_id";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@deck_name", deckToUpdate.Name);
+                    command.Parameters.AddWithValue("@deck_description", deckToUpdate.Description);
+                    command.Parameters.AddWithValue("@deck_id", deckToUpdate.Id);
+
+                    command.ExecuteScalar();
+                }
+            }
+        
+            return deckToUpdate;
+        }
+
+        public void DeleteDeck(int deckId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                const string sql = "DELETE FROM FlashCards " +
+                    "WHERE deck_id=@deck_id; " +
+                    "DELETE FROM Decks " +
+                    "WHERE deck_id=@deck_id;";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@deck_id", deckId);
+                    
+                    command.ExecuteScalar();
+                }
+            }
+        }
     }
 }

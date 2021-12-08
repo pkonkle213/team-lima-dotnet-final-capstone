@@ -46,7 +46,7 @@ namespace Capstone.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [AllowAnonymous]
+        [Microsoft.AspNetCore.Authorization.AllowAnonymous]
         public ActionResult GetAllFlashCards()
         {
             IEnumerable<FlashCard> results = flashCardDAO.GetAllFlashCards();
@@ -96,6 +96,30 @@ namespace Capstone.Controllers
             int userId = GetCurrentUserID();
             FlashCard addCard = flashCardDAO.AddNewCard(deckId, cardToAdd);
             return Ok(addCard);
+        }
+
+        /// <summary>
+        /// Updates a specific card
+        /// </summary>
+        /// <param name="card"></param>
+        /// <returns></returns>
+        [HttpPut("deck/")]
+        public ActionResult UpdateCard(FlashCard card)
+        {
+            return Ok(flashCardDAO.UpdateCard(card));
+        }
+
+        /// <summary>
+        /// Deletes a specific card
+        /// </summary>
+        /// <param name="cardId"></param>
+        /// <returns></returns>
+        [HttpDelete("deck/{cardId}")]
+        public ActionResult DeleteCard(int cardId)
+        {
+            flashCardDAO.DeleteCard(cardId);
+
+            return Ok();
         }
     }
 }

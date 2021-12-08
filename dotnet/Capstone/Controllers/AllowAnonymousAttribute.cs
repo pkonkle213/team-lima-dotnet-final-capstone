@@ -2,7 +2,7 @@
 
 namespace Capstone.Controllers
 {
-    internal class AllowAnounomysAttribute : Attribute
+    internal class AllowAnonymousAttribute : Attribute
     {
     }
 }

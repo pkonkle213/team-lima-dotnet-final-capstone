@@ -10,5 +10,7 @@ namespace Capstone.DAO
     {
         Deck CreateDeck(int userId, Deck newDeck);
         List<Deck> GetAllDecks(int userId);
+        Deck UpdateDeck(Deck deck);
+        void DeleteDeck(int deckId);
     }
 }
