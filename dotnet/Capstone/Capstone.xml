@@ -16,11 +16,19 @@
             </summary>
             <returns></returns>
         </member>
+<<<<<<< HEAD
         <member name="M:Capstone.Controllers.DeckController.CreateDeck(Capstone.Models.Deck)">
             <summary>
             Adds a new deck
             </summary>
             <param name="newDeck"></param>
+=======
+        <member name="M:Capstone.Controllers.DeckController.AddNewDeck(Capstone.Models.Deck)">
+            <summary>
+            Adding a new deck to the users account. The deck will be sent to controller upon request to add, and will build new deck in the database.
+            </summary>
+            <param name="deck"></param>
+>>>>>>> 78bd4101eef2cccbc787d93eeb43863d71049e39
             <returns></returns>
         </member>
         <member name="M:Capstone.Controllers.FlashCardController.GetCurrentUserID">
