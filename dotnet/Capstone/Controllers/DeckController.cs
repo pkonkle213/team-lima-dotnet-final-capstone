@@ -49,5 +49,18 @@ namespace Capstone.Controllers
             List<Deck> results = deckDAO.GetAllDecks(userId);
             return Ok(results);
         }
+
+        /// <summary>
+        /// Adding a new deck to the users account. The deck will be sent to controller upon request to add, and will build new deck in the database.
+        /// </summary>
+        /// <param name="deck"></param>
+        /// <returns></returns>
+        [HttpPost()]
+        public ActionResult<Deck> AddNewDeck(Deck deck)
+        {
+            int userId = GetCurrentUserID();
+            Deck newDeck = deckDAO.CreateDeck(userId, deck.Name);
+            return Ok(newDeck);
+        }
     }
 }

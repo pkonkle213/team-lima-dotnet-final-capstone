@@ -9,5 +9,6 @@ namespace Capstone.DAO
     public interface IDeckDAO
     {
         List<Deck> GetAllDecks(int userId);
+        Deck CreateDeck(int userId, string name);
     }
 }
