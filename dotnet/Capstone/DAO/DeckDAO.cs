@@ -96,5 +96,31 @@ namespace Capstone.Models
                 return true;
             }
         }
+
+        public Deck CreateDeck(int userId, string deckName)
+        {
+            Deck newDeck = new Deck();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                const string sql = "INSERT INTO Decks (user_id,deck_name) " +
+                    "VALUES(@userId,@deckName); " +
+                    "SELECT @@IDENTITY";
+
+                using (SqlCommand command = new SqlCommand(sql,conn))
+                {
+                    command.Parameters.AddWithValue("@userId", userId);
+                    command.Parameters.AddWithValue("@deckName", deckName);
+
+                    int newId = Convert.ToInt32(command.ExecuteScalar());
+                    newDeck.Id = newId;
+                    newDeck.Name = deckName;
+                    newDeck.UserId = userId;
+                }
+            }
+
+            return newDeck;
+        }
     }
 }

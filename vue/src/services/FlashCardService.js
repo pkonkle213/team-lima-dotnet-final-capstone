@@ -2,14 +2,9 @@ import axios from 'axios';
 
 export default {
     fetchDeck(deckId) {
-        return axios.get(`/FlashCard/deck/${deckId}`)
-      },
-    fetchMyDecks() {
-      return axios.get(`/Deck`)
+      return axios.get(`/FlashCard/${deckId}`)
     },
-
-    addNewCard(deckId, card) {
-      return axios.post(`/FlashCard/deck/${deckId}`, card)
+    addCard(Card) {
+      return axios.post(`/FlashCard/deck/`,Card)
     }
-
 }
