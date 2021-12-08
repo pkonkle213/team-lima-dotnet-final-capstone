@@ -126,6 +126,30 @@ namespace Capstone.DAO
 
             return cardToAdd;
         } 
+
+        public FlashCard UpdateCard(int cardId, int deckId, FlashCard cardToUpdate)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                const string sql = "UPDATE FlashCards " +
+                    "SET front_text = @front_text, " +
+                    "back_text = @back_text " +
+                    "WHERE flash_card_id = @cardId";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@front_text", cardToUpdate.FrontText);
+                    command.Parameters.AddWithValue("@back_text", cardToUpdate.BackText);
+                    command.Parameters.AddWithValue("@cardId", cardToUpdate.Id);
+
+                    command.ExecuteScalar();
+                }
+            }
+
+            return cardToUpdate;
+        }
         
         public void DeleteCard(int cardId)
         {
@@ -139,8 +163,10 @@ namespace Capstone.DAO
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@cardId", cardId);
+                    command.ExecuteNonQuery();
                 }
             }
         }
+
     }
 }
