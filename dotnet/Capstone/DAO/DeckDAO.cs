@@ -55,9 +55,9 @@ namespace Capstone.Models
         /// Adding to the database a brand new deck for user account.
         /// </summary>
         /// <param name="userId"></param>
-        /// <param name="deckName"></param>
+        /// <param name="deck"></param>
         /// <returns></returns>
-        public Deck CreateDeck(int userId, string deckName)
+        public Deck CreateDeck(int userId, Deck deck)
         {
             Deck newDeck = new Deck();
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -71,11 +71,11 @@ namespace Capstone.Models
                 using (SqlCommand command = new SqlCommand(sql,conn))
                 {
                     command.Parameters.AddWithValue("@userId", userId);
-                    command.Parameters.AddWithValue("@deckName", deckName);
+                    command.Parameters.AddWithValue("@deckName", deck.Name);
 
                     int newId = Convert.ToInt32(command.ExecuteScalar());
                     newDeck.Id = newId;
-                    newDeck.Name = deckName;
+                    newDeck.Name = deck.Name;
                     newDeck.UserId = userId;
                 }
             }

@@ -11,15 +11,26 @@
 </template>
 
 <script>
+import FlashCardService from "../services/FlashCardService.js"
+
 export default {
     data() {
         return {
-            newDeck: {},
+            newDeck: {
+                name: ""
+            }
         }
     },
     methods: {
         addNewDeck() {
-            
+            FlashCardService
+            .addNewDeck(this.newDeck)
+            .then(response => {
+                this.$store.commit("ADD_DECK", response.data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
         }
     }
 }

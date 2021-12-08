@@ -16,6 +16,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Capstone.Controllers.DeckController.CreateDeck(Capstone.Models.Deck)">
+            <summary>
+            Adds a new deck
+            </summary>
+            <param name="newDeck"></param>
+            <returns></returns>
+        </member>
         <member name="M:Capstone.Controllers.FlashCardController.GetCurrentUserID">
             <summary>
             Gets the current logged in user's ID
@@ -77,12 +84,12 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Capstone.Models.DeckDAO.CreateDeck(System.Int32,System.String)">
+        <member name="M:Capstone.Models.DeckDAO.CreateDeck(System.Int32,Capstone.Models.Deck)">
             <summary>
             Adding to the database a brand new deck for user account.
             </summary>
             <param name="userId"></param>
-            <param name="deckName"></param>
+            <param name="deck"></param>
             <returns></returns>
         </member>
         <member name="T:Capstone.Models.LoginResponse">

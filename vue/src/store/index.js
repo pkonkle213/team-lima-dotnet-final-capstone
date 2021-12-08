@@ -36,6 +36,10 @@ export default new Vuex.Store({
 
   },
   mutations: {
+    ADD_DECK(state, payload) {
+      state.userDecks.push(payload)
+    },
+
     SET_USER_DECKS(state, payload) {
       state.userDecks = payload
     },

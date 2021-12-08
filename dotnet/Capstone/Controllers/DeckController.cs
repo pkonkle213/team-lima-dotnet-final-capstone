@@ -49,5 +49,20 @@ namespace Capstone.Controllers
             List<Deck> results = deckDAO.GetAllDecks(userId);
             return Ok(results);
         }
+
+        /// <summary>
+        /// Adds a new deck
+        /// </summary>
+        /// <param name="newDeck"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult<Deck> CreateDeck(Deck newDeck)
+        {
+            int userId = GetCurrentUserID();
+
+            Deck createDeck = deckDAO.CreateDeck(userId, newDeck);
+
+            return Ok(createDeck);
+        }
     }
 }
