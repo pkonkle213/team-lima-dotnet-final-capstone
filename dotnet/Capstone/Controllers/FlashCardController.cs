@@ -16,11 +16,11 @@ namespace Capstone.Controllers
     public class FlashCardController : ControllerBase
     {
         private readonly IFlashCardDAO flashCardDAO;
-        private readonly IDeckDAO deckDAO;
-        public FlashCardController(IFlashCardDAO flashCardDAO, IDeckDAO deckDAO)
+        private readonly IDeckHelperDAO deckHelperDAO;
+        public FlashCardController(IFlashCardDAO flashCardDAO, IDeckHelperDAO deckHelperDAO)
         {
             this.flashCardDAO = flashCardDAO;
-            this.deckDAO = deckDAO;
+            this.deckHelperDAO = deckHelperDAO;
         }
 
         // Consider creating a static method!
@@ -64,12 +64,19 @@ namespace Capstone.Controllers
             int userId = GetCurrentUserID();
             
             // Checks that the current selected deck is owned by the current user.
-            bool userDeck = deckDAO.UserHasAccessToDeck(userId, deckId);
+            bool userDeck = deckHelperDAO.UserHasAccessToDeck(userId, deckId);
+
+            // Checks that the deck attempting selection exists in the database
+            bool deckExists = deckHelperDAO.DeckExists(deckId);
 
             if (userDeck)
             {
                 IEnumerable<FlashCard> results = flashCardDAO.GetFlashCardsFromDeck(deckId, userId); // userId required here so that it limits the deck id by the currently logged in user.
                 return Ok(results);
+            }
+            else if (!deckExists)
+            {
+                return BadRequest();
             }
             else
             {
