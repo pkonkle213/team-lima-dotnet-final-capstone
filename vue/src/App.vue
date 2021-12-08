@@ -30,12 +30,6 @@
         v-if="$store.state.token">
         &nbsp;|&nbsp; View My Decks
       </router-link>
-      <router-link
-        class="nav-item"
-        v-bind:to="{ name: 'createCard' }"
-        v-if="$store.state.token">
-        &nbsp;|&nbsp; Create Card
-      </router-link>
       
     </div>
     

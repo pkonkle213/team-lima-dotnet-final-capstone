@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>Your content goes here. Make it look nice.</p>
+    <p>Our content goes here. We will make it look nicer at a later point in time.</p>
   </div>
 </template>
 
