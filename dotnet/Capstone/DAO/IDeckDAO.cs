@@ -10,6 +10,5 @@ namespace Capstone.DAO
     {
         Deck CreateDeck(int userId, Deck newDeck);
         List<Deck> GetAllDecks(int userId);
-        Deck CreateDeck(int userId, string name);
     }
 }
