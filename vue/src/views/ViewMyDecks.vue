@@ -7,31 +7,30 @@
       <!-- Call the study card component with specific information -->
 
       <deck
-        v-for="deck of cardDecks"
+        v-for="deck of $store.state.userDecks"
         v-bind:key="deck.id"
         v-bind:deck="deck"
       />
+      <create-deck />
     </div>
   </div>
 </template>
 
 <script>
+import CreateDeck from '../components/CreateDeck.vue';
 import Deck from "../components/Deck.vue";
 import FlashCardService from "../services/FlashCardService.js";
 
 export default {
   components: {
     Deck,
+    CreateDeck,
   },
-  data() {
-    return {
-      cardDecks: [],
-    };
-  },
+  
   created() {
     FlashCardService.fetchMyDecks()
       .then((response) => {
-        this.cardDecks = response.data;
+        this.$store.commit("SET_USER_DECKS", response.data)
         console.log(response);
       })
       .catch((error) => {

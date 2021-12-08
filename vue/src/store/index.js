@@ -25,6 +25,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {}, // If a user is an admin, their user.role will be 'admin'
     activeDeck: [],
+    userDecks: [],
     activeCard: {
       id: 0,
       frontFace: "",
@@ -35,6 +36,10 @@ export default new Vuex.Store({
 
   },
   mutations: {
+    SET_USER_DECKS(state, payload) {
+      state.userDecks = payload
+    },
+
     SET_ACTIVE_DECK(state, payload) {
       state.activeDeck = payload;
     },
