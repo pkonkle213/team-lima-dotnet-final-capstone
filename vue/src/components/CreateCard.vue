@@ -9,31 +9,40 @@
           <input type="text" name="backText" v-model="card.backText" />
       </div>
       <div>
-          <button type="submit" v-on:click="saveCard()">Submit new card</button>
+          <button type="submit" v-on:click.prevent="saveCard()">Submit new card</button>
       </div>
   </form>
 </template>
 
 <script>
-// Need to import the service to save the new card
+import FlashCardService from '../services/FlashCardService.js'
 
 export default {
-    props: ["deckId"],
+    
     data() {
         return {
             card: {
                 //We need to add the card id? $store.deck.length?
                 frontText: "",
                 backText: "",
-                deckId: this.deckId,
+                deckId: +this.$route.params.deckId,
             }
         }
     },
     methods: {
         saveCard() {
-            console.log("This will eventually submit and save a card to a deck")
+            FlashCardService
+            .addNewCard(this.card.deckId, this.card)
+            .then(response => {
+                console.log(response)
+                this.$store.commit("ADD_CARD", response.data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
         }
-    }
+    },
+    
 }
 </script>
 

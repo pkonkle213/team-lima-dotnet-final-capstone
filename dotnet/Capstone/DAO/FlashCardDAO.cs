@@ -109,7 +109,7 @@ namespace Capstone.DAO
             {
                 conn.Open();
 
-                const string sql = "INSERT INTO FlashCards (front_text,back_text,user_id) " +
+                const string sql = "INSERT INTO FlashCards (front_text,back_text,deck_id) " +
                     "VALUES(@FrontText,@BackText,@deckId); " +
                     "SELECT @@IDENTITY;";
 

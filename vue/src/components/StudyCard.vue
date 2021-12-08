@@ -48,10 +48,8 @@ export default {
   border-radius: 10px;
   width: 200px;
   height: 350px;
-  margin: none;
+  margin: 10px 10px 10px 10px;
 }
 
-.card-text {
-  
-}
+
 </style>
