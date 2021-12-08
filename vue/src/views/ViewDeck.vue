@@ -1,36 +1,27 @@
 <template>
-  <section>
-    <h2>This is a card</h2>
-    <!-- <p>This would be the front of the card</p>
-    <p>This would be the back of the card</p> -->
-    <!-- Call the study card component with specific information -->
-
-    <study-session v-bind:cardDeck="cardDeck"/>
-
-  </section>
+<div>
+  <study-card v-for="card of deck" v-bind:key="card.id" v-bind:card="card"/>
+</div>
 </template>
 
 <script>
-import StudySession from '../components/StudySession.vue'
-import FlashCardService from '../services/FlashCardService.js'
-
+import StudyCard from '../components/StudyCard.vue'
+import FlashCardService from '../services/FlashCardService'
 export default {
-    components: {
-        StudySession,
-    },
+  components: { StudyCard },
     data() {
         return {
-            cardDeck: []
+            deck: [],
         }
     },
     created() {
-      FlashCardService
-        .fetchDeck(1)
+        FlashCardService
+        .fetchDeck(this.$route.params.deckId)
         .then(response => {
-          this.cardDeck = response.data
+            this.deck = response.data
         })
-        .catch(response => {
-          console.error("Could not fetch deck", response);
+        .catch(error => {
+            console.error(error)
         })
     }
 }

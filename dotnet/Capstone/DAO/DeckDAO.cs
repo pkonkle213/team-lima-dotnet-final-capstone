@@ -25,7 +25,7 @@ namespace Capstone.Models
         {
             List<Deck> decks = new List<Deck>();
 
-            const string sql = "SELECT deck_name FROM decks WHERE user_id = @user_id";
+            const string sql = "SELECT deck_id, deck_name, user_id FROM decks WHERE user_id = @user_id";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -42,6 +42,7 @@ namespace Capstone.Models
 
                             deck.Id = Convert.ToInt32(reader["deck_id"]);
                             deck.Name = Convert.ToString(reader["deck_name"]);
+                            deck.UserId = Convert.ToInt32(reader["user_id"]);
 
                             decks.Add(deck);
                         }

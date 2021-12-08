@@ -4,9 +4,10 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import Register from "../views/Register.vue";
-import ViewDeck from "../views/ViewDeck.vue";
+import ViewMyDecks from "../views/ViewMyDecks.vue";
 import CreateCard from "../views/CreateCardView.vue";
 import store from "../store/index";
+import Deck from "../components/Deck.vue";
 
 Vue.use(Router);
 
@@ -56,9 +57,9 @@ const router = new Router({
       },
     },
     {
-      path: "/viewDeck",
-      name: "viewDeck",
-      component: ViewDeck,
+      path: "/viewMyDecks",
+      name: "viewMyDecks",
+      component: ViewMyDecks,
       meta: {
         requiresAuth: true,
       }
@@ -70,6 +71,11 @@ const router = new Router({
       meta: {
         requiresAuth: true,
       }
+    },
+    {
+      path: "/Flashcards/deck/:deckId",
+      name: "deck",
+      component: Deck
     },
     {
       path: "*",
