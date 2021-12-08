@@ -7,7 +7,7 @@ import Register from "../views/Register.vue";
 import ViewMyDecks from "../views/ViewMyDecks.vue";
 import CreateCard from "../views/CreateCardView.vue";
 import store from "../store/index";
-import Deck from "../components/Deck.vue";
+import ViewDeck from "../views/ViewDeck.vue";
 
 Vue.use(Router);
 
@@ -74,8 +74,8 @@ const router = new Router({
     },
     {
       path: "/Flashcards/deck/:deckId",
-      name: "deck",
-      component: Deck
+      name: "ViewDeck",
+      component: ViewDeck
     },
     {
       path: "*",

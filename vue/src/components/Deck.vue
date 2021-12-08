@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link v-bind:to="{ name: 'deck', params: { deckId: deck.id } }"
+    <router-link v-bind:to="{ name: 'ViewDeck', params: { deckId: deck.id } }"
       >{{ deck.name }}</router-link
     >
   </div>
