@@ -77,6 +77,14 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Capstone.Models.DeckDAO.CreateDeck(System.Int32,System.String)">
+            <summary>
+            Adding to the database a brand new deck for user account.
+            </summary>
+            <param name="userId"></param>
+            <param name="deckName"></param>
+            <returns></returns>
+        </member>
         <member name="T:Capstone.Models.LoginResponse">
             <summary>
             Model to return upon successful login (user data + token)

@@ -125,6 +125,22 @@ namespace Capstone.DAO
             }
 
             return cardToAdd;
-        }   
+        } 
+        
+        public void DeleteCard(int cardId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                const string sql = "DELETE FROM FlashCards " +
+                    "WHERE flash_card_id = @cardId";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@cardId", cardId);
+                }
+            }
+        }
     }
 }
