@@ -71,7 +71,7 @@ namespace Capstone.Controllers
         {
             int userId = GetCurrentUserID();
             FlashCard addCard = flashCardDAO.AddNewCard(deckId, cardToAdd);
-            return Ok();
+            return Ok(addCard);
         }
     }
 }

@@ -24,19 +24,24 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {}, // If a user is an admin, their user.role will be 'admin'
-    activeDeck: {
-      id: 0,
-      userId: 0,
-    },
+    activeDeck: [],
     activeCard: {
       id: 0,
       frontFace: "",
       backFace: "",
       deckId: 0,
-    }
+    },
+
 
   },
   mutations: {
+    SET_ACTIVE_DECK(state, payload) {
+      state.activeDeck = payload;
+    },
+
+    ADD_CARD(state, payload) {
+        state.activeDeck.push(payload);
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
