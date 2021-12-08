@@ -62,7 +62,7 @@ namespace Capstone.Models
         {
             List<Deck> decks = new List<Deck>();
 
-            const string sql = "SELECT deck_id, deck_name FROM decks WHERE deck_id = deckId AND user_id = @user_id";
+            const string sql = "SELECT deck_id, deck_name FROM decks WHERE deck_id = @deck_id AND user_id = @user_id";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();

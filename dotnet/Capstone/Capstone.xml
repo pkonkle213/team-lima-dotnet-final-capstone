@@ -35,6 +35,14 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Capstone.Controllers.FlashCardController.AddNewCard(System.Int32,Capstone.Models.FlashCard)">
+            <summary>
+            Allows a user to add a new flashcard to a specific deck on their account.
+            </summary>
+            <param name="deckId"></param>
+            <param name="cardToAdd"></param>
+            <returns></returns>
+        </member>
         <member name="M:Capstone.Controllers.LoginController.Ready">
             <summary>
             A test endpoint to ensure that the server is running.

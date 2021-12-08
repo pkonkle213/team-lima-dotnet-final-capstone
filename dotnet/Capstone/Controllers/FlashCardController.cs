@@ -73,10 +73,16 @@ namespace Capstone.Controllers
             }
             else
             {
-                return Unauthorized();
+                return Forbid();
             }
         }
 
+        /// <summary>
+        /// Allows a user to add a new flashcard to a specific deck on their account.
+        /// </summary>
+        /// <param name="deckId"></param>
+        /// <param name="cardToAdd"></param>
+        /// <returns></returns>
         [HttpPost("deck/{deckId}")]
         public ActionResult AddNewCard(int deckId, FlashCard cardToAdd)
         {
