@@ -139,8 +139,6 @@ namespace Capstone.DAO
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@cardId", cardId);
-
-
                 }
             }
         }
