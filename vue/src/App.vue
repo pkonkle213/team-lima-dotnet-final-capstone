@@ -6,7 +6,7 @@
     <!-- If you start to get random styling you don't like, remove container from this div -->
     <div id="nav">
       <router-link
-      id="log"
+      id="register"
         class="nav-item"
         v-bind:to="{ name: 'register' }"
         v-if="!$store.state.token"
@@ -29,7 +29,7 @@
         Logout
       </router-link>
       <!--- <h3 id="pipe-left">|</h3> --->
-      <router-link class="nav-item" v-bind:to="{ name: 'home' }"
+      <router-link id="home" class="nav-item" v-bind:to="{ name: 'home' }"
         >Home</router-link
       >
       <!--- <h3 id="pipe-right">|</h3> --->
@@ -61,13 +61,25 @@ export default {};
 
 // Your custom styles go below this point
 
-body {
+#app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 0.025fr 1fr 0.025fr;
+  grid-template-rows: 0.1fr 0.1fr 1fr 0.2fr;
+  grid-template-areas: 
+    "nav nav nav"
+    ". . ."
+    ". content ."
+    "footer footer footer";
   background-color: #f7ebe5;
 }
 
 #nav {
+  grid-area: nav;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 0.4fr 1fr 1fr;
+  grid-template-areas: 
+    "register log home viewDecks viewDecks";
   justify-items: center;
   align-items: center;
   background: linear-gradient(#eb5e00 10%, #ff9011 80%);
@@ -83,33 +95,30 @@ body {
   color: whitesmoke;
 }
 
-h3 {
-  background-color: blue;
-  font-size: 2rem;
-  color: blue;
-  margin: 0px;
-  width: 20px;
-  height: 150px;
-}
-
-#pipe-left {
-  justify-self: end;
-}
-
-#pipe-right {
-  justify-self: start;
-}
-
 #log {
+  grid-area: log;
   justify-self: end;
+}
+
+#home {
+  grid-area: home;
 }
 
 #view-decks {
+  grid-area: viewDecks;
+  justify-self: start;
+}
+
+#register {
+  grid-area: viewDecks;
   justify-self: start;
 }
 
 .content {
+  grid-area: content;
+  align-self: flex-start;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
 }
