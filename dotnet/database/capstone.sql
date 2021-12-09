@@ -92,12 +92,3 @@ INSERT INTO Flashcards_Tags (flash_card_id,tag_id) VALUES (2,4);
 INSERT INTO Flashcards_Tags (flash_card_id,tag_id) VALUES (2,5);
 INSERT INTO Flashcards_Tags (flash_card_id,tag_id) VALUES (4,5);
 GO
-
-/*
-SELECT * FROM Flashcards_tags
-
-SELECT *
-FROM Flashcards f
-INNER JOIN Flashcards_Tags ft ON ft.flash_card_id = f.flash_card_id
-INNER JOIN Tags t ON t.tag_id=ft.tag_id
-*/

@@ -177,6 +177,13 @@
             <param name="cardToAdd"></param>
             <returns></returns>
         </member>
+        <member name="M:Capstone.DAO.FlashCardDAO.SearchCardsUsingTag(System.String,System.Int32)">
+            <summary>
+            Searches the database for any flashcards associated with both the current user, and the keyword (tag) they use to narrow the card search by.
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
         <member name="T:Capstone.Security.IPasswordHasher">
             <summary>
             Represents a password hasher.

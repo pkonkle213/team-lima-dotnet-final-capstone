@@ -86,7 +86,7 @@ namespace Capstone.DAO
                             card.FrontText = Convert.ToString(reader["front_text"]);
                             card.BackText = Convert.ToString(reader["back_text"]);
                             card.DeckId = Convert.ToInt32(reader["deck_id"]);
-
+                 
                             cards.Add(card);
                         }
                     }
@@ -133,10 +133,33 @@ namespace Capstone.DAO
             {
                 conn.Open();
 
-                const string sql = "UPDATE FlashCards " +
+                string sql = "UPDATE FlashCards " +
                     "SET front_text = @front_text, " +
                     "back_text = @back_text " +
-                    "WHERE flash_card_id = @cardId";
+                    "WHERE flash_card_id = @cardId; " +
+                    "DELETE FROM Flashcards_Tags " +
+                    "WHERE flash_card_id=@cardId; ";
+
+                List<int> tagIds = new List<int>();
+
+                foreach(string tag in cardToUpdate.Tags)
+                {
+                    const string tagSql = "SELECT tag_id FROM Tags " +
+                        "WHERE name = @tagName; " +
+                        "SELECT @@IDENTITY;";
+
+                    using (SqlCommand command = new SqlCommand(tagSql, conn))
+                    {
+                        command.Parameters.AddWithValue("@tagName", tag);
+                        tagIds.Add(Convert.ToInt32(command.ExecuteScalar()));
+                    }
+                }
+
+                foreach(int num in tagIds)
+                {
+                    sql += "INSERT INTO Flashcards_Tags (flash_card_id,tag_id) " +
+                        $"VALUES(@cardid, {num}); ";
+                }
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
@@ -180,9 +203,9 @@ namespace Capstone.DAO
             {
                 conn.Open();
 
-                //const string sql =  "SELECT flash_card_id, front_text, back_text, fc.deck_id FROM FlashCards fc " +
-                //                    "INNER JOIN (flashcard tag join)"
-                //                    "WHERE (tag =) @tag";
+                const string sql =  "SELECT flash_card_id, front_text, back_text, fc.deck_id FROM FlashCards fc " +
+                                    "INNER JOIN (flashcard tag join) " +
+                                    "WHERE (tag = @tag)";
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
@@ -199,10 +222,14 @@ namespace Capstone.DAO
                                 BackText = Convert.ToString(reader["back_text"]),
                                 DeckId = Convert.ToInt32(reader["deck_id"])
                             };
+
+                            flashCards.Add(flashCard);
                         }
                     }
                 }
             }
+
+            return flashCards;
         }
     }
 }
