@@ -23,5 +23,7 @@ namespace Capstone.Models
 
         public int DeckId { get; set; }
 
+        public List<string> Tag { get; set; }
+
     }
 }
