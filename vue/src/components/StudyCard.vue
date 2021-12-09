@@ -44,12 +44,15 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px solid green;
-  border-radius: 10px;
-  width: 200px;
-  height: 350px;
+  background-color: rgb(252, 251, 248);
+  box-shadow: 0 0 10px 0 rgb(32, 28, 27);
+  border: 1px solid rgb(32, 28, 27);
+  border-radius: 2px;
+  width: 350px;
+  min-width: 250px;
+  max-width: 370px;
+  height: 180px;
   margin: 10px 10px 10px 10px;
 }
-
 
 </style>

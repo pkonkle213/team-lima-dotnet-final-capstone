@@ -18,13 +18,19 @@ export default {
 
 .deck {
   display: flex;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  border: 5px solid green;
-  border-radius: 10px;
-  width: 200px;
-  height: 350px;
-  margin: none;
-}
+  background-color: rgb(252, 251, 248);
+  box-shadow: 0 0 10px 0 rgb(32, 28, 27);
+  border: 1px solid rgb(32, 28, 27);
+  border-radius: 2px;
+  width: 350px;
+  min-width: 180px;
+  max-width: 180px;
+  height: 100px;
+  margin: 10px;
+  }
 
 </style>
