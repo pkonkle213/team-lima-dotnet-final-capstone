@@ -120,7 +120,6 @@ namespace Capstone.Models
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@deck_id", deckId);
-                    
                     command.ExecuteScalar();
                 }
             }
