@@ -67,7 +67,7 @@ body {
 
 #nav {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   align-items: center;
   background: linear-gradient(#eb5e00 10%, #ff9011 80%);
@@ -80,6 +80,7 @@ body {
   font-size: 1.5rem;
   margin: 30px;
   text-align: center;
+  color: whitesmoke;
 }
 
 h3 {
