@@ -6,12 +6,14 @@
     <!-- If you start to get random styling you don't like, remove container from this div -->
     <div id="nav">
       <router-link
+      id="log"
         class="nav-item"
         v-bind:to="{ name: 'register' }"
         v-if="!$store.state.token"
         >Register</router-link
       >
       <router-link
+      id="log"
         class="nav-item"
         v-bind:to="{ name: 'login' }"
         v-if="!$store.state.token"
@@ -19,18 +21,20 @@
         Login
       </router-link>
       <router-link
+      id="log"
         class="nav-item"
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token"
       >
         Logout
       </router-link>
-      <h3>|</h3>
+      <h3 id="pipe-left">|</h3>
       <router-link class="nav-item" v-bind:to="{ name: 'home' }"
         >Home</router-link
       >
-      <h3>|</h3>
+      <h3 id="pipe-right">|</h3>
       <router-link
+        id="view-decks"
         class="nav-item"
         v-bind:to="{ name: 'viewMyDecks' }"
         v-if="$store.state.token"
@@ -63,10 +67,10 @@ body {
 }
 
 #nav {
-  display: flex;
-  justify-content: center;
+  display: grid;;
+  grid-template-columns: 1fr 0.2fr 0.5fr 0.2fr 1fr;
+  justify-items: center;
   align-items: center;
-  gap: 5%;
   border-bottom: solid 20px blue;
 }
 
@@ -79,8 +83,25 @@ h3 {
   background-color: blue;
   font-size: 2rem;
   color: blue;
-  margin-bottom: 1px;
+  margin: 0px;
   width: 20px;
+  height: 150px;
+}
+
+#pipe-left {
+  justify-self: end;
+}
+
+#pipe-right {
+  justify-self: start;
+}
+
+#log {
+  justify-self: end;
+}
+
+#view-decks {
+  justify-self: start;
 }
 
 .content {
