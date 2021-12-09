@@ -121,12 +121,5 @@ namespace Capstone.Controllers
 
             return Ok();
         }
-
-        [HttpGet("tag/{tag}")]
-        public ActionResult SearchCardsUsingTag(string tag)
-        {
-            int userId = GetCurrentUserID();
-            flashCardDAO.SearchCardsUsingTag(tag, userId);
-        }
     }
 }
