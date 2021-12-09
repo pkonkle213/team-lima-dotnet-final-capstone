@@ -28,11 +28,11 @@
       >
         Logout
       </router-link>
-      <h3 id="pipe-left">|</h3>
+      <!--- <h3 id="pipe-left">|</h3> --->
       <router-link class="nav-item" v-bind:to="{ name: 'home' }"
         >Home</router-link
       >
-      <h3 id="pipe-right">|</h3>
+      <!--- <h3 id="pipe-right">|</h3> --->
       <router-link
         id="view-decks"
         class="nav-item"
@@ -62,21 +62,24 @@ export default {};
 // Your custom styles go below this point
 
 body {
-  margin: 5px;
-  background-color: #e7dfdb;
+  background-color: #f7ebe5;
 }
 
 #nav {
-  display: grid;;
-  grid-template-columns: 1fr 0.2fr 0.5fr 0.2fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
-  border-bottom: solid 20px blue;
+  background: linear-gradient(#eb5e00 10%, #ff9011 80%);
+  color: #c7d5e0;
+  text-align: center;
 }
 
 .nav-item {
   text-decoration: none;
   font-size: 1.5rem;
+  margin: 30px;
+  text-align: center;
 }
 
 h3 {
