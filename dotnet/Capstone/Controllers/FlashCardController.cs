@@ -123,6 +123,8 @@ namespace Capstone.Controllers
 
             return Ok();
         }
+<<<<<<< HEAD
+=======
 
         /*
         [HttpGet("tag/{tag}")]
