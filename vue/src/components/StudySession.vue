@@ -1,5 +1,4 @@
 <template>
-  
     <!-- Display the front but on click it toggles to the back (and then front again) -->
     <study-card v-bind:card="card"/>
   
