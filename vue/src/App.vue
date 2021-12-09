@@ -53,5 +53,8 @@ export default {
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 // Your custom styles go below this point
-
+body {
+  margin: 5px;
+  background-color: #BFBDC7;
+}
 </style>
