@@ -55,7 +55,6 @@ namespace Capstone
             services.AddTransient<IFlashCardDAO>(sp => new FlashCardDAO(connectionString));
             services.AddTransient<IDeckDAO>(sp => new DeckDAO(connectionString));
             services.AddTransient<IDeckHelperDAO>(sp => new DeckHelperDAO(connectionString));
-            services.AddTransient<ITagDAO>(sp => new TagDAO(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
