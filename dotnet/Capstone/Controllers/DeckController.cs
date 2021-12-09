@@ -61,10 +61,15 @@ namespace Capstone.Controllers
         public ActionResult<Deck> CreateDeck(Deck newDeck)
         {
             int userId = GetCurrentUserID();
-
-            Deck createDeck = deckDAO.CreateDeck(userId, newDeck);
-
-            return Ok(createDeck);
+            if (userId == newDeck.UserId)
+            {
+                Deck createDeck = deckDAO.CreateDeck(userId, newDeck);
+                return Ok(createDeck);
+            }
+            else
+            {
+                return BadRequest(newDeck);
+            }
         }
 
         /// <summary>
@@ -75,9 +80,17 @@ namespace Capstone.Controllers
         [HttpPut("deck/")]
         public ActionResult<Deck> UpdateDeck(Deck deck)
         {
-            Deck updatedDeck = deckDAO.UpdateDeck(deck);
+            int userId = GetCurrentUserID();
+            if (userId == deck.UserId)
+            {
+                Deck updatedDeck = deckDAO.UpdateDeck(deck);
+                return Ok(updatedDeck);
+            }
+            else
+            {
+                return BadRequest(deck);
+            }
 
-            return Ok(updatedDeck);
         }
 
         /// <summary>
@@ -88,8 +101,8 @@ namespace Capstone.Controllers
         [HttpDelete("deck/{deckId}")]
         public ActionResult DeleteDeck(int deckId)
         {
+            // Do we need validation here to determine if the user has access to this deck in order to delete it?
             deckDAO.DeleteDeck(deckId);
-
             return Ok();
         }
     }
