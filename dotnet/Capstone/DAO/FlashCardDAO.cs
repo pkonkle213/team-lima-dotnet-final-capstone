@@ -190,46 +190,5 @@ namespace Capstone.DAO
                 }
             }
         }
-
-        /// <summary>
-        /// Searches the database for any flashcards associated with both the current user, and the keyword (tag) they use to narrow the card search by.
-        /// </summary>
-        /// <param name="tag"></param>
-        /// <returns></returns>
-        public IEnumerable<FlashCard> SearchCardsUsingTag(string tag, int userId)
-        {
-            List<FlashCard> flashCards = new List<FlashCard>();
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-
-                const string sql =  "SELECT flash_card_id, front_text, back_text, fc.deck_id FROM FlashCards fc " +
-                                    "INNER JOIN (flashcard tag join) " +
-                                    "WHERE (tag = @tag)";
-
-                using (SqlCommand command = new SqlCommand(sql, conn))
-                {
-                    command.Parameters.AddWithValue("@tag", tag);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            FlashCard flashCard = new FlashCard
-                            {
-                                Id = Convert.ToInt32(reader["flash_card_id"]),
-                                FrontText = Convert.ToString(reader["front_text"]),
-                                BackText = Convert.ToString(reader["back_text"]),
-                                DeckId = Convert.ToInt32(reader["deck_id"])
-                            };
-
-                            flashCards.Add(flashCard);
-                        }
-                    }
-                }
-            }
-
-            return flashCards;
-        }
     }
 }

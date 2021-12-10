@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Capstone.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -45,8 +46,10 @@ namespace Capstone.DAO
         [HttpGet("tag/{tagName}")]
         public ActionResult SearchCardsUsingTag(string tagName)
         {
+            IEnumerable<FlashCard> results = new List<FlashCard>();
             int userId = GetCurrentUserID();
-            tagDAO.SearchCardsUsingTag(tagName, userId);
+            results = tagDAO.SearchCardsUsingTag(tagName, userId);
+            return Ok(results);
         }
     }
 }

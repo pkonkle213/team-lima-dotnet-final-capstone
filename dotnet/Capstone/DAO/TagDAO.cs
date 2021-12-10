@@ -20,6 +20,7 @@ namespace Capstone.DAO
         /// Searches the database for any flashcards associated with both the current user, and the keyword (tag) they use to narrow the card search by.
         /// </summary>
         /// <param name="tag"></param>
+        /// <param name="userId"></param>
         /// <returns></returns>
         public IEnumerable<FlashCard> SearchCardsUsingTag(string tag, int userId)
         {
