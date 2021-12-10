@@ -40,6 +40,11 @@ export default {
             .catch(error => {
                 console.error(error)
             })
+
+            this.card= {
+                frontText: "",
+                backText: ""
+            }
         }
     },
     

@@ -1,5 +1,6 @@
 <template>
-  <button class="card" v-on:click.prevent="handleClick()">
+  <button ref="cardSize" v-bind:class="{'cardback': showFront===false}" class="card" v-on:click.prevent="handleClick()">
+    <!-- <p>{{face}}</p> -->
     <h2 class="card-text">{{cardText}}</h2>
   </button>
 </template>
@@ -15,6 +16,13 @@ export default {
     card: Object,
     clickNum: Number,
   },
+  mounted() {
+      let text = this.$refs.cardSize;
+      // let 1005  text.value.length;
+      // initialSize = initialSize <= 10 ? 10 : initialSize;
+      text.style.fontSize = "x-large";
+      // text.style.display="none";
+  },
   methods: {
     handleClick() {
       if (this.showFront) {
@@ -23,9 +31,16 @@ export default {
       else if (!this.showFront) {
         this.showFront = true;
       }
-    }
+    },
   },
   computed: {
+    face() {
+      if (this.showFront) {
+        return "Front";
+      } else {
+        return "Back";
+      }
+    },
     cardText() {
       if (this.showFront) {
         return this.card.frontText
@@ -46,6 +61,19 @@ export default {
   align-items: center;
   background-color: rgb(252, 251, 248);
   box-shadow: 0 0 10px 0 rgb(32, 28, 27);
+  border: 1px solid rgb(32, 28, 27);
+  border-radius: 2px;
+  width: 180px;
+  height: 100px;
+  margin: 10px 10px 10px 10px;
+}
+
+.cardback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(252, 251, 248);
+  box-shadow: 0 0 10px 0 rgb(194, 49, 13);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
   width: 180px;
