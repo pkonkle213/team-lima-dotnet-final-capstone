@@ -105,40 +105,19 @@
             </summary>
             <param name="userParam">The new user to create</param>
         </member>
-        <member name="M:Capstone.Models.DeckDAO.GetAllDecks(System.Int32)">
+        <member name="M:Capstone.DAO.TagController.GetCurrentUserID">
             <summary>
-            Returns a list of decks all decks for a user.
-            Takes in a user's Id which will be identified by the currently logged in user to find associated decks.
+            Gets the current logged in user's ID
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Capstone.Models.DeckDAO.CreateDeck(System.Int32,Capstone.Models.Deck)">
+        <member name="M:Capstone.DAO.TagController.SearchCardsUsingTag(System.String)">
             <summary>
-            Adding to the database a brand new deck for user account.
+            A get request to fetch any flashcard in the database for the logged in user which relates to the keyword input in the search bar.
+            The keyword will come to the controller as a string and will attempt to find matches in the database associated with tags that match flashcards in their account.
             </summary>
-            <param name="userId"></param>
-            <param name="deck"></param>
+            <param name="tagName"></param>
             <returns></returns>
-        </member>
-        <member name="T:Capstone.Models.LoginResponse">
-            <summary>
-            Model to return upon successful login (user data + token)
-            </summary>
-        </member>
-        <member name="T:Capstone.Models.LoginUser">
-            <summary>
-            Model to accept login parameters
-            </summary>
-        </member>
-        <member name="T:Capstone.Models.RegisterUser">
-            <summary>
-            Model to accept registration parameters
-            </summary>
-        </member>
-        <member name="T:Capstone.Models.ReturnUser">
-            <summary>
-            Model of user data to return upon successful login
-            </summary>
         </member>
         <member name="M:Capstone.DAO.DeckHelperDAO.UserHasAccessToDeck(System.Int32,System.Int32)">
             <summary>
@@ -177,12 +156,48 @@
             <param name="cardToAdd"></param>
             <returns></returns>
         </member>
-        <member name="M:Capstone.DAO.FlashCardDAO.SearchCardsUsingTag(System.String,System.Int32)">
+        <member name="M:Capstone.DAO.TagDAO.SearchCardsUsingTag(System.String,System.Int32)">
             <summary>
             Searches the database for any flashcards associated with both the current user, and the keyword (tag) they use to narrow the card search by.
             </summary>
             <param name="tag"></param>
+            <param name="userId"></param>
             <returns></returns>
+        </member>
+        <member name="M:Capstone.Models.DeckDAO.GetAllDecks(System.Int32)">
+            <summary>
+            Returns a list of decks all decks for a user.
+            Takes in a user's Id which will be identified by the currently logged in user to find associated decks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Capstone.Models.DeckDAO.CreateDeck(System.Int32,Capstone.Models.Deck)">
+            <summary>
+            Adding to the database a brand new deck for user account.
+            </summary>
+            <param name="userId"></param>
+            <param name="deck"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Capstone.Models.LoginResponse">
+            <summary>
+            Model to return upon successful login (user data + token)
+            </summary>
+        </member>
+        <member name="T:Capstone.Models.LoginUser">
+            <summary>
+            Model to accept login parameters
+            </summary>
+        </member>
+        <member name="T:Capstone.Models.RegisterUser">
+            <summary>
+            Model to accept registration parameters
+            </summary>
+        </member>
+        <member name="T:Capstone.Models.ReturnUser">
+            <summary>
+            Model of user data to return upon successful login
+            </summary>
         </member>
         <member name="T:Capstone.Security.IPasswordHasher">
             <summary>
