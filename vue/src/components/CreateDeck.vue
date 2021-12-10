@@ -2,7 +2,7 @@
   <div>
     <form id="card">
       <textarea
-        id="new-card"
+        id="new-deck"
         ref="newcard"
         type="text"
         name="deckName"
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style>
-#new-card {
+#new-deck {
   resize: none;
   text-align: center;
   font-size: 20px;
