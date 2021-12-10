@@ -1,8 +1,10 @@
 <template>
+<div id="test">
   <button ref="cardSize" v-bind:class="{'cardback': showFront===false}" class="card" v-on:click.prevent="handleClick()">
     <!-- <p>{{face}}</p> -->
     <h2 class="card-text">{{cardText}}</h2>
   </button>
+</div>
 </template>
 
 <script>
@@ -17,10 +19,10 @@ export default {
     clickNum: Number,
   },
   mounted() {
-      let text = this.$refs.cardSize;
+      // let text = this.$refs.cardSize;
       // let 1005  text.value.length;
       // initialSize = initialSize <= 10 ? 10 : initialSize;
-      text.style.fontSize = "x-large";
+      // text.style.fontSize = "x-large";
       // text.style.display="none";
   },
   methods: {
@@ -55,16 +57,22 @@ export default {
 </script>
 
 <style>
-.card {
+
+#test {
   display: flex;
+  flex-direction: row;
+}
+
+.card {
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(252, 251, 248);
   box-shadow: 0 0 10px 0 rgb(32, 28, 27);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
-  width: 180px;
-  height: 100px;
+  width: 380px;
+  height: 300px;
   margin: 10px 10px 10px 10px;
 }
 
@@ -76,8 +84,8 @@ export default {
   box-shadow: 0 0 10px 0 rgb(194, 49, 13);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
-  width: 180px;
-  height: 100px;
+  width: 380px;
+  height: 300px;
   margin: 10px 10px 10px 10px;
 }
 

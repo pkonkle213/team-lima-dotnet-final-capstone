@@ -1,8 +1,10 @@
 <template>
+<div id="cards">
 <div id="card-list">
   <study-card v-for="card of $store.state.activeDeck" v-bind:key="card.id" v-bind:card="card"/>
   
   <create-card-view />
+</div>
 </div>
 </template>
 
@@ -28,8 +30,11 @@ export default {
 
 <style>
 
+
 #card-list {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin: 1rem;
 }
 

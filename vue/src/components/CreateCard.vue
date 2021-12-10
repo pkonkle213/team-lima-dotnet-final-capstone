@@ -7,6 +7,7 @@
         type="text"
         name="cardName"
         v-model="text"
+        
       />
       <div>
           <button type="submit" v-on:click.prevent="saveCard()">{{ buttonText }}</button>
@@ -83,9 +84,10 @@ export default {
   box-shadow: 0 0 10px 0 rgb(32, 28, 27);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
-  width: 180px;
-  height: 100px;
+  width: 380px;
+  height: 300px;
   margin: 10px 10px 10px 10px;
+  resize: none;
 }
 
 .cardTwo {
@@ -96,8 +98,9 @@ export default {
   box-shadow: 0 0 10px 0 rgb(194, 49, 13);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
-  width: 180px;
-  height: 100px;
+  width: 380px;
+  height: 300px;
   margin: 10px 10px 10px 10px;
+  resize: none;
 }
 </style>
