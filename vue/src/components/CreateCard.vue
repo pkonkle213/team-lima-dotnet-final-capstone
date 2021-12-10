@@ -1,17 +1,17 @@
 <template>
-  <form v-on:submit.prevent>
+<div>
+      <textarea
+        class="cardOne"
+        v-bind:class="{'cardTwo': clickCouner===1}"
+        ref="newcard"
+        type="text"
+        name="cardName"
+        v-model="text"
+      />
       <div>
-          <label for="frontText">Text on the front of the card:</label>
-          <input type="text" name="frontText" v-model="card.frontText" />
+          <button type="submit" v-on:click.prevent="saveCard()">{{ buttonText }}</button>
       </div>
-      <div>
-          <label for="backText">Text on the back of the card:</label>
-          <input type="text" name="backText" v-model="card.backText" />
-      </div>
-      <div>
-          <button type="submit" v-on:click.prevent="saveCard()">Submit new card</button>
-      </div>
-  </form>
+</div>
 </template>
 
 <script>
@@ -26,11 +26,32 @@ export default {
                 frontText: "",
                 backText: "",
                 deckId: +this.$route.params.deckId,
+            },
+            clickCouner: 0,
+            text: ""
+        }
+    },
+    computed: {
+        buttonText() {
+            if (this.clickCouner === 0) {
+                return "Submit Front Text";
             }
+            else if (this.clickCouner === 1) {
+                return "Submit card";
+            }
+            return "";
         }
     },
     methods: {
         saveCard() {
+            if (this.clickCouner === 0) {
+                this.card.frontText = this.text;
+                this.text = "";
+                this.clickCouner++;
+            }
+            else if (this.clickCouner === 1)
+            {
+                this.card.backText = this.text;
             FlashCardService
             .addNewCard(this.card.deckId, this.card)
             .then(response => {
@@ -40,10 +61,12 @@ export default {
             .catch(error => {
                 console.error(error)
             })
-
+            this.text = "";
+            this.clickCouner = 0;
             this.card= {
                 frontText: "",
                 backText: ""
+            }
             }
         }
     },
@@ -52,5 +75,29 @@ export default {
 </script>
 
 <style>
+.cardOne {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(252, 251, 248);
+  box-shadow: 0 0 10px 0 rgb(32, 28, 27);
+  border: 1px solid rgb(32, 28, 27);
+  border-radius: 2px;
+  width: 180px;
+  height: 100px;
+  margin: 10px 10px 10px 10px;
+}
 
+.cardTwo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(252, 251, 248);
+  box-shadow: 0 0 10px 0 rgb(194, 49, 13);
+  border: 1px solid rgb(32, 28, 27);
+  border-radius: 2px;
+  width: 180px;
+  height: 100px;
+  margin: 10px 10px 10px 10px;
+}
 </style>
