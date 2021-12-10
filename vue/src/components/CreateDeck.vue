@@ -10,10 +10,7 @@
       />
     </form>
     <div>
-      <button type="submit" v-on:click.prevent="">+</button>
-    </div>
-    <div>
-      <p ref="test">Testing!</p>
+      <button type="submit" v-on:click.prevent="addNewDeck()">+</button>
     </div>
   </div>
 </template>
@@ -59,6 +56,7 @@ export default {
 
 <style>
 #new-card {
+  resize: none;
   text-align: center;
   font-size: 20px;
   background-color: rgb(252, 251, 248);
