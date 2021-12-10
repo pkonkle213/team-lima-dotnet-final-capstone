@@ -5,7 +5,7 @@
     </button>
     <form v-on:submit.prevent>
       <div v-if="showForm">
-        <label for="deckName">The name of the deck:</label>
+        <label for="deckName">The name of the deck: </label>
         <input type="text" name="deckName" v-model="newDeck.name" />
       </div>
       <div>
