@@ -44,6 +44,7 @@
     </div>
 
     <router-view class="content" />
+    <footer>lauren ipsum</footer>
   </div>
 </template>
 
@@ -124,7 +125,9 @@ export default {};
   align-items: center;
 }
 
-
+footer {
+  grid-area: footer;
+}
 
 #register > form {
   grid-area: content;
