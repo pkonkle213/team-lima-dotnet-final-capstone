@@ -1,19 +1,20 @@
 <template>
-  <div id="card">
-    <button v-if="!showForm" id="card" v-on:click.prevent="toggleForm()">
-      +
-    </button>
-    <form v-on:submit.prevent>
-      <div v-if="showForm">
-        <label for="deckName">The name of the deck:</label>
-        <input type="text" name="deckName" v-model="newDeck.name" />
-      </div>
-      <div>
-        <button v-if="showForm" type="submit" v-on:click.prevent="addNewDeck()">
-          Add Deck
-        </button>
-      </div>
+  <div>
+    <form id="card">
+      <textarea
+        id="new-card"
+        ref="newcard"
+        type="text"
+        name="deckName"
+        v-model="newDeck.name"
+      />
     </form>
+    <div>
+      <button type="submit" v-on:click.prevent="">+</button>
+    </div>
+    <div>
+      <p ref="test">Testing!</p>
+    </div>
   </div>
 </template>
 
@@ -46,17 +47,20 @@ export default {
           console.error(error);
         });
     },
+    // scaleInputText() {
+    //   let text = this.$refs.newcard;
+    //   var initialSize = 25 - text.value.length;
+    //   initialSize = initialSize <= 10 ? 10 : initialSize;
+    //   text.style.fontSize = initialSize + "px";
+    // },
   },
 };
 </script>
 
 <style>
-#card {
-  display: flex;
-  justify-self: center;
-  justify-content: center;
-  align-items: center;
-  font-size: 300%;
+#new-card {
+  text-align: center;
+  font-size: 20px;
   background-color: rgb(252, 251, 248);
   box-shadow: 0 0 10px 0 rgb(32, 28, 27);
   border: 1px solid rgb(32, 28, 27);

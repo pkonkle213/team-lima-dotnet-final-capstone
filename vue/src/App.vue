@@ -69,7 +69,7 @@ export default {};
   grid-template-areas: 
     "nav nav nav"
     ". . ."
-    ". content ."
+    "content content content"
     "footer footer footer";
   background-color: #f7ebe5;
 }
@@ -123,6 +123,8 @@ export default {};
   flex-direction: column;
   align-items: center;
 }
+
+
 
 #register > form {
   grid-area: content;
