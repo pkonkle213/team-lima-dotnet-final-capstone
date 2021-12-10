@@ -65,8 +65,8 @@ export default {
   box-shadow: 0 0 10px 0 rgb(32, 28, 27);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
-  width: 180px;
-  height: 100px;
+  width: 380px;
+  height: 300px;
   margin: 0;
 }
 </style>
