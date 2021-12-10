@@ -6,7 +6,7 @@
     <!-- If you start to get random styling you don't like, remove container from this div -->
     <div id="nav">
       <router-link
-      id="register"
+      id="register-btn"
         class="nav-item"
         v-bind:to="{ name: 'register' }"
         v-if="!$store.state.token"
@@ -109,7 +109,7 @@ export default {};
   justify-self: start;
 }
 
-#register {
+#register-btn {
   grid-area: viewDecks;
   justify-self: start;
 }
@@ -118,8 +118,13 @@ export default {};
   grid-area: content;
   align-self: flex-start;
   display: flex;
+  flex-shrink: 1;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+}
+
+#register > form {
+  grid-area: content;
 }
 </style>

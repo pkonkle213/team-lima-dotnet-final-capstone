@@ -31,7 +31,6 @@ export default {
 #card-list {
   display: flex;
   margin: 1rem;
-  
 }
 
 </style>
