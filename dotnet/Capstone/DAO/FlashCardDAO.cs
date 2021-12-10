@@ -62,10 +62,16 @@ namespace Capstone.DAO
         {
             List<FlashCard> cards = new List<FlashCard>();
 
-            const string sql = "SELECT flash_card_id, front_text, back_text, fc.deck_id FROM FlashCards fc " +
+            const string sql = "SELECT flash_card_id, front_text, back_text, fc.deck_id " +
+                               "FROM FlashCards fc " +
                                "INNER JOIN Decks d ON d.deck_id = fc.deck_id " +
                                "INNER JOIN Users u ON u.user_id = d.user_id " +
                                "WHERE fc.deck_id = @deckId AND u.user_id = @userId";
+
+            const string tagSql = "SELECT t.name " +
+                            "FROM Flashcards_Tags ft " +
+                            "INNER JOIN Tags t ON t.tag_id = ft.tag_id " +
+                            "WHERE ft.flash_card_id = @flashcard_id";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -86,16 +92,35 @@ namespace Capstone.DAO
                             card.FrontText = Convert.ToString(reader["front_text"]);
                             card.BackText = Convert.ToString(reader["back_text"]);
                             card.DeckId = Convert.ToInt32(reader["deck_id"]);
-                 
+
                             cards.Add(card);
                         }
                     }
+                }
+
+                foreach (FlashCard card in cards)
+                {
+                    List<string> tags = new List<string>();
+                    using (SqlCommand command = new SqlCommand(tagSql, conn))
+                    {
+
+                        command.Parameters.AddWithValue("@flashcard_id", card.Id);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                tags.Add(Convert.ToString(reader["name"]));
+                            }
+                        }
+                    }
+
+                    card.Tags = tags;
                 }
             }
 
             return cards;
         }
-
 
         /// <summary>
         /// Add a new flashcard to a specific deck of flashcards. This deck will already be specific to a user.
@@ -125,7 +150,7 @@ namespace Capstone.DAO
             }
 
             return cardToAdd;
-        } 
+        }
 
         public FlashCard UpdateCard(FlashCard cardToUpdate)
         {
@@ -142,7 +167,7 @@ namespace Capstone.DAO
 
                 List<int> tagIds = new List<int>();
 
-                foreach(string tag in cardToUpdate.Tags)
+                foreach (string tag in cardToUpdate.Tags)
                 {
                     const string tagSql = "SELECT tag_id FROM Tags " +
                         "WHERE name = @tagName; " +
@@ -155,7 +180,7 @@ namespace Capstone.DAO
                     }
                 }
 
-                foreach(int num in tagIds)
+                foreach (int num in tagIds)
                 {
                     sql += "INSERT INTO Flashcards_Tags (flash_card_id,tag_id) " +
                         $"VALUES(@cardid, {num}); ";
@@ -173,7 +198,7 @@ namespace Capstone.DAO
 
             return cardToUpdate;
         }
-        
+
         public void DeleteCard(int cardId)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
