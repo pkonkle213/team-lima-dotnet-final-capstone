@@ -24,6 +24,8 @@ export default {
       showForm: false,
       newDeck: {
         name: "",
+        userId: this.$store.state.user.userId,
+        description: ""
       },
     };
   },

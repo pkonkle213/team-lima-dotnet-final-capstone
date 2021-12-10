@@ -42,6 +42,7 @@ namespace Capstone.Models
 
                             deck.Id = Convert.ToInt32(reader["deck_id"]);
                             deck.Name = Convert.ToString(reader["deck_name"]);
+                            deck.UserId = userId;
 
                             decks.Add(deck);
                         }
@@ -64,19 +65,21 @@ namespace Capstone.Models
             {
                 conn.Open();
 
-                const string sql = "INSERT INTO Decks (user_id,deck_name) " +
-                    "VALUES(@userId,@deckName); " +
+                const string sql = "INSERT INTO Decks (user_id,deck_name,deck_description) " +
+                    "VALUES(@userId,@deckName,@description); " +
                     "SELECT @@IDENTITY";
 
                 using (SqlCommand command = new SqlCommand(sql,conn))
                 {
                     command.Parameters.AddWithValue("@userId", userId);
                     command.Parameters.AddWithValue("@deckName", deck.Name);
+                    command.Parameters.AddWithValue("@description", deck.Description);
 
                     int newId = Convert.ToInt32(command.ExecuteScalar());
                     newDeck.Id = newId;
                     newDeck.Name = deck.Name;
                     newDeck.UserId = userId;
+                    newDeck.Description = deck.Description;
                 }
             }
 
