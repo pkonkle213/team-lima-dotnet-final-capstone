@@ -1,7 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 id="signInTxt" class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -107,7 +107,11 @@ export default {
       0 0 21px #fff,
       0 0 25px #fff, 
       0 0 30px #fff; 
-
 }
+
+#signInTxt {
+  color: #4f596b;
+}
+
 
 </style>

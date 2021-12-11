@@ -38,6 +38,9 @@ export default {
       }
     },
     addNewDeck() {
+      if (newDeck.name.length < 1) {
+        let text = 
+      }
       FlashCardService.addNewDeck(this.newDeck)
         .then((response) => {
           this.$store.commit("ADD_DECK", response.data);
