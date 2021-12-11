@@ -62,9 +62,15 @@ export default {
 #add-deck {
   grid-area: add;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  align-self: center;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-self: start;
+  margin-left: 7.7%;
+  margin-top: 3%;
+  gap: 6%;
+}
+
+#decks {
+
 }
 </style>

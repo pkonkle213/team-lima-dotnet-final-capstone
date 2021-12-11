@@ -8,9 +8,9 @@
         name="deckName"
         v-model="newDeck.name"
       />
-      <button id="addDeckBtn" type="submit" v-on:click.prevent="addNewDeck()">Add</button>
     </form>
     <div>
+      <button id="addDeckBtn" type="submit" v-on:click.prevent="addNewDeck()">Add</button>
     </div>
   </div>
 </template>
@@ -62,8 +62,8 @@ export default {
 
 #deck-view {
   display: flex; 
-  flex-direction: row;
-  justify-content: start;
+  flex-direction: column;
+  
 }
 
 #new-deck {
@@ -78,12 +78,13 @@ export default {
   border-radius: 2px;
   width: 180px;
   height: 100px;
-  margin: 0px;
+  margin-bottom: 2.77%;
 }
 
 #addDeckBtn {
   margin-top: 10px;
-  width: 80px;
+  margin-bottom: 7%;
+  width: 180px;
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);
   color: white;
   border: solid 1px #c44e00;
