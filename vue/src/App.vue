@@ -74,7 +74,7 @@ body {
   height: 100%;
   display: grid;
   grid-template-columns: 0.025fr 1fr 0.025fr;
-  grid-template-rows: 0.1fr 1fr 0.2fr;
+  grid-template-rows: 0.1fr 1fr 0.05fr;
   grid-template-areas: 
     "nav nav nav"
     "content content content"
