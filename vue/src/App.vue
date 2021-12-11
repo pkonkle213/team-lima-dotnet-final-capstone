@@ -64,10 +64,12 @@ export default {};
 
 #all {
   height: 100vh;
+
 }
 
 body {
   height: 100vh;
+  background-color: #f7ebe5;
 }
 
 #app {
@@ -79,7 +81,6 @@ body {
     "nav nav nav"
     "content content content"
     "footer footer footer";
-  background-color: #f7ebe5;
 }
 
 #nav {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id ="deck-view">
     <form id="deck">
       <textarea placeholder="Add a new deck" maxlength="40"
         id="new-deck"
@@ -8,9 +8,9 @@
         name="deckName"
         v-model="newDeck.name"
       />
+      <button id="addDeckBtn" type="submit" v-on:click.prevent="addNewDeck()">Add</button>
     </form>
     <div>
-      <button id="addDeckBtn" type="submit" v-on:click.prevent="addNewDeck()">Add</button>
     </div>
   </div>
 </template>
@@ -59,6 +59,13 @@ export default {
 </script>
 
 <style>
+
+#deck-view {
+  display: flex; 
+  flex-direction: row;
+  justify-content: start;
+}
+
 #new-deck {
   padding-top: 30px;
   resize: none;
