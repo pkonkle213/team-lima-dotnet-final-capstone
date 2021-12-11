@@ -101,6 +101,7 @@ export default {
 }
 
 #signIn:hover {
+    cursor: url('../img/Santic.png'), pointer;
     text-shadow:
       0 0 7px #fff,
       0 0 10px #fff,
