@@ -38,7 +38,7 @@
       <div class="form-group">
         <router-link :to="{ name: 'register' }">Need an account?</router-link>
       </div>
-      <button class="btn btn-primary" type="submit">Sign in</button>
+      <button id="signIn" class="btn btn-primary" type="submit">Sign in</button>
     </form>
   </div>
 </template>
@@ -85,3 +85,29 @@ export default {
   },
 };
 </script>
+
+<style>
+#login {
+  margin-top: 65px;
+}
+
+#signIn {
+  width: 80px;
+  background: linear-gradient(#eb5e00 10%, #ff9011 50%);
+  color: white;
+  border: solid 1px #c44e00;
+  border-radius: 7%;
+  box-shadow: 0 2px 5px 0 #af4600;
+}
+
+#signIn:hover {
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 25px #fff, 
+      0 0 30px #fff; 
+
+}
+
+</style>

@@ -19,6 +19,7 @@ export default {
 .deck {
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;

@@ -1,7 +1,7 @@
 <!-- Main Application Template. 
      Note that you have classes from bootstrap available to you.
      See https://getbootstrap.com/docs/4.5/getting-started/introduction/ for reference on bootstrap -->
-<template>
+<template id="all">
   <div id="app">
     <!-- If you start to get random styling you don't like, remove container from this div -->
     <div id="nav">
@@ -62,14 +62,21 @@ export default {};
 
 // Your custom styles go below this point
 
-#app {
+#all {
   height: 100vh;
+}
+
+body {
+  height: 100vh;
+}
+
+#app {
+  height: 100%;
   display: grid;
   grid-template-columns: 0.025fr 1fr 0.025fr;
-  grid-template-rows: 0.1fr 0.1fr 1fr 0.2fr;
+  grid-template-rows: 0.1fr 1fr 0.2fr;
   grid-template-areas: 
     "nav nav nav"
-    ". . ."
     "content content content"
     "footer footer footer";
   background-color: #f7ebe5;
@@ -86,6 +93,15 @@ export default {};
   background: linear-gradient(#eb5e00 10%, #ff9011 80%);
   color: #c7d5e0;
   text-align: center;
+}
+
+#nav a:hover {
+    text-decoration: none;
+    color: whitesmoke;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
 }
 
 .nav-item {

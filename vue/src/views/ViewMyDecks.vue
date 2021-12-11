@@ -43,12 +43,12 @@ export default {
 
 <style>
 #main {
-  
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: .1fr 1fr 1fr;
   grid-template-areas: 
-    ". cards ."
+    "... ... ..."
+    "... cards ..."
     ". add .";
 }
 #list {
