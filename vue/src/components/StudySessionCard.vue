@@ -1,14 +1,15 @@
 <template>
-  <section>
+  <section class="card">
     <!-- Show the front if the card isn't answered   -->
-    <div class="frontFace" v-if="showFront">
+    <div v-if="showFront">
         <p>{{$store.state.activeDeck[index].frontText}}</p>
         <button class="button" v-on:click.prevent="flipCard">Answer</button>
     </div>
 
     <!-- Once the button is clicked, the answer should show, the user should have
     the option of marking the card as right or wrong -->
-    <div class="backSide" v-if="!showFront">
+    <div v-if="!showFront">
+        <p>Answer: {{$store.state.activeDeck[index].backText}}</p>
         <p>Did you get the answer right?</p>
         <button v-on:click.prevent="rightAnswer">Yes</button>
         <button v-on:click.prevent="wrongAnswer">No</button>
@@ -25,6 +26,8 @@ export default {
         return {
             showFront: true,
             index: 0,
+            numCorrect: 0,
+            numIncorrect: 0
         }
     },
     methods: {
@@ -32,26 +35,39 @@ export default {
             this.showFront=false;
         },
         rightAnswer() {
-            this.$store.state.numCorrect+=1;
+            this.numCorrect+=1;
             this.showFront=true;
             this.index+=1;
-            console.log("Great job! You're so smart",this.$store.state.numCorrect);
+            if (this.$store.state.activeDeck.length===this.index){
+                this.done();
+            }
         },
         wrongAnswer() {
-            this.$store.state.numIncorrect+=1;
+            this.numIncorrect+=1;
             this.showFront=true;
             this.index+=1;
-            console.log("Haha, you idiot.",this.$store.state.numIncorrect);
+            if (this.$store.state.activeDeck.length===this.index){
+                this.done();
+            }
         },
-    }
+        done() {
+            this.index=0;
+            console.log("Correct: ",this.numCorrect);
+            console.log("Incorrect: ",this.numIncorrect);
+            this.numCorrect=0,
+            this.numIncorrect=0
+        }
+    },
 }
 </script>
 
 <style>
-.frontFace {
+.card {
     border: black solid 2px;
-    width: 80%;
+    width: 50%;
     text-align: center;
+    padding: 2rem;
+    margin: 2rem;
 }
 
 </style>
