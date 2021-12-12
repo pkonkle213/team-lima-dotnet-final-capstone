@@ -9,6 +9,8 @@ import CreateCard from "../views/CreateCardView.vue";
 import store from "../store/index";
 import ViewDeck from "../views/ViewDeck.vue";
 import CreateDeckView from "../views/CreateDeckView.vue"
+import StudySession from "../views/ViewStudySession.vue"
+// import { component } from "vue/types/umd";
 
 Vue.use(Router);
 
@@ -79,14 +81,19 @@ const router = new Router({
       component: ViewDeck
     },
     {
-      path: "*",
-      redirect: "/",
-    },
-    {
       path: "/Flashcards/deck/create",
       name: "CreatDeck",
       component: CreateDeckView
-    }
+    },
+    {
+      path: "/studySession/deck/:deckId",
+      name: "StudySession",
+      component: StudySession
+    },
+    {
+      path: "*",
+      redirect: "/",
+    },
   ],
 });
 

@@ -32,8 +32,8 @@ export default new Vuex.Store({
       backFace: "",
       deckId: 0,
     },
-
-
+    numCorrect: 0,
+    numIncorrect: 0,
   },
   mutations: {
     ADD_DECK(state, payload) {

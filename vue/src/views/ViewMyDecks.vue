@@ -2,10 +2,6 @@
   <div id="main">
     <create-deck id="add-deck"/>
     <div id="list">
-      <!-- <p>This would be the front of the card</p>
-    <p>This would be the back of the card</p> -->
-      <!-- Call the study card component with specific information -->
-
       <deck
         id="decks"
         v-for="deck of $store.state.userDecks"

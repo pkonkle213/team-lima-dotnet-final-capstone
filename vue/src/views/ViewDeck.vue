@@ -2,9 +2,12 @@
 <div id="cards">
 <div id="card-list">
   <study-card v-for="card of $store.state.activeDeck" v-bind:key="card.id" v-bind:card="card"/>
-  
-  <!-- <create-card-view /> -->
 </div>
+<router-link
+        v-bind:to="{ name: 'StudySession' }"
+      >
+      Start a study session with this deck
+      </router-link>
 </div>
 </template>
 
