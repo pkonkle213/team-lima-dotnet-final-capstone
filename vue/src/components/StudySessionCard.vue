@@ -2,7 +2,7 @@
   <section>
     <!-- Show the front if the card isn't answered   -->
     <div class="frontFace" v-if="showFront">
-        <p>What is the airspeed velocity of an unladen swallow?</p>
+        <p>{{$store.state.activeDeck[0]}}</p>
         <button class="button" v-on:click.prevent="flipCard">Answer</button>
     </div>
 
@@ -24,7 +24,6 @@ export default {
     data() {
         return {
             showFront: true,
-
         }
     },
     methods: {
