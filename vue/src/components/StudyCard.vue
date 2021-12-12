@@ -58,7 +58,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/colors.scss';
+
 #test {
   display: flex;
   flex-direction: row;
@@ -81,24 +83,24 @@ export default {
   align-items: center;
   font-size: 20px;
   flex-grow: 1;
-  background-color: lemonchiffon;
+  background-color: $questionBg;
 }
 
 #questionText {
-  
+  color: $questionText;
 }
 
 .answer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(78, 71, 71);
+  background-color: $answerBg;
   flex-grow: 5;
 }
 
 #answerText {
   font-size: 2rem;
-  color: crimson;
+  color: $answerText;
   filter: blur(9px);
 }
 
