@@ -2,7 +2,6 @@
 <div>
       <textarea
         id="frontCard"
-        placeholder="Enter front text here!"
         class="frontCard"
         v-bind:class="{'backCard': clickCouner===1}"
         ref="newcard"
@@ -34,6 +33,7 @@ export default {
             text: ""
         }
     },
+
     computed: {
         buttonText() {
             if (this.clickCouner === 0) {
@@ -42,9 +42,20 @@ export default {
             else if (this.clickCouner === 1) {
                 return "Submit card";
             }
-            return "";
+            return "test";
         }
     },
+
+        placeHolderText() {
+            if (this.clickCouner === 0) {
+                return "Enter front text!";
+            }
+            else if (this.clickCouner === 1) {
+                return "Enter back text!";
+            } 
+            return "test";
+        },
+
     methods: {
         saveCard() {
             if (this.clickCouner === 0) {
@@ -79,8 +90,18 @@ export default {
 
 <style>
 #frontCard {
-    text-align: center;
-    justify-content: center;
+  padding-top: 70px;
+  resize: none;
+  text-align: center;
+  align-items: center;
+  font-size: 30px;
+  background-color: rgb(252, 251, 248);
+  box-shadow: 0 0 10px 0 rgb(73, 39, 31);
+  border: 1px solid rgb(32, 28, 27);
+  border-radius: 2px;
+  width: 380px;
+  height: 200px;
+  margin: 10px 10px 10px 10px;
 }
 
 .frontCard {

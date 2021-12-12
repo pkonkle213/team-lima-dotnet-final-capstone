@@ -91,6 +91,7 @@ export default {
   margin-top: 10px;
   margin-bottom: 7%;
   width: 180px;
+  height: 30px;
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);
   color: white;
   border: solid 1px #c44e00;
