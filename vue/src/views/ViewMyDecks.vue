@@ -1,5 +1,6 @@
 <template>
   <div id="main">
+    <create-deck id="add-deck"/>
     <div id="list">
       <!-- <p>This would be the front of the card</p>
     <p>This would be the back of the card</p> -->
@@ -12,7 +13,6 @@
         v-bind:deck="deck"
       />
     </div>
-    <create-deck id="add-deck"/>
   </div>
 </template>
 
@@ -47,24 +47,27 @@ export default {
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: .1fr 1fr 1fr;
   grid-template-areas: 
-    "... ... ..."
+    "... add ..."
     "... cards ..."
-    ". add .";
+    ". . .";
 }
 #list {
   grid-area: cards;
   align-self: start;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  margin-left: 6.5%;
 }
 
 #add-deck {
   grid-area: add;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  align-self: center;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-self: start;
+  margin-left: 7.7%;
+  margin-top: 3%;
+  gap: 6%;
 }
+
 </style>

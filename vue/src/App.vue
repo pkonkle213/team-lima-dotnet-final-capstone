@@ -64,6 +64,7 @@ export default {};
 
 #all {
   height: 100vh;
+
 }
 
 body {
@@ -148,4 +149,5 @@ footer {
 #register > form {
   grid-area: content;
 }
+
 </style>

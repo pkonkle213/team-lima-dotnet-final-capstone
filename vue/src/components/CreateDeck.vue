@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id ="deck-view">
     <form id="deck">
       <textarea placeholder="Add a new deck" maxlength="40"
         id="new-deck"
@@ -59,6 +59,13 @@ export default {
 </script>
 
 <style>
+
+#deck-view {
+  display: flex; 
+  flex-direction: column;
+  
+}
+
 #new-deck {
   padding-top: 30px;
   resize: none;
@@ -70,6 +77,7 @@ export default {
   border-radius: 2px;
   width: 180px;
   height: 100px;
+  margin-bottom: 2.77%;
   margin: 0px;
     box-shadow:
     0 1px 1px rgba(102, 67, 67, 0.3),
@@ -81,7 +89,8 @@ export default {
 
 #addDeckBtn {
   margin-top: 10px;
-  width: 80px;
+  margin-bottom: 7%;
+  width: 180px;
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);
   color: white;
   border: solid 1px #c44e00;
