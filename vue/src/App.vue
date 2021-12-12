@@ -68,6 +68,7 @@ export default {};
 
 body {
   height: 100vh;
+  background-color: #ffffff;
 }
 
 #app {
@@ -79,7 +80,6 @@ body {
     "nav nav nav"
     "content content content"
     "footer footer footer";
-  background-color: #f7ebe5;
 }
 
 #nav {

@@ -67,12 +67,12 @@ export default {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(32, 28, 27);
+  background: rgb(255, 253, 253);
+  box-shadow: 0 0 10px 0 rgb(73, 39, 31);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
   width: 380px;
-  height: 300px;
+  height: 200px;
   margin: 10px 10px 10px 10px;
 }
 
@@ -80,12 +80,12 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(252, 251, 248);
+  background: rgb(255, 253, 253);
   box-shadow: 0 0 10px 0 rgb(194, 49, 13);
-  border: 1px solid rgb(32, 28, 27);
+  border: 1px solid rgb(85, 82, 81);
   border-radius: 2px;
   width: 380px;
-  height: 300px;
+  height: 200px;
   margin: 10px 10px 10px 10px;
 }
 
