@@ -1,26 +1,23 @@
 <template>
-<div>
-      <textarea
-        id="frontCard"
-        class="frontCard"
-        v-bind:class="{'backCard': clickCouner===1}"
-        ref="newcard"
-        type="text"
-        name="cardName"
-        v-model="text"
-        
-      />
-      <div>
-          <button type="submit" v-on:click.prevent="saveCard()">{{ buttonText }}</button>
-      </div>
-</div>
+    <div>
+        <textarea
+         id="frontCard"
+         class="frontCard"
+         v-bind:class="{'backCard': clickCounter===1}"
+         ref="newcard"
+         type="text"
+         name="cardName"
+         v-model="text">
+        </textarea>
+        <div>
+            <button type="submit" v-on:click.prevent="saveCard()"> {{ buttonText }} </button>
+        </div>
+    </div>
 </template>
 
 <script>
-import FlashCardService from '../services/FlashCardService.js'
-
+import FlashCardService from '../services/FlashCardService.js';
 export default {
-    
     data() {
         return {
             card: {
@@ -29,66 +26,63 @@ export default {
                 backText: "",
                 deckId: +this.$route.params.deckId,
             },
-            clickCouner: 0,
-            text: ""
+            clickCounter: 0,
+            text: "",
         }
     },
-
     computed: {
         buttonText() {
-            if (this.clickCouner === 0) {
+            if (this.clickCounter === 0) {
                 return "Submit Front Text";
-            }
-            else if (this.clickCouner === 1) {
+            } else if (this.clickCounter === 1) {
                 return "Submit card";
             }
             return "test";
-        }
-    },
-
+        },
         placeHolderText() {
-            if (this.clickCouner === 0) {
+            if (this.clickCounter === 0) {
                 return "Enter front text!";
-            }
-            else if (this.clickCouner === 1) {
+            } else if (this.clickCounter === 1) {
                 return "Enter back text!";
             } 
             return "test";
         },
-
+    },
     methods: {
         saveCard() {
-            if (this.clickCouner === 0) {
+            if (this.clickCounter === 0) {
                 this.card.frontText = this.text;
                 this.text = "";
-                this.clickCouner++;
-            }
-            else if (this.clickCouner === 1)
-            {
+                this.clickCounter++;
+            } else if (this.clickCounter === 1) {
                 this.card.backText = this.text;
-            FlashCardService
-            .addNewCard(this.card.deckId, this.card)
-            .then(response => {
-                console.log(response)
-                this.$store.commit("ADD_CARD", response.data)
-            })
-            .catch(error => {
-                console.error(error)
-            })
-            this.text = "";
-            this.clickCouner = 0;
-            this.card= {
-                frontText: "",
-                backText: ""
-            }
+
+                FlashCardService.addNewCard(this.card.deckId, this.card).then(response => {
+                    console.log(response)
+                    this.$store.commit("ADD_CARD", response.data)
+                })
+
+                .catch(error => {
+                    console.error(error)
+                })
+
+                this.text = "";
+                this.clickCounter = 0;
+                this.card= {
+                    frontText: "",
+                    backText: "",
+                }
             }
         }
     },
-    
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/colors.scss';
+
+
+//are we using # or . frontCard?
 #frontCard {
   padding-top: 70px;
   resize: none;
@@ -131,4 +125,5 @@ export default {
   margin: 10px 10px 10px 10px;
   resize: none;
 }
+
 </style>
