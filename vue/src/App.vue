@@ -69,7 +69,7 @@ export default {};
 
 body {
   height: 100vh;
-  background-color: #f7ebe5;
+  background-color: #ffffff;
 }
 
 #app {
@@ -149,4 +149,5 @@ footer {
 #register > form {
   grid-area: content;
 }
+
 </style>

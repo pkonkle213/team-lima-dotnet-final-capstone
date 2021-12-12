@@ -1,8 +1,9 @@
 <template>
 <div>
       <textarea
-        class="cardOne"
-        v-bind:class="{'cardTwo': clickCouner===1}"
+        id="frontCard"
+        class="frontCard"
+        v-bind:class="{'backCard': clickCouner===1}"
         ref="newcard"
         type="text"
         name="cardName"
@@ -32,6 +33,7 @@ export default {
             text: ""
         }
     },
+
     computed: {
         buttonText() {
             if (this.clickCouner === 0) {
@@ -40,9 +42,20 @@ export default {
             else if (this.clickCouner === 1) {
                 return "Submit card";
             }
-            return "";
+            return "test";
         }
     },
+
+        placeHolderText() {
+            if (this.clickCouner === 0) {
+                return "Enter front text!";
+            }
+            else if (this.clickCouner === 1) {
+                return "Enter back text!";
+            } 
+            return "test";
+        },
+
     methods: {
         saveCard() {
             if (this.clickCouner === 0) {
@@ -76,21 +89,36 @@ export default {
 </script>
 
 <style>
-.cardOne {
+#frontCard {
+  padding-top: 70px;
+  resize: none;
+  text-align: center;
+  align-items: center;
+  font-size: 30px;
+  background-color: rgb(252, 251, 248);
+  box-shadow: 0 0 10px 0 rgb(73, 39, 31);
+  border: 1px solid rgb(32, 28, 27);
+  border-radius: 2px;
+  width: 380px;
+  height: 200px;
+  margin: 10px 10px 10px 10px;
+}
+
+.frontCard {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(32, 28, 27);
+  box-shadow: 0 0 10px 0 rgb(73, 39, 31);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
   width: 380px;
-  height: 300px;
+  height: 200px;
   margin: 10px 10px 10px 10px;
   resize: none;
 }
 
-.cardTwo {
+.backCard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +127,7 @@ export default {
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
   width: 380px;
-  height: 300px;
+  height: 200px;
   margin: 10px 10px 10px 10px;
   resize: none;
 }

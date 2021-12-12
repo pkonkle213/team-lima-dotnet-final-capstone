@@ -70,7 +70,4 @@ export default {
   gap: 6%;
 }
 
-#decks {
-
-}
 </style>

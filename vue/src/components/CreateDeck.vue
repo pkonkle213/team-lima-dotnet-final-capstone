@@ -72,19 +72,26 @@ export default {
   text-align: center;
   align-items: center;
   font-size: 20px;
-  background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(32, 28, 27);
-  border: 1px solid rgb(32, 28, 27);
+  background-color: rgb(255, 231, 215);
+  border: 1px solid #c44e00;
   border-radius: 2px;
   width: 180px;
   height: 100px;
   margin-bottom: 2.77%;
+  margin: 0px;
+    box-shadow:
+    0 1px 1px rgba(102, 67, 67, 0.3),
+    0 10px 0 -5px rgb(235, 193, 170),
+    0 10px 1px -4px rgba(0,0,0,0.15),
+    0 20px 0 -10px rgb(235, 193, 170),
+    0 20px 1px -9px rgba(0,0,0,0.15);
 }
 
 #addDeckBtn {
   margin-top: 10px;
   margin-bottom: 7%;
   width: 180px;
+  height: 30px;
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);
   color: white;
   border: solid 1px #c44e00;
