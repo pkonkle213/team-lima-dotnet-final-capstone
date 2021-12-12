@@ -36,12 +36,15 @@ export default new Vuex.Store({
     numIncorrect: 0,
   },
   mutations: {
+    SET_ACTIVE_CARD(state, payload) {
+      state.activeCard = payload;
+    },
     ADD_DECK(state, payload) {
-      state.userDecks.push(payload)
+      state.userDecks.push(payload);
     },
 
     SET_USER_DECKS(state, payload) {
-      state.userDecks = payload
+      state.userDecks = payload;
     },
 
     SET_ACTIVE_DECK(state, payload) {

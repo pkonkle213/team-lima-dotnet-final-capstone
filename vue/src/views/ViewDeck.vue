@@ -5,6 +5,7 @@
 </div>
 <router-link
         v-bind:to="{ name: 'StudySession' }"
+        v-on:click.prevent = "SET_ACTIVE_DECK"
       >
       Start a study session with this deck
       </router-link>
@@ -12,8 +13,8 @@
 </template>
 
 <script>
-import StudyCard from '../components/StudyCard.vue'
-import FlashCardService from '../services/FlashCardService.js'
+import StudyCard from '../components/StudyCard.vue';
+import FlashCardService from '../services/FlashCardService.js';
 // import CreateCardView from '../views/CreateCardView.vue'
 export default {
   components: { StudyCard, },
