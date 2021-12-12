@@ -2,7 +2,7 @@
   <section>
     <!-- Show the front if the card isn't answered   -->
     <div class="frontFace" v-if="showFront">
-        <p>{{$store.state.activeDeck[0]}}</p>
+        <p>{{$store.state.activeDeck[index].frontText}}</p>
         <button class="button" v-on:click.prevent="flipCard">Answer</button>
     </div>
 
@@ -24,6 +24,7 @@ export default {
     data() {
         return {
             showFront: true,
+            index: 0,
         }
     },
     methods: {
@@ -32,10 +33,14 @@ export default {
         },
         rightAnswer() {
             this.$store.state.numCorrect+=1;
+            this.showFront=true;
+            this.index+=1;
             console.log("Great job! You're so smart",this.$store.state.numCorrect);
         },
         wrongAnswer() {
             this.$store.state.numIncorrect+=1;
+            this.showFront=true;
+            this.index+=1;
             console.log("Haha, you idiot.",this.$store.state.numIncorrect);
         },
     }

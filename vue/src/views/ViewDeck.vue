@@ -1,34 +1,31 @@
 <template>
 <div id="cards">
-<div id="card-list">
-  <study-card v-for="card of $store.state.activeDeck" v-bind:key="card.id" v-bind:card="card"/>
-</div>
-<router-link
-        v-bind:to="{ name: 'StudySession' }"
-        v-on:click.prevent = "SET_ACTIVE_DECK"
-      >
-      Start a study session with this deck
-      </router-link>
+  <div id="card-list">
+    <study-card v-for="card of $store.state.activeDeck" v-bind:key="card.id" v-bind:card="card"/>
+  </div>
+  <router-link v-bind:to="{ name: 'StudySession' }">Start a study session with this deck</router-link>
 </div>
 </template>
 
 <script>
-import StudyCard from '../components/StudyCard.vue';
-import FlashCardService from '../services/FlashCardService.js';
+import StudyCard from '../components/StudyCard.vue'
+import FlashCardService from '../services/FlashCardService.js'
 // import CreateCardView from '../views/CreateCardView.vue'
 export default {
-  components: { StudyCard, },
+  components: {
+    StudyCard,
+  },
     
-    created() {
-        FlashCardService
-        .fetchDeck(this.$route.params.deckId)
-        .then(response => {
-            this.$store.commit("SET_ACTIVE_DECK", response.data)
-        })
-        .catch(error => {
-            console.error(error)
-        })
-    }
+  created() {
+      FlashCardService
+      .fetchDeck(this.$route.params.deckId)
+      .then(response => {
+          this.$store.commit("SET_ACTIVE_DECK", response.data)
+      })
+      .catch(error => {
+          console.error(error)
+      })
+  }
 }
 </script>
 
