@@ -3,7 +3,7 @@
 <div id="card-list">
   <study-card v-for="card of $store.state.activeDeck" v-bind:key="card.id" v-bind:card="card"/>
   
-  <create-card-view />
+  <!-- <create-card-view /> -->
 </div>
 </div>
 </template>
@@ -11,9 +11,9 @@
 <script>
 import StudyCard from '../components/StudyCard.vue'
 import FlashCardService from '../services/FlashCardService.js'
-import CreateCardView from '../views/CreateCardView.vue'
+// import CreateCardView from '../views/CreateCardView.vue'
 export default {
-  components: { StudyCard, CreateCardView },
+  components: { StudyCard, },
     
     created() {
         FlashCardService

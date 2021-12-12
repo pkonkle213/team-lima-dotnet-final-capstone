@@ -1,10 +1,14 @@
 <template>
-<div id="test">
-  <button ref="cardSize" v-bind:class="{'cardback': showFront===false}" class="card" v-on:click.prevent="handleClick()">
-    <!-- <p>{{face}}</p> -->
-    <h2 class="card-text">{{cardText}}</h2>
-  </button>
-</div>
+  <div id="test">
+    <article class="aCard">
+      <div class="question">
+        <span id="questionText">{{ card.frontText }}</span>
+      </div>
+      <div class="answer">
+        <span id="answerText">{{ card.backText }}</span>
+      </div>
+    </article>
+  </div>
 </template>
 
 <script>
@@ -19,18 +23,17 @@ export default {
     clickNum: Number,
   },
   mounted() {
-      // let text = this.$refs.cardSize;
-      // let 1005  text.value.length;
-      // initialSize = initialSize <= 10 ? 10 : initialSize;
-      // text.style.fontSize = "x-large";
-      // text.style.display="none";
+    // let text = this.$refs.cardSize;
+    // let 1005  text.value.length;
+    // initialSize = initialSize <= 10 ? 10 : initialSize;
+    // text.style.fontSize = "x-large";
+    // text.style.display="none";
   },
   methods: {
     handleClick() {
       if (this.showFront) {
         this.showFront = false;
-      }
-      else if (!this.showFront) {
+      } else if (!this.showFront) {
         this.showFront = true;
       }
     },
@@ -45,48 +48,61 @@ export default {
     },
     cardText() {
       if (this.showFront) {
-        return this.card.frontText
-      }
-      else if (!this.showFront) {
-        return this.card.backText
+        return this.card.frontText;
+      } else if (!this.showFront) {
+        return this.card.backText;
       }
       return "";
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style>
-
 #test {
   display: flex;
   flex-direction: row;
 }
 
-.card {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(32, 28, 27);
-  border: 1px solid rgb(32, 28, 27);
-  border-radius: 2px;
+.aCard {
+  display: flex;
+  flex-direction: column;
+  border: black solid 1px;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  overflow: hidden;
   width: 380px;
   height: 300px;
-  margin: 10px 10px 10px 10px;
 }
 
-.cardback {
+.question {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(194, 49, 13);
-  border: 1px solid rgb(32, 28, 27);
-  border-radius: 2px;
-  width: 380px;
-  height: 300px;
-  margin: 10px 10px 10px 10px;
+  font-size: 20px;
+  flex-grow: 1;
+  background-color: lemonchiffon;
 }
 
+#questionText {
+  
+}
+
+.answer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(78, 71, 71);
+  flex-grow: 5;
+}
+
+#answerText {
+  font-size: 2rem;
+  color: crimson;
+  filter: blur(9px);
+}
+
+.aCard:hover #answerText {
+  filter: none;
+} 
 </style>
