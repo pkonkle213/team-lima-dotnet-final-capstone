@@ -1,7 +1,5 @@
 <template>
-  <div>
-      <create-deck />
-  </div>
+  <create-deck />
 </template>
 
 <script>
