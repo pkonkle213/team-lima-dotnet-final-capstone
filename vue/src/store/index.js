@@ -52,8 +52,14 @@ export default new Vuex.Store({
     },
 
     ADD_CARD(state, payload) {
-        state.activeDeck.push(payload);
+        state.activeDeck.unshift(payload);
     },
+
+    UPDATE_CARD(state, payload) {
+      let index = state.activeDeck.findIndex(card => card.id === payload.id)
+      state.activeDeck[index] = payload
+    },
+
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);

@@ -13,6 +13,10 @@ export default {
       return axios.post(`/FlashCard/deck/${deckId}`, card)
     },
 
+    modifyCard(card) {
+      return axios.put(`/FlashCard/deck`, card)
+    },
+
     addNewDeck(newDeck) {
       return axios.post(`/Deck`, newDeck)
     },
