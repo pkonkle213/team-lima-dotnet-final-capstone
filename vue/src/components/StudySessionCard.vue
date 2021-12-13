@@ -1,22 +1,26 @@
 <template>
-  <section class="card">
+  <section class="studysession">
     <!-- Show the front if the card isn't answered   -->
-    <div v-if="showFront">
-        <p>{{$store.state.activeDeck[index].frontText}}</p>
-        <button class="button" v-on:click.prevent="flipCard">Answer</button>
+    <div class="card">
+        <div v-if="showFront">
+            <p>{{$store.state.activeDeck[index].frontText}}</p>
+            <button class="button" v-on:click.prevent="flipCard">Answer</button>
+        </div>
+
+        <!-- Once the button is clicked, the answer should show, the user should have
+        the option of marking the card as right or wrong -->
+        <div v-if="!showFront">
+            <p>Answer: {{$store.state.activeDeck[index].backText}}</p>
+            <p>Did you get the answer right?</p>
+            <!-- After selecting if right, store data for how many they got right (# and %)
+            and progress to the next question -->
+            <button v-on:click.prevent="rightAnswer">Yes</button>
+            <button v-on:click.prevent="wrongAnswer">No</button>
+        </div>
     </div>
 
-    <!-- Once the button is clicked, the answer should show, the user should have
-    the option of marking the card as right or wrong -->
-    <div v-if="!showFront">
-        <p>Answer: {{$store.state.activeDeck[index].backText}}</p>
-        <p>Did you get the answer right?</p>
-        <button v-on:click.prevent="rightAnswer">Yes</button>
-        <button v-on:click.prevent="wrongAnswer">No</button>
-    </div>
+    <button v-on:click.prevent="done">Would you like to tap out?</button>
 
-    <!-- After selecting if right, store data for how many they got right (# and %)
-    and progress to the next question -->
   </section>
 </template>
 
@@ -62,9 +66,14 @@ export default {
 </script>
 
 <style>
+
+.studysession {
+    width: 50%;
+    text-align: center;
+}
+
 .card {
     border: black solid 2px;
-    width: 50%;
     text-align: center;
     padding: 2rem;
     margin: 2rem;

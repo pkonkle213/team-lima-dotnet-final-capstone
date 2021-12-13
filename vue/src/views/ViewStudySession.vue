@@ -1,7 +1,6 @@
 <template>
   <section>
     <study-session-card />
-    <button>Would you like to tap out?</button>
   </section>
 </template>
 
