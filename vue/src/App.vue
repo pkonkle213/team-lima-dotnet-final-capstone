@@ -97,6 +97,7 @@ body {
   color: #c7d5e0;
   text-align: center;
   position: sticky;
+  z-index: 2;
 }
 
 #nav a:hover {
