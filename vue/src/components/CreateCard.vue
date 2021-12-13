@@ -63,15 +63,13 @@ export default {
                 })
 
                 .catch(error => {
-                    console.error(error)
+                    console.error(error.data);
                 })
 
                 this.text = "";
                 this.clickCounter = 0;
-                this.card= {
-                    frontText: "",
-                    backText: "",
-                }
+                this.card.frontText = "";
+                this.card.backText = "";
             }
         }
     },
