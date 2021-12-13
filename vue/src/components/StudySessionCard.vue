@@ -22,6 +22,8 @@
             <h4>Welcome to the end!</h4>
             <p v-if="this.numCorrect>0">You got {{this.numCorrect}} question{{this.numCorrect===1 ? "" : "s" }} correct</p>
             <p v-if="this.numIncorrect>0">You got {{this.numIncorrect}} question{{this.numIncorrect===1 ? "" : "s" }} incorrect</p>
+            <p v-if="this.numCorrect+this.numIncorrect!=0">For a percentage of {{this.numCorrect/(this.numCorrect+this.numIncorrect)*100}}%!</p>
+            
         </div>
     </div>
 
