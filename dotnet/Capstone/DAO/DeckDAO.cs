@@ -115,7 +115,12 @@ namespace Capstone.Models
             {
                 conn.Open();
 
-                const string sql = "DELETE FROM FlashCards " +
+                const string sql = "DELETE FROM Flashcards_Tags " +
+                    "WHERE flash_card_id IN(SELECT ft.flash_card_id " +
+                    "FROM Flashcards f " +
+                    "INNER JOIN Flashcards_Tags ft ON ft.flash_card_id = f.flash_card_id " +
+                    "WHERE f.deck_id=@deck_id;" +
+                    "DELETE FROM FlashCards " +
                     "WHERE deck_id=@deck_id; " +
                     "DELETE FROM Decks " +
                     "WHERE deck_id=@deck_id;";
