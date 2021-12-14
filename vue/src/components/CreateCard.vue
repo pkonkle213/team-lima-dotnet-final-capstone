@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="leftBar">
+        <p>Add a new card to this deck<p>
         <textarea
          id="frontCard"
          class="frontCard"
@@ -141,5 +142,13 @@ text-shadow:
   height: 300px;
   margin: 10px 10px 10px 10px;
   resize: none;
+}
+
+.leftBar {
+    text-align: center;
+}
+
+p {
+    color: #fefdb0;
 }
 </style>

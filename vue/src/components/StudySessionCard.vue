@@ -22,12 +22,19 @@
             <h4>Welcome to the end!</h4>
             <p v-if="this.numCorrect>0">You got {{this.numCorrect}} question{{this.numCorrect===1 ? "" : "s" }} correct</p>
             <p v-if="this.numIncorrect>0">You got {{this.numIncorrect}} question{{this.numIncorrect===1 ? "" : "s" }} incorrect</p>
-            <p v-if="this.numCorrect+this.numIncorrect!=0">For a percentage of {{this.numCorrect/(this.numCorrect+this.numIncorrect)*100}}%!</p>
-            
+            <p v-if="this.numCorrect+this.numIncorrect!=0">For a percentage of {{(this.numCorrect/(this.numCorrect+this.numIncorrect)*100).toFixed(2)}}%!</p>
+            <div class="doneScreen">
+                <div v-for="n in this.listCorrect" v-bind:key="n">
+                    <div v-if="n" class="right"></div>
+                    <div v-if="!n" class="wrong"></div>
+                </div>
+                <!-- <div class="box right" v-for="n in this.numCorrect" v-bind:key="n"></div>
+                <div class="box wrong" v-for="n in this.numIncorrect" v-bind:key="n"></div> -->
+            </div>
         </div>
     </div>
 
-    <button v-on:click.prevent="done" v-if="!IsDone">Would you like to tap out?</button>
+    <button v-on:click.prevent="done" v-if="!IsDone">Would you like to end early?</button>
 
   </section>
 </template>
@@ -38,6 +45,7 @@ export default {
         return {
             showFront: true,
             index: 0,
+            listCorrect: [],
             numCorrect: 0,
             numIncorrect: 0,
             IsDone: false,
@@ -49,6 +57,7 @@ export default {
         },
         rightAnswer() {
             this.numCorrect+=1;
+            this.listCorrect.push(true);
             this.showFront=true;
             this.index+=1;
             if (this.$store.state.activeDeck.length===this.index){
@@ -57,6 +66,7 @@ export default {
         },
         wrongAnswer() {
             this.numIncorrect+=1;
+            this.listCorrect.push(false);
             this.showFront=true;
             this.index+=1;
             if (this.$store.state.activeDeck.length===this.index){
@@ -82,6 +92,26 @@ export default {
     text-align: center;
     padding: 2rem;
     margin: 2rem;
+}
+
+.right {
+    border: solid 2px;
+    background-color: #dbecac;
+    width: 20px;
+    height: 20px;
+}
+
+.wrong {
+    border: solid 2px;
+    background-color: #bb222f;
+    width: 20px;
+    height: 20px;
+}
+
+.doneScreen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 </style>

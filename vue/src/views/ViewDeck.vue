@@ -98,10 +98,13 @@ export default {
 }
 
 #side-bar-nav {
+  display: flex;
   height: 100%;
   background-color: #023047;
   background: linear-gradient(#013047 30%, #6e8fa0 80%);
   border-right: solid 1px black;
+  justify-content: center;
+  height: 100%;
 }
 
 #side-bar-options {

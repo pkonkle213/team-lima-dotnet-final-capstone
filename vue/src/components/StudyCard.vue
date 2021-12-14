@@ -2,20 +2,24 @@
   <div id="test">
     <article class="aCard">
       <div class="question">
-        <span id="questionText">{{ card.frontText }}</span>
+        <textarea id="questionText" v-model="card.frontText"></v-model></textarea>
+        <button v-on:click.prevent="changeCard()">Save Changes</button>
       </div>
       <div class="answer">
-        <span id="answerText">{{ card.backText }}</span>
+        <textarea id="answerText" v-model="card.backText"></v-model></textarea>
+        <button id ="testing" v-on:click.prevent="changeCard()">Save Changes</button>
       </div>
     </article>
   </div>
 </template>
 
 <script>
+import FlashCardService from '../services/FlashCardService.js'
+
 export default {
+  components: FlashCardService,
   data() {
     return {
-      showFront: true,
     };
   },
   props: {
@@ -37,6 +41,15 @@ export default {
         this.showFront = true;
       }
     },
+    changeCard() {
+      FlashCardService.modifyCard(this.card)
+      .then(response => {
+        this.$store.commit("UPDATE_CARD", response.data)
+      })
+      .catch(error => {
+        console.log(error)
+      });
+    }
   },
   computed: {
     face() {
@@ -87,6 +100,11 @@ export default {
 }
 
 #questionText {
+  border: none;
+  resize: none;
+  outline: none;
+  text-align: center;
+  background-color: $questionBg;
   color: $questionText;
 }
 
@@ -99,12 +117,22 @@ export default {
 }
 
 #answerText {
+  border: none;
+  resize: none;
+  outline: none;
+  text-align: center;
   font-size: 2rem;
   color: $answerText;
   filter: blur(9px);
+  background-color: $answerBg;
+  z-index: 1;
+}
+
+#testing {
 }
 
 .aCard:hover #answerText {
   filter: none;
+  cursor: url('../img/Santic.png'), pointer;
 } 
 </style>
