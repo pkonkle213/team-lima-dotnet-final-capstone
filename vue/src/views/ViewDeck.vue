@@ -42,6 +42,7 @@ export default {
   grid-template-columns: 1.5fr 4fr;
   grid-template-areas:
     "sideBar allCards";
+    height: 100%;
 }
 
 #card-list {
