@@ -5,7 +5,7 @@
         ref="deckName"
         id="deck-name"
         contenteditable="true"
-        v-on:keyup.esc="changeDeckName()"
+        v-on:blur.prevent="changeDeckName()"
         >{{ deck.name }}</span
       >
     </div>
