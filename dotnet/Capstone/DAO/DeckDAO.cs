@@ -93,13 +93,12 @@ namespace Capstone.Models
                 conn.Open();
 
                 const string sql = "UPDATE Decks " +
-                    "SET deck_name = @deck_name, deck_description = @deck_description " +
+                    "SET deck_name = @deck_name " +
                     "WHERE deck_id = @deck_id";
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@deck_name", deckToUpdate.Name);
-                    command.Parameters.AddWithValue("@deck_description", deckToUpdate.Description);
                     command.Parameters.AddWithValue("@deck_id", deckToUpdate.Id);
 
                     command.ExecuteScalar();

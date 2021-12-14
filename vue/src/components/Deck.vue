@@ -14,11 +14,6 @@
       <button id="delete-btn" v-on:click.prevent="deleteDeck()">Delete</button>
     </div>
   </div>
-<<<<<<< HEAD
-=======
-    <button id="goToDeck" v-on:click.prevent="goToDeck()">Go to deck</button>
-</div>
->>>>>>> 7d6d7aac2c9788b6a3d5535e759e6c1008f72d2d
 </template>
 
 <script>
@@ -46,7 +41,7 @@ export default {
         });
     },
     deleteDeck() {
-      FlashCardService/this.deleteDeck(this.deck.id)
+      FlashCardService.deleteDeck(this.deck.id)
       .then((response) => {
         console.log(response);
         this.$store.commit("DELETE_DECK", this.deck.id)
@@ -60,22 +55,6 @@ export default {
 </script>
 
 <style>
-<<<<<<< HEAD
-=======
-
-#goToDeck {
-    width: 180px;
-    height: 30px;
-    background: linear-gradient(#eb5e00 10%, #ff9011 50%);
-    color: white;
-    border: solid 1px #c44e00;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px 0 #af4600;
-    text-align: center;
-    margin: 10px 0 0 10px;
-}
-
->>>>>>> 7d6d7aac2c9788b6a3d5535e759e6c1008f72d2d
 .deck {
   display: flex;
   flex-wrap: wrap;
