@@ -6,7 +6,7 @@
           id="questionText"
           ref="qText"
           contenteditable="true"
-          v-on:keyup.esc="changeCard()"
+          v-on:blur="changeCard()"
           >{{ card.frontText }}</span
         >
       </div>
@@ -15,7 +15,7 @@
           id="answerText"
           ref="aText"
           contenteditable="true"
-          v-on:keyup.esc="changeCard()"
+          v-on:blur="changeCard()"
           >{{ card.backText }}</span
         >
       </div>
