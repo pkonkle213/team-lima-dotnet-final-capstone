@@ -108,6 +108,24 @@ export default {
     margin: 10px 0 0 10px;
 }
 
+#go-btn:hover {
+    text-shadow:
+  0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff,
+  0 0 25px #fff, 
+  0 0 30px #fff; 
+}
+
+#delete-btn:hover {
+    text-shadow:
+  0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff,
+  0 0 25px #fff, 
+  0 0 30px #fff; 
+}
+
 #delete-btn {
     width: 70ox;
     height: 30px;
