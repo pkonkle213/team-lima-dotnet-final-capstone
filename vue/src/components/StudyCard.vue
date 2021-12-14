@@ -119,7 +119,7 @@ export default {
 .aCard {
   display: flex;
   flex-direction: column;
-  border: black solid 1px;
+  border: black solid 2px;
   border-radius: 0.5rem;
   margin: 0.5rem;
   overflow: hidden;

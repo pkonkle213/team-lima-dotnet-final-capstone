@@ -24,7 +24,7 @@ export default {
   justify-content: center;
   align-items: center;
   border: 1px solid rgb(85, 82, 81);
-  border-radius: 2px;
+  border-radius: 7px;
   width: 350px;
   min-width: 180px;
   max-width: 180px;

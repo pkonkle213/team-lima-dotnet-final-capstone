@@ -63,7 +63,6 @@ export default {
 #deck-view {
   display: flex; 
   flex-direction: column;
-  
 }
 
 #new-deck {
@@ -74,7 +73,7 @@ export default {
   font-size: 20px;
   background-color: rgb(255, 231, 215);
   border: 1px solid #c44e00;
-  border-radius: 2px;
+  border-radius: 5px;
   width: 180px;
   height: 100px;
   margin-bottom: 2.77%;
