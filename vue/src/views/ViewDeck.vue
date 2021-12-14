@@ -55,8 +55,11 @@ export default {
 }
 
 #side-bar-nav {
+  display: flex;
   height: 100%;
   background-color: #023047;
+  justify-content: center;
+  height: 100%;
 }
 
 #side-bar-options {

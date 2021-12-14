@@ -75,7 +75,7 @@ INSERT INTO Flashcards (front_text,back_text,deck_id) VALUES ('What git commands
 INSERT INTO Flashcards (front_text,back_text,deck_id) VALUES ('What’s the difference between inheriting a class and implementing an interface?','Inheritance is optional, an interface is mandatory',5);
 INSERT INTO Flashcards (front_text,back_text,deck_id) VALUES ('What is polymorphism?','Grouping things based upon their differences',5);
 INSERT INTO Flashcards (front_text,back_text,deck_id) VALUES ('What is the common language runtime?','virtual machine component of Microsoft .NET Framework, manages the execution of .NET programs',5);
-INSERT INTO Flashcards (front_text,back_text,deck_id) VALUES ('How many cans of Diet Doctor Pepper were consumed in or over Ohio last month?','',5);
+INSERT INTO Flashcards (front_text,back_text,deck_id) VALUES ('How many cans of Diet Doctor Pepper were consumed in or over Ohio last month?','42 and 100% of them were had by Matt Eland',5);
 INSERT INTO Flashcards (front_text,back_text,deck_id) VALUES ('If you had an airplane that was completely full of jelly beans, how would you get the jelly beans out? You are allowed to only use boxes.','We leave this up to your imagination',5);
 INSERT INTO Flashcards (front_text,back_text,deck_id) VALUES ('What''s the difference between the heap and the queue','They''re not related?',5);
 INSERT INTO Flashcards (front_text,back_text,deck_id) VALUES ('What is a property in C#?','A member that provides a flexible mechanism to read, write, or compute the value of a private field',5);
