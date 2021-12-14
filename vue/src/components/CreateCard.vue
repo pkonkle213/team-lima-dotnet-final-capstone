@@ -10,7 +10,7 @@
          v-model="text">
         </textarea>
         <div>
-            <button type="submit" v-on:click.prevent="saveCard()"> {{ buttonText }} </button>
+            <button id="newCardButton" type="submit" v-on:click.prevent="saveCard()"> {{ buttonText }} </button>
         </div>
     </div>
 </template>
@@ -33,15 +33,15 @@ export default {
     computed: {
         buttonText() {
             if (this.clickCounter === 0) {
-                return "Submit Front Text";
+                return "Type question";
             } else if (this.clickCounter === 1) {
-                return "Submit card";
+                return "Click to submit!";
             }
             return "test";
         },
         placeHolderText() {
             if (this.clickCounter === 0) {
-                return "Enter front text!";
+                return "Enter answer";
             } else if (this.clickCounter === 1) {
                 return "Enter back text!";
             } 
@@ -79,6 +79,26 @@ export default {
 <style lang="scss">
 @import '../styles/colors.scss';
 
+#newCardButton {
+    width: 380px;
+    height: 40px;
+    background: linear-gradient(#eb5e00 10%, #ff9011 50%);
+    color: white;
+    border: solid 1px #c44e00;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 #af4600;
+    text-align: center;
+    margin: 10px 0 0 50px;
+}
+
+#newCardButton:hover {
+text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 25px #fff, 
+      0 0 30px #fff; 
+}
 
 //are we using # or . frontCard?
 #frontCard {
@@ -88,12 +108,11 @@ export default {
   align-items: center;
   font-size: 30px;
   background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(73, 39, 31);
   border: 1px solid rgb(32, 28, 27);
-  border-radius: 2px;
+  border-radius: 7px;
   width: 380px;
   height: 200px;
-  margin: 10px 10px 10px 10px;
+  margin: 40px 10px 10px 50px;
 }
 
 .frontCard {
@@ -101,11 +120,11 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(73, 39, 31);
+  box-shadow: 0 0 10px 0 rgb(23, 23, 26);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
   width: 380px;
-  height: 200px;
+  height: 300px;
   margin: 10px 10px 10px 10px;
   resize: none;
 }
@@ -117,11 +136,10 @@ export default {
   background-color: rgb(252, 251, 248);
   box-shadow: 0 0 10px 0 rgb(194, 49, 13);
   border: 1px solid rgb(32, 28, 27);
-  border-radius: 2px;
+  border-radius: 7px;
   width: 380px;
-  height: 200px;
+  height: 300px;
   margin: 10px 10px 10px 10px;
   resize: none;
 }
-
 </style>

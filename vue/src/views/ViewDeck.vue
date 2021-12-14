@@ -10,10 +10,17 @@
     <div id="side-bar-nav">
       <side-bar-view id="side-bar-options"/>
     </div>
+  <div id="rightPanel">
+    <start-study-session-right-panel id="startStudying" />
+    <img src="../img/d9006bced22dcde87db0dd29364b0c16-removebg-preview.png" alt="Brain" id="brainThink">
+  </div>
+  <div id="image">
+  </div>
   </div>
 </template>
 
 <script>
+import StartStudySessionRightPanel from "../components/StartStudySessionRightPanel.vue";
 import StudyCard from "../components/StudyCard.vue";
 import FlashCardService from "../services/FlashCardService.js";
 import SideBarView from './SideBarView.vue';
@@ -22,6 +29,7 @@ export default {
   components: {
     StudyCard,
     SideBarView,
+    StartStudySessionRightPanel
   },
 
   created() {
@@ -36,12 +44,48 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+
+@import '../styles/colors.scss';
+
+#startStudying {
+  grid-template-areas: studySess;
+
+}
+
+#rightPanel {
+  height: 100%;
+  background-color: #023047;
+  background: linear-gradient(#013047 30%, #6e8fa0 80%);
+  border-left: solid 1px black;
+  grid-area: studySess;
+
+  display: grid;
+  grid-template-columns: 2fr 1.4fr;
+  grid-template-areas: 
+  "btn brain";
+}
+
+#startStudying {
+  grid-area: btn;
+  display: flex;
+  align-self: flex-start;
+  margin: 60px 0 0 60px;
+}
+
+#brainThink {
+  grid-area: brain;
+  display: flex;
+  align-self: flex-start;
+  margin: 30px 0 0 0;
+  height: 150px;
+}
+
 #cards {
   display: grid;
-  grid-template-columns: 1.5fr 4fr;
+  grid-template-columns: 1.5fr 4fr 1.5fr;
   grid-template-areas:
-    "sideBar allCards";
+    "sideBar allCards studySess";
 }
 
 #card-list {
@@ -56,6 +100,8 @@ export default {
 #side-bar-nav {
   height: 100%;
   background-color: #023047;
+  background: linear-gradient(#013047 30%, #6e8fa0 80%);
+  border-right: solid 1px black;
 }
 
 #side-bar-options {
