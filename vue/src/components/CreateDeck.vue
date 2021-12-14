@@ -1,13 +1,15 @@
 <template>
   <div id ="deck-view">
     <form id="deck">
-      <textarea placeholder="Add a new deck" maxlength="40"
-        id="new-deck"
-        ref="newcard"
-        type="text"
-        name="deckName"
-        v-model="newDeck.name"
-      />
+      <textarea
+       placeholder="Add a new deck"
+       maxlength="40"
+       id="new-deck"
+       ref="newcard"
+       type="text"
+       name="deckName"
+       v-model="newDeck.name">
+      </textarea>
     </form>
     <div>
       <button id="addDeckBtn" type="submit" v-on:click.prevent="addNewDeck()">Add</button>

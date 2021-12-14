@@ -81,35 +81,34 @@ export default {
 <style lang="scss">
 @import '../styles/colors.scss';
 
-
 //are we using # or . frontCard?
 #frontCard {
-  padding-top: 70px;
-  resize: none;
-  text-align: center;
-  align-items: center;
-  font-size: 30px;
-  background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(73, 39, 31);
-  border: 1px solid rgb(32, 28, 27);
-  border-radius: 2px;
-  width: 380px;
-  height: 200px;
-  margin: 10px 10px 10px 10px;
+    padding-top: 70px;
+    resize: none;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: rgb(252, 251, 248);
+    box-shadow: 0 0 10px 0 rgb(73, 39, 31);
+    border: 1px solid rgb(32, 28, 27);
+    border-radius: 2px;
+    width: 380px;
+    height: 200px;
+    margin: 10px 10px 10px 10px;
 }
 
 .frontCard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(73, 39, 31);
-  border: 1px solid rgb(32, 28, 27);
-  border-radius: 2px;
-  width: 380px;
-  height: 200px;
-  margin: 10px 10px 10px 10px;
-  resize: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(252, 251, 248);
+    box-shadow: 0 0 10px 0 rgb(73, 39, 31);
+    border: 1px solid rgb(32, 28, 27);
+    border-radius: 2px;
+    width: 380px;
+    height: 200px;
+    margin: 10px 10px 10px 10px;
+    resize: none;
 }
 
 .backCard {
