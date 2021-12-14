@@ -3,19 +3,19 @@
     <!-- Show the front if the card isn't answered   -->
     <div class="card">
         <div v-if="showFront && !IsDone">
-            <p>Question {{index+1}}: {{$store.state.activeDeck[index].frontText}}</p>
-            <button class="button" v-on:click.prevent="flipCard">Answer</button>
+            <p><b>Question {{index+1}}: </b>{{$store.state.activeDeck[index].frontText}}</p>
+            <button id="answer" class="button" v-on:click.prevent="flipCard">Answer</button>
         </div>
 
         <!-- Once the button is clicked, the answer should show, the user should have
         the option of marking the card as right or wrong -->
-        <div v-if="!showFront && !IsDone">
-            <p>Answer: {{$store.state.activeDeck[index].backText}}</p>
+        <div id="answerResult" v-if="!showFront && !IsDone">
+            <p><b>Answer:</b> {{$store.state.activeDeck[index].backText}}</p>
             <p>Did you get the answer right?</p>
             <!-- After selecting if right, store data for how many they got right (# and %)
             and progress to the next question -->
-            <button v-on:click.prevent="rightAnswer">Yes</button>
-            <button v-on:click.prevent="wrongAnswer">No</button>
+            <button id="yes" v-on:click.prevent="rightAnswer">Yes</button>
+            <button id="no" v-on:click.prevent="wrongAnswer">No</button>
         </div>
 
         <div v-if="IsDone">
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <button v-on:click.prevent="done" v-if="!IsDone">Would you like to end early?</button>
+    <button id="endEarly" v-on:click.prevent="done" v-if="!IsDone">End Session?</button>
 
   </section>
 </template>
@@ -81,17 +81,41 @@ export default {
 </script>
 
 <style>
+#answer {
+  margin-top: 10px;
+  margin-bottom: 7%;
+  width: 110px;
+  height: 50px;
+  background: linear-gradient(#eb5e00 10%, #ff9011 50%);
+  color: white;
+  border: solid 1px #c44e00;
+  border-radius: 7%;
+  box-shadow: 0 2px 5px 0 #af4600;
+  grid-area: answer;
+}
+
+#answer:hover {
+text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 25px #fff, 
+      0 0 30px #fff; 
+}
 
 .studysession {
     width: 50%;
     text-align: center;
+    font-size: 20px;
 }
 
 .card {
-    border: black solid 2px;
+    border: #ffffff solid 3px;
+    background: linear-gradient(#e2e2e2 10%, #ffffff 70%);
     text-align: center;
     padding: 2rem;
     margin: 2rem;
+    border-radius: 7px;
 }
 
 .right {
@@ -99,6 +123,51 @@ export default {
     background-color: #dbecac;
     width: 20px;
     height: 20px;
+}
+
+#yes {
+  margin-top: 10px;
+  margin-right: 7px;
+  width: 45px;
+  height: 30px;
+  background: linear-gradient(#00b300 10%, #00fa00 50%);
+  color: white;
+  border: solid 1px #006800;
+  border-radius: 7%;
+  box-shadow: 0 2px 5px 0 #797979;
+  cursor: pointer;
+}
+
+#yes:hover {
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 25px #fff, 
+      0 0 30px #fff; 
+}
+
+#no:hover {
+    cursor: grab, pointer;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 25px #fff, 
+      0 0 30px #fff; 
+}
+
+#no {
+  margin-top: 10px;
+  margin-left: 7px;
+  width: 45px;
+  height: 30px;
+  background: linear-gradient(#a70000 10%, #fa0000 50%);
+  color: white;
+  border: solid 1px #550000;
+  border-radius: 7%;
+  box-shadow: 0 2px 5px 0 #797979;
+  cursor: pointer;
 }
 
 .wrong {
@@ -112,6 +181,27 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+#endEarly {
+  margin-top: 10px;
+  margin-bottom: 7%;
+  width: 140px;
+  height: 50px;
+  background: linear-gradient(#757575 10%, #bdbdbd 50%);
+  color: white;
+  border: solid 1px #464646;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 #555555;
+}
+
+#endEarly:hover {
+text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 25px #fff, 
+      0 0 30px #fff; 
 }
 
 </style>

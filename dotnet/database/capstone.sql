@@ -34,7 +34,7 @@ CREATE TABLE Decks (
 	deck_id int IDENTITY(1,1) NOT NULL,
 	user_id int NOT NULL,
 	deck_name varchar(50) NOT NULL,
-	deck_description varchar(500) NOT NULL,
+	deck_description varchar(500),
 	CONSTRAINT PK_Decks_deck_id PRIMARY KEY (deck_id),
 	CONSTRAINT FK_Decks_users FOREIGN KEY (user_id) references Users (user_id)
 )

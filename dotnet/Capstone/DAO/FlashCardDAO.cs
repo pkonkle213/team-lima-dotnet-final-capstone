@@ -205,7 +205,9 @@ namespace Capstone.DAO
             {
                 conn.Open();
 
-                const string sql = "DELETE FROM FlashCards " +
+                const string sql = "DELETE FROM Flashcards_Tags " +
+                    "WHERE flash_card_id = @cardId; " +
+                    "DELETE FROM FlashCards " +
                     "WHERE flash_card_id = @cardId";
 
                 using (SqlCommand command = new SqlCommand(sql, conn))

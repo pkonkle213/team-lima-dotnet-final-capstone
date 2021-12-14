@@ -89,7 +89,7 @@ export default {
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 #af4600;
     text-align: center;
-    margin: 10px 0 0 50px;
+    margin: 10px 0 0 10px;
 }
 
 #newCardButton:hover {
@@ -113,7 +113,7 @@ text-shadow:
   border-radius: 7px;
   width: 380px;
   height: 200px;
-  margin: 40px 10px 10px 50px;
+  margin: 40px 10px 10px 10px;
 }
 
 .frontCard {
@@ -146,9 +146,8 @@ text-shadow:
 
 .leftBar {
     text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
 }
 
-p {
-    color: #fefdb0;
-}
 </style>
