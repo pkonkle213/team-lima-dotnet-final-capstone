@@ -64,17 +64,21 @@ export default {
   align-items: center;
   border: 1px solid rgb(85, 82, 81);
   border-radius: 7px;
-  width: 350px;
-  min-width: 180px;
-  max-width: 180px;
-  height: 100px;
+  width: 300px;
+  height: 140px;
+  min-width: 300px;
   margin: 10px;
   margin-top: 30px;
 
-  background: rgb(255, 253, 253);
+  background: linear-gradient(#f1eeee 10%, #ffffff 50%);
+
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee,
-    0 10px 1px -4px rgba(0, 0, 0, 0.15), 0 20px 0 -10px #eee,
+    0 10px 1px -4px rgba(46, 46, 46, 0.15), 0 20px 0 -10px #eee,
     0 20px 1px -9px rgba(0, 0, 0, 0.15);
+}
+
+#deck-name {
+  width: 400px;
 }
 
 .deck-and-btn {
