@@ -7,6 +7,7 @@
           ref="qText"
           contenteditable="true"
           v-on:blur="changeCard()"
+          v-on:keyup="resizeText(questionText, questionBox)"
           >{{ card.frontText }}</span
         >
       </div>
@@ -16,6 +17,7 @@
           ref="aText"
           contenteditable="true"
           v-on:blur="changeCard()"
+          v-on:keyup="resizeText(answerText, answerBox)"
           >{{ card.backText }}</span
         >
       </div>
@@ -43,10 +45,10 @@ export default {
   },
 
   mounted() {
-    this.questionText = this.$refs.qText;
     this.questionBox = this.$refs.question;
-    this.answerText = this.$refs.aText;
+    this.questionText = this.$refs.qText;
     this.answerBox = this.$refs.answer;
+    this.answerText = this.$refs.aText;
     this.resizeText(this.questionText, this.questionBox);
     this.resizeText(this.answerText, this.answerBox);
   },
@@ -109,6 +111,7 @@ export default {
       }
 
       element.style.fontSize = `${i - 1}px`;
+      // element.style.height = "100%"
     },
   },
   computed: {
@@ -155,7 +158,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: $questionBg;
+  background:linear-gradient(#a780a6 10%, #885486 50%);
 }
 
 #questionText {
@@ -165,9 +168,7 @@ export default {
   overflow-y: hidden;
   overflow-x: hidden;
   text-align: center;
-  background-color: $questionBg;
   color: $questionText;
-  width: 100%;
 }
 
 .answer {

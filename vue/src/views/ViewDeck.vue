@@ -99,7 +99,7 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   margin: 1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #side-bar-nav {
