@@ -10,8 +10,8 @@
       >
     </div>
     <div class="btns">
-      <button id="go-btn" v-on:click.prevent="goToDeck()">Open</button>
-      <button id="delete-btn" v-on:click.prevent="deleteDeck()">Delete</button>
+      <button id="go-btn" v-on:click.prevent="goToDeck()">View</button>
+      <button id="delete-btn" v-on:click.prevent="deleteDeck()"></button>
     </div>
   </div>
 </template>
@@ -64,9 +64,9 @@ export default {
   align-items: center;
   border: 1px solid rgb(85, 82, 81);
   border-radius: 7px;
-  width: 300px;
+  width: 270px;
   height: 140px;
-  min-width: 300px;
+  min-width: 270px;
   margin: 10px;
   margin-top: 30px;
 
@@ -101,15 +101,15 @@ export default {
 }
 
 #go-btn {
-    width: 70px;
-    height: 30px;
+    width: 50px;
+    height: 49px;
     background: linear-gradient(#eb5e00 10%, #ff9011 50%);
     color: white;
     border: solid 1px #c44e00;
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 #af4600;
     text-align: center;
-    margin: 10px 0 0 10px;
+    margin-top: 10px;
 }
 
 #go-btn:hover {
@@ -131,15 +131,16 @@ export default {
 }
 
 #delete-btn {
-    width: 70ox;
-    height: 30px;
-    background: linear-gradient(#eb5e00 10%, #ff9011 50%);
+    width: 45px;
+    height: 49px;
+    background:url(../img/RE4CA2I.jpeg) no-repeat;
     color: white;
     border: solid 1px #c44e00;
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 #af4600;
     text-align: center;
-    margin: 10px 0 0 10px;
+    margin-top: 10px;
+    background:url(../img/Webp.net-resizeimage.png)
 }
 
 </style>
