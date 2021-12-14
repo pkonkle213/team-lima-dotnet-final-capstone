@@ -17,6 +17,10 @@ export default {
       return axios.put(`/FlashCard/deck`, card)
     },
 
+    deleteCard(cardId) {
+      return axios.delete(`/FlashCard/deck/${cardId}`)
+    },
+
     addNewDeck(newDeck) {
       return axios.post(`/Deck`, newDeck)
     },
