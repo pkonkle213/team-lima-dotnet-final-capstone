@@ -2,40 +2,53 @@
   <div id="test">
     <article class="aCard">
       <div ref="question" class="question">
-        <span id="questionText" ref="qText" contenteditable="true" v-on:keyup.esc="changeCard(); ">{{card.frontText}}</span>
+        <span
+          id="questionText"
+          ref="qText"
+          contenteditable="true"
+          v-on:keyup.esc="changeCard()"
+          >{{ card.frontText }}</span
+        >
       </div>
       <div ref="answer" class="answer">
-        <span id="answerText" ref="aText" contenteditable="true" v-on:keyup.esc="changeCard(); ">{{card.backText}}</span>
+        <span
+          id="answerText"
+          ref="aText"
+          contenteditable="true"
+          v-on:keyup.esc="changeCard()"
+          >{{ card.backText }}</span
+        >
       </div>
     </article>
+    <button v-on:click.prevent="deleteCard()">Delete</button>
   </div>
 </template>
 
 <script>
-import FlashCardService from '../services/FlashCardService.js'
+import FlashCardService from "../services/FlashCardService.js";
 
 export default {
   components: FlashCardService,
+  props: {
+    card: Object,
+    clickNum: Number,
+  },
   data() {
     return {
       questionText: Element,
       questionBox: Element,
       answerText: Element,
       answerBox: Element,
-      };
+    };
   },
-  props: {
-    card: Object,
-    clickNum: Number,
-  },
+
   mounted() {
-    
     this.questionText = this.$refs.qText;
     this.questionBox = this.$refs.question;
     this.answerText = this.$refs.aText;
     this.answerBox = this.$refs.answer;
     this.resizeText(this.questionText, this.questionBox);
-    this.resizeText(this.answerText, this.answerBox)
+    this.resizeText(this.answerText, this.answerBox);
   },
   methods: {
     handleClick() {
@@ -46,47 +59,57 @@ export default {
       }
     },
     changeCard() {
-      this.card.frontText = this.$refs.qText.innerText
-      this.card.backText = this.$refs.aText.innerText
+      this.card.frontText = this.$refs.qText.innerText;
+      this.card.backText = this.$refs.aText.innerText;
       FlashCardService.modifyCard(this.card)
-      .then(response => {
-        this.$store.commit("UPDATE_CARD", response.data)
-      })
-      .catch(error => {
-        console.log(error)
-      });
+        .then((response) => {
+          this.$store.commit("UPDATE_CARD", response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+    deleteCard() {
+      FlashCardService.deleteCard(this.card.id)
+        .then((response) => {
+          {
+            console.log(response);
+            this.$store.commit("DELETE_CARD", this.card.id);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     adjustQuestionTextArea() {
-
       let textQArea = this.$refs.qText;
-       textQArea.style.fontSize = (textQArea.clientHeight/3)+"px";
-       
+      textQArea.style.fontSize = textQArea.clientHeight / 3 + "px";
 
       let textAArea = this.$refs.aText;
-      textAArea.style.fontSize = (textAArea.style.height/2)+"px"
-    
+      textAArea.style.fontSize = textAArea.style.height / 2 + "px";
     },
 
     resizeText(element, parent) {
-     function isOverflown(element) {
-      return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
-    }
-
-      let i = 12
-      let overflow = false
-      let maxSize = 30
-
-      while(!overflow && i < maxSize) {
-        element.style.fontSize =`${i}px`
-        overflow = isOverflown(parent)
-        if(!overflow) i++
+      function isOverflown(element) {
+        return (
+          element.scrollHeight > element.clientHeight ||
+          element.scrollWidth > element.clientWidth
+        );
       }
 
-      element.style.fontSize = `${i -1}px`
-    },
+      let i = 12;
+      let overflow = false;
+      let maxSize = 30;
 
-    
-    
+      while (!overflow && i < maxSize) {
+        element.style.fontSize = `${i}px`;
+        overflow = isOverflown(parent);
+        if (!overflow) i++;
+      }
+
+      element.style.fontSize = `${i - 1}px`;
+    },
   },
   computed: {
     face() {
@@ -109,11 +132,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../styles/colors.scss';
+@import "../styles/colors.scss";
 
 #test {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .aCard {
@@ -174,5 +197,5 @@ export default {
 
 .aCard:hover #answerText {
   filter: none;
-} 
+}
 </style>
