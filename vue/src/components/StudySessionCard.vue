@@ -91,7 +91,7 @@ export default {
   border: solid 1px #c44e00;
   border-radius: 7%;
   box-shadow: 0 2px 5px 0 #af4600;
-    grid-area: answer;
+  grid-area: answer;
 }
 
 #answer:hover {

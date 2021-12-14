@@ -43,6 +43,16 @@ export default new Vuex.Store({
       state.userDecks.push(payload);
     },
 
+    MODIFY_DECK(state, payload) {
+      let index = state.userDecks.findIndex(deck => deck.id === payload.id)
+      state.userDecks[index] = payload
+    },
+
+    DELETE_DECK(state, payload) {
+      let index = state.userDecks.findIndex(deck => deck.id === payload)
+      state.userDecks.splice(index, 1)
+    },
+
     SET_USER_DECKS(state, payload) {
       state.userDecks = payload;
     },

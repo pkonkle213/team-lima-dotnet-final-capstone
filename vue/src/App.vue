@@ -148,6 +148,7 @@ body {
 
 footer {
   grid-area: footer;
+  min-height: 100px;
 }
 
 #register > form {

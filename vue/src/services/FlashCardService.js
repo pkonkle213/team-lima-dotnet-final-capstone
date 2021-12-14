@@ -25,4 +25,12 @@ export default {
       return axios.post(`/Deck`, newDeck)
     },
 
+    modifyDeck(deck) {
+      return axios.put(`/Deck/deck`, deck)
+    },
+
+    deleteDeck(deckId) {
+      return axios.delete(`Deck/deck/${deckId}`)
+    }
+
 }
