@@ -84,18 +84,22 @@ export default {
 #cards {
   display: grid;
   grid-template-columns: 1.5fr 4fr 1.5fr;
+  grid-template-rows: 1fr;
   grid-template-areas:
     "sideBar allCards studySess";
     height: 100%;
+    overflow:hidden;
 }
 
 #card-list {
   grid-area: allCards;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   margin: 1rem;
+  overflow-y: scroll;
 }
 
 #side-bar-nav {
