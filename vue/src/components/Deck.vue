@@ -1,9 +1,12 @@
-<template>
+<template> 
+<div id="deck-and-btn">
   <div class="deck">
     <router-link v-bind:to="{ name: 'ViewDeck', params: { deckId: deck.id } }"
       >{{ deck.name }}</router-link
     >
   </div>
+    <button v-on:click.prevent="goToDeck()">Go to deck</button>
+</div>
 </template>
 
 <script>
@@ -11,6 +14,12 @@ export default {
   props: {
     deck: Object,
   },
+
+  methods: {
+    goToDeck() {
+      this.$router.push({name: 'ViewDeck', params: { deckId: this.deck.id } })
+    }
+  }
 };
 </script>
 
@@ -40,5 +49,10 @@ export default {
     0 20px 1px -9px rgba(0,0,0,0.15);
 }
 
+#deck-and-btn {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
 
 </style>
