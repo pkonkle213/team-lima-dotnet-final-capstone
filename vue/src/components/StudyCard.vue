@@ -1,11 +1,11 @@
 <template>
   <div id="test">
     <article class="aCard">
-      <div ref="quest" class="question">
-        <span id="questionText" ref="qText" contenteditable="true" v-on:change.prevent="changeCard(); adjustQuestionTextArea()">{{card.frontText}}</span>
+      <div ref="question" class="question">
+        <span id="questionText" ref="qText" contenteditable="true" v-on:keyup.esc="changeCard(); ">{{card.frontText}}</span>
       </div>
-      <div class="answer">
-        <textarea ref="aText" id="answerText" v-model="card.backText" v-on:change.prevent="changeCard()"></v-model></textarea>
+      <div ref="answer" class="answer">
+        <span id="answerText" ref="aText" contenteditable="true" v-on:keyup.esc="changeCard(); ">{{card.backText}}</span>
       </div>
     </article>
   </div>
@@ -18,45 +18,24 @@ export default {
   components: FlashCardService,
   data() {
     return {
-    };
+      questionText: Element,
+      questionBox: Element,
+      answerText: Element,
+      answerBox: Element,
+      };
   },
   props: {
     card: Object,
     clickNum: Number,
   },
   mounted() {
-
-    let element = this.$refs.qText;
-    let parent = this.$refs.quest;
-    function isOverflown(element) {
-      return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
-    }
-    const resizeText = ({element, parent}) => {
-      let i = 12
-      let overflow = false
-
-      while(!overflow) {
-        element.style.fontSize =`${i}px`
-        overflow = isOverflown(parent)
-        if(!overflow) i++
-      }
-
-      element.style.fontSize = `${i -1}px`
-    }
-    resizeText({element, parent})
-
-
-
-
-      // let textQArea = this.$refs.qText;
-      // textQArea.style.height = (textQArea.scrollHeight)+"px"
-      // textQArea.style.fontSize = (textQArea.clientHeight/3)+"px"
-
-      // let textAArea = this.$refs.aText;
-      // textAArea.style.height = (textAArea.scrollHeight)+"px"
-      // textAArea.style.fontSize = (textAArea.clientHeight/3)+"px"
-
-
+    
+    this.questionText = this.$refs.qText;
+    this.questionBox = this.$refs.question;
+    this.answerText = this.$refs.aText;
+    this.answerBox = this.$refs.answer;
+    this.resizeText(this.questionText, this.questionBox);
+    this.resizeText(this.answerText, this.answerBox)
   },
   methods: {
     handleClick() {
@@ -67,6 +46,8 @@ export default {
       }
     },
     changeCard() {
+      this.card.frontText = this.$refs.qText.innerText
+      this.card.backText = this.$refs.aText.innerText
       FlashCardService.modifyCard(this.card)
       .then(response => {
         this.$store.commit("UPDATE_CARD", response.data)
@@ -85,6 +66,26 @@ export default {
       textAArea.style.fontSize = (textAArea.style.height/2)+"px"
     
     },
+
+    resizeText(element, parent) {
+     function isOverflown(element) {
+      return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+    }
+
+      let i = 12
+      let overflow = false
+      let maxSize = 30
+
+      while(!overflow && i < maxSize) {
+        element.style.fontSize =`${i}px`
+        overflow = isOverflown(parent)
+        if(!overflow) i++
+      }
+
+      element.style.fontSize = `${i -1}px`
+    },
+
+    
     
   },
   computed: {
@@ -127,11 +128,10 @@ export default {
 }
 
 .question {
-  height: 30px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-grow: 1;
   background-color: $questionBg;
 }
 
@@ -148,11 +148,11 @@ export default {
 }
 
 .answer {
+  height: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $answerBg;
-  flex-grow: 5;
 }
 
 #answerText {
@@ -163,7 +163,6 @@ export default {
   overflow-x: hidden;
   width: 100%;
   text-align: center;
-  font-size: 2rem;
   color: $answerText;
   filter: blur(9px);
   background-color: $answerBg;
