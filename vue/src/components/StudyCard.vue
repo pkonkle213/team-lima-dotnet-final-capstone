@@ -1,13 +1,11 @@
 <template>
   <div id="test">
     <article class="aCard">
-      <div class="question">
-        <textarea id="questionText" v-model="card.frontText"></v-model></textarea>
-        <button v-on:click.prevent="changeCard()">Save Changes</button>
+      <div ref="quest" class="question">
+        <span id="questionText" ref="qText" contenteditable="true" v-on:change.prevent="changeCard(); adjustQuestionTextArea()">{{card.frontText}}</span>
       </div>
       <div class="answer">
-        <textarea id="answerText" v-model="card.backText"></v-model></textarea>
-        <button id ="testing" v-on:click.prevent="changeCard()">Save Changes</button>
+        <textarea ref="aText" id="answerText" v-model="card.backText" v-on:change.prevent="changeCard()"></v-model></textarea>
       </div>
     </article>
   </div>
@@ -27,11 +25,38 @@ export default {
     clickNum: Number,
   },
   mounted() {
-    // let text = this.$refs.cardSize;
-    // let 1005  text.value.length;
-    // initialSize = initialSize <= 10 ? 10 : initialSize;
-    // text.style.fontSize = "x-large";
-    // text.style.display="none";
+
+    let element = this.$refs.qText;
+    let parent = this.$refs.quest;
+    function isOverflown(element) {
+      return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+    }
+    const resizeText = ({element, parent}) => {
+      let i = 12
+      let overflow = false
+
+      while(!overflow) {
+        element.style.fontSize =`${i}px`
+        overflow = isOverflown(parent)
+        if(!overflow) i++
+      }
+
+      element.style.fontSize = `${i -1}px`
+    }
+    resizeText({element, parent})
+
+
+
+
+      // let textQArea = this.$refs.qText;
+      // textQArea.style.height = (textQArea.scrollHeight)+"px"
+      // textQArea.style.fontSize = (textQArea.clientHeight/3)+"px"
+
+      // let textAArea = this.$refs.aText;
+      // textAArea.style.height = (textAArea.scrollHeight)+"px"
+      // textAArea.style.fontSize = (textAArea.clientHeight/3)+"px"
+
+
   },
   methods: {
     handleClick() {
@@ -49,7 +74,18 @@ export default {
       .catch(error => {
         console.log(error)
       });
-    }
+    },
+    adjustQuestionTextArea() {
+
+      let textQArea = this.$refs.qText;
+       textQArea.style.fontSize = (textQArea.clientHeight/3)+"px";
+       
+
+      let textAArea = this.$refs.aText;
+      textAArea.style.fontSize = (textAArea.style.height/2)+"px"
+    
+    },
+    
   },
   computed: {
     face() {
@@ -91,10 +127,10 @@ export default {
 }
 
 .question {
+  height: 30px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 20px;
+  align-items: flex-start;
   flex-grow: 1;
   background-color: $questionBg;
 }
@@ -103,9 +139,12 @@ export default {
   border: none;
   resize: none;
   outline: none;
+  overflow-y: hidden;
+  overflow-x: hidden;
   text-align: center;
   background-color: $questionBg;
   color: $questionText;
+  width: 100%;
 }
 
 .answer {
@@ -120,6 +159,9 @@ export default {
   border: none;
   resize: none;
   outline: none;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
   text-align: center;
   font-size: 2rem;
   color: $answerText;
@@ -133,6 +175,5 @@ export default {
 
 .aCard:hover #answerText {
   filter: none;
-  cursor: url('../img/Santic.png'), pointer;
 } 
 </style>

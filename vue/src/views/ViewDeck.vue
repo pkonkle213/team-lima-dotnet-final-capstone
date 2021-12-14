@@ -86,6 +86,7 @@ export default {
   grid-template-columns: 1.5fr 4fr 1.5fr;
   grid-template-areas:
     "sideBar allCards studySess";
+    height: 100%;
 }
 
 #card-list {
