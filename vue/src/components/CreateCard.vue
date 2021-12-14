@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="leftBar">
+        <p>Add a new card to this deck<p>
         <textarea
          id="frontCard"
          class="frontCard"
@@ -10,7 +11,7 @@
          v-model="text">
         </textarea>
         <div>
-            <button type="submit" v-on:click.prevent="saveCard()"> {{ buttonText }} </button>
+            <button id="newCardButton" type="submit" v-on:click.prevent="saveCard()"> {{ buttonText }} </button>
         </div>
     </div>
 </template>
@@ -33,15 +34,15 @@ export default {
     computed: {
         buttonText() {
             if (this.clickCounter === 0) {
-                return "Submit Front Text";
+                return "Type question";
             } else if (this.clickCounter === 1) {
-                return "Submit card";
+                return "Click to submit!";
             }
             return "test";
         },
         placeHolderText() {
             if (this.clickCounter === 0) {
-                return "Enter front text!";
+                return "Enter answer";
             } else if (this.clickCounter === 1) {
                 return "Enter back text!";
             } 
@@ -63,15 +64,13 @@ export default {
                 })
 
                 .catch(error => {
-                    console.error(error)
+                    console.error(error.data);
                 })
 
                 this.text = "";
                 this.clickCounter = 0;
-                this.card= {
-                    frontText: "",
-                    backText: "",
-                }
+                this.card.frontText = "";
+                this.card.backText = "";
             }
         }
     },
@@ -81,34 +80,54 @@ export default {
 <style lang="scss">
 @import '../styles/colors.scss';
 
+#newCardButton {
+    width: 380px;
+    height: 40px;
+    background: linear-gradient(#eb5e00 10%, #ff9011 50%);
+    color: white;
+    border: solid 1px #c44e00;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 #af4600;
+    text-align: center;
+    margin: 10px 0 0 10px;
+}
+
+#newCardButton:hover {
+text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 25px #fff, 
+      0 0 30px #fff; 
+}
+
 //are we using # or . frontCard?
 #frontCard {
-    padding-top: 70px;
-    resize: none;
-    text-align: center;
-    align-items: center;
-    font-size: 30px;
-    background-color: rgb(252, 251, 248);
-    box-shadow: 0 0 10px 0 rgb(73, 39, 31);
-    border: 1px solid rgb(32, 28, 27);
-    border-radius: 2px;
-    width: 380px;
-    height: 200px;
-    margin: 10px 10px 10px 10px;
+  padding-top: 70px;
+  resize: none;
+  text-align: center;
+  align-items: center;
+  font-size: 30px;
+  background-color: rgb(252, 251, 248);
+  border: 1px solid rgb(32, 28, 27);
+  border-radius: 7px;
+  width: 380px;
+  height: 200px;
+  margin: 40px 10px 10px 10px;
 }
 
 .frontCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(252, 251, 248);
-    box-shadow: 0 0 10px 0 rgb(73, 39, 31);
-    border: 1px solid rgb(32, 28, 27);
-    border-radius: 2px;
-    width: 380px;
-    height: 200px;
-    margin: 10px 10px 10px 10px;
-    resize: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(252, 251, 248);
+  box-shadow: 0 0 10px 0 rgb(23, 23, 26);
+  border: 1px solid rgb(32, 28, 27);
+  border-radius: 2px;
+  width: 380px;
+  height: 300px;
+  margin: 10px 10px 10px 10px;
+  resize: none;
 }
 
 .backCard {
@@ -118,11 +137,17 @@ export default {
   background-color: rgb(252, 251, 248);
   box-shadow: 0 0 10px 0 rgb(194, 49, 13);
   border: 1px solid rgb(32, 28, 27);
-  border-radius: 2px;
+  border-radius: 7px;
   width: 380px;
-  height: 200px;
+  height: 300px;
   margin: 10px 10px 10px 10px;
   resize: none;
+}
+
+.leftBar {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
 }
 
 </style>

@@ -1,42 +1,120 @@
 <template>
-<div id="cards">
-  <div id="card-list">
-    <study-card v-for="card of $store.state.activeDeck" v-bind:key="card.id" v-bind:card="card"/>
+  <div id="cards">
+    <div id="card-list">
+      <study-card
+        v-for="card of $store.state.activeDeck"
+        v-bind:key="card.id"
+        v-bind:card="card"
+      />
+    </div>
+    <div id="side-bar-nav">
+      <side-bar-view id="side-bar-options"/>
+    </div>
+  <div id="rightPanel">
+    <start-study-session-right-panel id="startStudying" />
+    <img src="../img/d9006bced22dcde87db0dd29364b0c16-removebg-preview.png" alt="Brain" id="brainThink">
   </div>
-  <router-link v-bind:to="{ name: 'StudySession' }">Start a study session with this deck</router-link>
-</div>
+  <div id="image">
+  </div>
+  </div>
 </template>
 
 <script>
-import StudyCard from '../components/StudyCard.vue'
-import FlashCardService from '../services/FlashCardService.js'
+import StartStudySessionRightPanel from "../components/StartStudySessionRightPanel.vue";
+import StudyCard from "../components/StudyCard.vue";
+import FlashCardService from "../services/FlashCardService.js";
+import SideBarView from './SideBarView.vue';
 // import CreateCardView from '../views/CreateCardView.vue'
 export default {
   components: {
     StudyCard,
+    SideBarView,
+    StartStudySessionRightPanel
   },
-    
+
   created() {
-      FlashCardService
-      .fetchDeck(this.$route.params.deckId)
-      .then(response => {
-          this.$store.commit("SET_ACTIVE_DECK", response.data)
+    FlashCardService.fetchDeck(this.$route.params.deckId)
+      .then((response) => {
+        this.$store.commit("SET_ACTIVE_DECK", response.data);
       })
-      .catch(error => {
-          console.error(error)
-      })
-  }
-}
+      .catch((error) => {
+        console.error(error);
+      });
+  },
+};
 </script>
 
-<style>
+<style lang="scss">
 
+@import '../styles/colors.scss';
+
+#startStudying {
+  grid-template-areas: studySess;
+
+}
+
+#rightPanel {
+  height: 100%;
+  background-color: #023047;
+  background: linear-gradient(#013047 30%, #6e8fa0 80%);
+  border-left: solid 1px black;
+  grid-area: studySess;
+
+  display: grid;
+  grid-template-columns: 2fr 1.4fr;
+  grid-template-areas: 
+  "btn brain";
+}
+
+#startStudying {
+  grid-area: btn;
+  display: flex;
+  align-self: flex-start;
+  margin: 60px 0 0 60px;
+}
+
+#brainThink {
+  grid-area: brain;
+  display: flex;
+  align-self: flex-start;
+  margin: 30px 0 0 0;
+  height: 150px;
+}
+
+#cards {
+  display: grid;
+  grid-template-columns: 1.5fr 4fr 1.5fr;
+  grid-template-areas:
+    "sideBar allCards studySess";
+    height: 100%;
+}
 
 #card-list {
+  grid-area: allCards;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 1rem;
 }
+
+#side-bar-nav {
+  display: flex;
+  height: 100%;
+  background-color: #023047;
+  background: linear-gradient(#013047 30%, #6e8fa0 80%);
+  border-right: solid 1px black;
+  justify-content: center;
+  height: 100%;
+}
+
+#side-bar-options {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+}
+
 
 </style>

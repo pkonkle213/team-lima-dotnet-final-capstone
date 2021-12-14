@@ -75,12 +75,12 @@ body {
 #app {
   height: 100%;
   display: grid;
-  grid-template-columns: 0.025fr 1fr 0.025fr;
-  grid-template-rows: 0.1fr 1fr 0.05fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr 100px;
   grid-template-areas: 
-    "nav nav nav"
-    "content content content"
-    "footer footer footer";
+    "nav"
+    "content"
+    "footer";
 }
 
 #nav {
@@ -89,11 +89,15 @@ body {
   grid-template-columns: 1fr 1fr 0.4fr 1fr 1fr;
   grid-template-areas: 
     "register log home viewDecks viewDecks";
+    position: sticky;
+    top: 0;
   justify-items: center;
   align-items: center;
   background: linear-gradient(#eb5e00 10%, #ff9011 80%);
   color: #c7d5e0;
   text-align: center;
+  position: sticky;
+  z-index: 2;
 }
 
 #nav a:hover {
