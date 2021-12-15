@@ -51,11 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
-<<<<<<< HEAD
 @import "../styles/colors.scss";
-=======
-@import '../styles/colors.scss';
->>>>>>> a2f85e1ce468cf4340b1ad7d7c026085d768db85
 
 #startStudying {
   grid-template-areas: studySess;
