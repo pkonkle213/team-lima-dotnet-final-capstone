@@ -12,9 +12,12 @@ export default {
 </script>
 
 <style>
+.home {
+  max-height: 100%;
+  overflow: hidden;
+}
 
-img {
-  height: 100%;
+#ladyStudying {
   width: 100%;
 }
 
