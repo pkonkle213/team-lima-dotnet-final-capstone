@@ -80,7 +80,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/colors.scss';
+
 #answer {
   margin-top: 10px;
   margin-bottom: 7%;

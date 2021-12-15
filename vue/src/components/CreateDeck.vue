@@ -27,7 +27,7 @@ export default {
       newDeck: {
         name: "",
         userId: this.$store.state.user.userId,
-        description: ""
+        description: "",
       },
     };
   },
@@ -60,7 +60,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/colors.scss';
 
 #deck-view {
   display: flex; 
@@ -108,7 +109,5 @@ export default {
       0 0 25px #fff, 
       0 0 30px #fff; 
 }
-
-
 
 </style>

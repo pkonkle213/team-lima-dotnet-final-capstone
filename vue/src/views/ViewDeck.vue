@@ -1,6 +1,9 @@
 <template>
   <div id="cards">
-    <div id="card-list">
+    <div v-show="!$store.state.activeDeck.length" id="loading">
+      <img src="../img/loading.svg">
+    </div>
+    <div id="card-list" v-show="$store.state.activeDeck">
       <study-card
         v-for="card of $store.state.activeDeck"
         v-bind:key="card.id"
@@ -8,14 +11,17 @@
       />
     </div>
     <div id="side-bar-nav">
-      <side-bar-view id="side-bar-options"/>
+      <side-bar-view id="side-bar-options" />
     </div>
-  <div id="rightPanel">
-    <start-study-session-right-panel id="startStudying" />
-    <img src="../img/d9006bced22dcde87db0dd29364b0c16-removebg-preview.png" alt="Brain" id="brainThink">
-  </div>
-  <div id="image">
-  </div>
+    <div id="rightPanel">
+      <start-study-session-right-panel id="startStudying" />
+      <img
+        src="../img/d9006bced22dcde87db0dd29364b0c16-removebg-preview.png"
+        alt="Brain"
+        id="brainThink"
+      />
+    </div>
+    <div id="image"></div>
   </div>
 </template>
 
@@ -23,13 +29,13 @@
 import StartStudySessionRightPanel from "../components/StartStudySessionRightPanel.vue";
 import StudyCard from "../components/StudyCard.vue";
 import FlashCardService from "../services/FlashCardService.js";
-import SideBarView from './SideBarView.vue';
+import SideBarView from "./SideBarView.vue";
 // import CreateCardView from '../views/CreateCardView.vue'
 export default {
   components: {
     StudyCard,
     SideBarView,
-    StartStudySessionRightPanel
+    StartStudySessionRightPanel,
   },
 
   created() {
@@ -45,12 +51,14 @@ export default {
 </script>
 
 <style lang="scss">
-
+<<<<<<< HEAD
+@import "../styles/colors.scss";
+=======
 @import '../styles/colors.scss';
+>>>>>>> a2f85e1ce468cf4340b1ad7d7c026085d768db85
 
 #startStudying {
   grid-template-areas: studySess;
-
 }
 
 #rightPanel {
@@ -62,8 +70,7 @@ export default {
 
   display: grid;
   grid-template-columns: 2fr 1.4fr;
-  grid-template-areas: 
-  "btn brain";
+  grid-template-areas: "btn brain";
 }
 
 #startStudying {
@@ -85,10 +92,14 @@ export default {
   display: grid;
   grid-template-columns: 1.5fr 4fr 1.5fr;
   grid-template-rows: 1fr;
-  grid-template-areas:
-    "sideBar allCards studySess";
-    height: 100%;
-    overflow:hidden;
+  grid-template-areas: "sideBar allCards studySess";
+  height: 100%;
+  overflow: hidden;
+}
+
+#loading {
+  grid-area: allCards;
+  height: 100%;
 }
 
 #card-list {
@@ -119,6 +130,4 @@ export default {
   align-items: center;
   gap: 100px;
 }
-
-
 </style>

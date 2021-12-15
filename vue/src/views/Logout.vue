@@ -4,7 +4,7 @@
 
 <!-- Note: This page should not really render, but instead redirect you immediately to Home -->
 
-<script>
+<script
 export default {
   created() {
     this.$store.commit("LOGOUT");
