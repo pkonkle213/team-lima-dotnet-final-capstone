@@ -25,6 +25,7 @@ export default {
   },
   methods: {
     goToDeck() {
+      this.$store.state.activeDeck = [];
       this.$router.push({ name: "ViewDeck", params: { deckId: this.deck.id } });
     },
     changeDeckName() {

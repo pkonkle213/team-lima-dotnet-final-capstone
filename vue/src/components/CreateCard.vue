@@ -1,6 +1,6 @@
 <template>
     <div class="leftBar">
-        <p>Add a new card to this deck<p>
+        <p id="create-card-txt">Add a new card to this deck<p>
         <textarea
          id="frontCard"
          class="frontCard"
@@ -90,6 +90,10 @@ export default {
     box-shadow: 0 2px 5px 0 #af4600;
     text-align: center;
     margin: 10px 0 0 10px;
+}
+
+#create-card-txt {
+    color: #fff;
 }
 
 #newCardButton:hover {
