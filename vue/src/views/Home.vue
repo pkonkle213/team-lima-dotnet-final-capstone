@@ -11,7 +11,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/colors.scss';
+
 img {
   height: 100%;
   width: 100%;

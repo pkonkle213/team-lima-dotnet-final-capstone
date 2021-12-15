@@ -9,7 +9,9 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/colors.scss';
+
 #deleteBtn {
     width: 180px;
     height: 30px;
