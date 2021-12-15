@@ -37,7 +37,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/colors.scss';
+
 #main {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
