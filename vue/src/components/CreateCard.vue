@@ -59,8 +59,8 @@ export default {
                 this.card.backText = this.text;
 
                 FlashCardService.addNewCard(this.card.deckId, this.card).then(response => {
-                    console.log(response)
-                    this.$store.commit("ADD_CARD", response.data)
+                    console.log(response);
+                    this.$store.commit("ADD_CARD", response.data);
                 })
 
                 .catch(error => {
@@ -93,7 +93,7 @@ export default {
 }
 
 #newCardButton:hover {
-text-shadow:
+    text-shadow:
       0 0 7px #fff,
       0 0 10px #fff,
       0 0 21px #fff,
@@ -145,9 +145,9 @@ text-shadow:
 }
 
 .leftBar {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
 }
 
 </style>
