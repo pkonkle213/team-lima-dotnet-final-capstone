@@ -50,8 +50,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "../styles/colors.scss";
+<style>
 
 #startStudying {
   grid-template-areas: studySess;
@@ -59,6 +58,7 @@ export default {
 
 #rightPanel {
   height: 100%;
+  width: 100%;
   background-color: #023047;
   background: linear-gradient(#013047 30%, #6e8fa0 80%);
   border-left: solid 1px black;
@@ -80,13 +80,14 @@ export default {
   grid-area: brain;
   display: flex;
   align-self: flex-start;
+  justify-self: center;
   margin: 30px 0 0 0;
   height: 150px;
 }
 
 #cards {
   display: grid;
-  grid-template-columns: 1.5fr 4fr 1.5fr;
+  grid-template-columns: 25vw 50vw 25vw;
   grid-template-rows: 1fr;
   grid-template-areas: "sideBar allCards studySess";
   height: 100%;
@@ -95,7 +96,9 @@ export default {
 
 #loading {
   grid-area: allCards;
-  height: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
 }
 
 #card-list {

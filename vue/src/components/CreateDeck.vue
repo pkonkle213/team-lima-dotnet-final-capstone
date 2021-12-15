@@ -66,6 +66,13 @@ export default {
 #deck-view {
   display: flex; 
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px;
+}
+
+#deck {
+  margin-top: 7%;
 }
 
 #new-deck {
@@ -79,8 +86,6 @@ export default {
   border-radius: 5px;
   width: 310px;
   height: 180px;
-  margin-bottom: 2.77%;
-  margin: 0px;
     box-shadow:
     0 1px 1px rgba(102, 67, 67, 0.3),
     0 10px 0 -5px rgb(235, 193, 170),
@@ -91,7 +96,7 @@ export default {
 
 #addDeckBtn {
   margin-top: 10px;
-  margin-bottom: 7%;
+
   width: 180px;
   height: 30px;
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);

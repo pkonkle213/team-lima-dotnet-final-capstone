@@ -86,8 +86,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../styles/colors.scss';
+<style>
 
 #login {
   margin-top: 65px;

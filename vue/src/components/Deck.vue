@@ -25,6 +25,7 @@ export default {
   },
   methods: {
     goToDeck() {
+      this.$store.state.activeDeck = [];
       this.$router.push({ name: "ViewDeck", params: { deckId: this.deck.id } });
     },
     changeDeckName() {
@@ -54,9 +55,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../styles/colors.scss';
-
+<style>
 .deck {
   display: flex;
   flex-wrap: wrap;
@@ -66,8 +65,8 @@ export default {
   align-items: center;
   border: 1px solid rgb(85, 82, 81);
   border-radius: 7px;
-  width: 310px;
-  height: 180px;
+  width: 270px;
+  height: 140px;
   min-width: 270px;
   margin: 10px;
   margin-top: 30px;
@@ -80,8 +79,7 @@ export default {
 }
 
 #deck-name {
-  width: 95%;
-  padding: 2px;
+  width: 400px;
 }
 
 .deck-and-btn {
@@ -144,15 +142,6 @@ export default {
     text-align: center;
     margin-top: 10px;
     background:url(../img/Webp.net-resizeimage.png)
-}
-
-#delete-btn:hover {
-      text-shadow:
-  0 0 7px #fff,
-  0 0 10px #fff,
-  0 0 21px #fff,
-  0 0 25px #fff, 
-  0 0 30px #fff; 
 }
 
 </style>

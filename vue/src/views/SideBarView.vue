@@ -13,8 +13,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import '../styles/colors.scss';
+<style>
 
 #side-bar {
   display: flex;

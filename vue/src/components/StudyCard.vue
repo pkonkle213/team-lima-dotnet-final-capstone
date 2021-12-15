@@ -22,7 +22,7 @@
         >
       </div>
     </article>
-    <button v-on:click.prevent="deleteCard()">Delete</button>
+    <button id="delete-btn" v-on:click.prevent="deleteCard()"></button>
   </div>
 </template>
 
@@ -140,6 +140,7 @@ export default {
 #test {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .aCard {
@@ -158,7 +159,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background:linear-gradient(#a780a6 10%, #885486 50%);
+  background: linear-gradient(#a780a6 10%, #885486 50%);
 }
 
 #questionText {
@@ -193,8 +194,6 @@ export default {
   z-index: 1;
 }
 
-#testing {
-}
 
 .aCard:hover #answerText {
   filter: none;

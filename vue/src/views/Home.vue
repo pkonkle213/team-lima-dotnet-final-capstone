@@ -12,7 +12,6 @@ export default {
 </script>
 
 <style>
-
 .home {
   max-height: 100%;
   overflow: hidden;
@@ -20,8 +19,6 @@ export default {
 
 #ladyStudying {
   width: 100%;
-}
-
-
+} 
 
 </style>
