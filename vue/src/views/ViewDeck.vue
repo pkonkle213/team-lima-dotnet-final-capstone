@@ -44,8 +44,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../styles/colors.scss';
+<style>
 
 #startStudying {
   grid-template-areas: studySess;
