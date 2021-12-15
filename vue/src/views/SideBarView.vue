@@ -41,7 +41,7 @@ export default {
   font-size: 30px;
   text-align: center;
   border: solid black 1px;
-  padding: 24px 10px 3px 10px;
+  padding: 25px 10px 3px 10px;
   border-radius: 5px;
 }
 
@@ -59,10 +59,4 @@ export default {
   height: 100px;
   width: auto;
 }
-
 </style>
-/* #side-bar {
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-} */

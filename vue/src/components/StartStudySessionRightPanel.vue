@@ -1,7 +1,8 @@
 <template>
-    <div>
+    <div id="checkBox">
         <router-link v-bind:to="{ name: 'StudySession' }" id="start">Study Deck</router-link>
-        <button v-on:click.prevent="random()">Randomize the order of the cards</button>
+        <label id="randomizeLabel" for="checkbox">Randomize Cards</label>
+        <input type="checkbox" id="randomize" v-on:click.prevent="random()">>
     </div>
 </template>
 
@@ -24,5 +25,15 @@ export default {
 
 <style lang="scss">
 @import '../styles/colors.scss';
+
+#checkBox {
+    display: grid;
+    grid-template-areas: 
+    "studyDeck brain";
+}
+
+#randomizeLabel {
+ color: white;
+}
 
 </style>
