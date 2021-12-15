@@ -20,7 +20,7 @@ export default {
 
 #ladyStudying {
   width: 100%;
-}
+} 
 
 
 

@@ -86,9 +86,10 @@ body {
 #nav {
   grid-area: nav;
   display: grid;
-  grid-template-columns: 1fr 1fr 0.4fr 1fr 1fr;
+  grid-template-columns: 45vw 9vw 45vw;
+  // overflow-x: hidden;
   grid-template-areas: 
-    "register log home viewDecks viewDecks";
+    "log home viewDecks";
     position: sticky;
     top: 0;
   justify-items: center;
@@ -96,8 +97,8 @@ body {
   background: linear-gradient(#eb5e00 10%, #ff9011 80%);
   color: #c7d5e0;
   text-align: center;
-  position: sticky;
-  z-index: 2;
+  // position: sticky;
+  // z-index: 2;
 }
 
 #nav a:hover {
@@ -137,6 +138,7 @@ body {
 }
 
 .content {
+  height: 100%;
   grid-area: content;
   align-self: flex-start;
   display: flex;
@@ -144,6 +146,7 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 footer {
