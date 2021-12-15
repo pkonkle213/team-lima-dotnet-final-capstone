@@ -146,6 +146,7 @@ namespace Capstone.DAO
 
                     int newId = Convert.ToInt32(command.ExecuteScalar());
                     cardToAdd.Id = newId;
+                    cardToAdd.Tags.Add("EZPZ");
                 }
             }
 
@@ -183,7 +184,7 @@ namespace Capstone.DAO
                 foreach (int num in tagIds)
                 {
                     sql += "INSERT INTO Flashcards_Tags (flash_card_id,tag_id) " +
-                        $"VALUES(@cardid, {num}); ";
+                        $"VALUES(@cardId, {num}); ";
                 }
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
