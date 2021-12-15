@@ -44,7 +44,6 @@
     </div>
 
     <router-view class="content" />
-    <footer>lauren ipsum</footer>
   </div>
 </template>
 
@@ -76,11 +75,10 @@ body {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr 100px;
+  grid-template-rows: 100px 1fr;
   grid-template-areas: 
     "nav"
-    "content"
-    "footer";
+    "content";
 }
 
 #nav {
