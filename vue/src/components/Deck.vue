@@ -64,8 +64,8 @@ export default {
   align-items: center;
   border: 1px solid rgb(85, 82, 81);
   border-radius: 7px;
-  width: 270px;
-  height: 140px;
+  width: 310px;
+  height: 180px;
   min-width: 270px;
   margin: 10px;
   margin-top: 30px;
@@ -78,7 +78,8 @@ export default {
 }
 
 #deck-name {
-  width: 400px;
+  width: 95%;
+  padding: 2px;
 }
 
 .deck-and-btn {

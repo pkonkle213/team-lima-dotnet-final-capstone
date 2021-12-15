@@ -68,7 +68,7 @@ export default {
 }
 
 #new-deck {
-  padding-top: 30px;
+  padding-top: 70px;
   resize: none;
   text-align: center;
   align-items: center;
@@ -76,8 +76,8 @@ export default {
   background-color: rgb(255, 231, 215);
   border: 1px solid #c44e00;
   border-radius: 5px;
-  width: 180px;
-  height: 100px;
+  width: 310px;
+  height: 180px;
   margin-bottom: 2.77%;
   margin: 0px;
     box-shadow:
