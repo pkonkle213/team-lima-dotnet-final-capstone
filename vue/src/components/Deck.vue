@@ -143,4 +143,13 @@ export default {
     background:url(../img/Webp.net-resizeimage.png)
 }
 
+#delete-btn:hover {
+      text-shadow:
+  0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff,
+  0 0 25px #fff, 
+  0 0 30px #fff; 
+}
+
 </style>
