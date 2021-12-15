@@ -19,6 +19,6 @@ export default {
 
 #ladyStudying {
   width: 100%;
-}
+} 
 
 </style>

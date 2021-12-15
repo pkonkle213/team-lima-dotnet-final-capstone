@@ -118,7 +118,7 @@ namespace Capstone.Models
                     "WHERE flash_card_id IN(SELECT ft.flash_card_id " +
                     "FROM Flashcards f " +
                     "INNER JOIN Flashcards_Tags ft ON ft.flash_card_id = f.flash_card_id " +
-                    "WHERE f.deck_id=@deck_id);" +
+                    "WHERE f.deck_id=@deck_id); " +
                     "DELETE FROM FlashCards " +
                     "WHERE deck_id=@deck_id; " +
                     "DELETE FROM Decks " +
