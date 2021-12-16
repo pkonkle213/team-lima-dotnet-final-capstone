@@ -8,7 +8,7 @@
           >{{ $store.state.activeDeck[index].frontText }}
         </span>
       </div>
-      <button id="answer" class="button" v-on:click.prevent="flipCard">
+      <button v-if="showFront && !IsDone" id="answer" class="button" v-on:click.prevent="flipCard">
         Answer
       </button>
 
@@ -62,7 +62,7 @@
       End Session?
     </button>
     <button id="backToDeck" v-if="IsDone" class="button" v-on:click="goToDeck()">
-      Go back to previous screen
+      Return to deck
     </button>
   </section>
 </template>
@@ -186,7 +186,7 @@ export default {
 #yes {
   margin-top: 10px;
   margin-right: 7px;
-  width: 45px;
+  width: 50px;
   height: 30px;
   background: linear-gradient(#00b300 10%, #00fa00 50%);
   color: white;
@@ -210,7 +210,7 @@ export default {
 #no {
   margin-top: 10px;
   margin-left: 7px;
-  width: 45px;
+  width: 50px;
   height: 30px;
   background: linear-gradient(#a70000 10%, #fa0000 50%);
   color: white;
