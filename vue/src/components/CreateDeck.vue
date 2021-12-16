@@ -75,6 +75,10 @@ export default {
   margin-top: 7%;
 }
 
+#new-deck::placeholder {
+  color: rgb(150, 150, 150);
+}
+
 #new-deck {
   padding-top: 70px;
   resize: none;
@@ -96,7 +100,6 @@ export default {
 
 #addDeckBtn {
   margin-top: 10px;
-
   width: 180px;
   height: 30px;
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);
@@ -105,6 +108,7 @@ export default {
   border-radius: 7%;
   box-shadow: 0 2px 5px 0 #af4600;
 }
+
 
 #addDeckBtn:hover {
     text-shadow:
