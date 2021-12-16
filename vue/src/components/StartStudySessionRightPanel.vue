@@ -17,15 +17,16 @@ import FlashCardService from "../services/FlashCardService.js";
 
 
 export default {
-   data() {
-    return {
-      isTimed: false
-    }
-},
   methods: {
     timed() {
+      let isTimed = false;
       if (event.target.checked) {
-        this.isTimed = true;
+        isTimed = true;
+        this.$store.commit('LIGHTNING_ROUND', isTimed)
+      }
+      else if (!event.target.checked) {
+        isTimed = false;
+        this.$store.commit('LIGHTNING_ROUND', isTimed)
       }
     },
     random() {

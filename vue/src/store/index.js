@@ -26,7 +26,7 @@ export default new Vuex.Store({
     user: currentUser || {}, // If a user is an admin, their user.role will be 'admin'
     activeDeck: [],
     userDecks: [],
-    lightningSession: true,
+    lightningSession: false,
     activeCard: {
       id: 0,
       frontFace: "",
@@ -91,6 +91,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    LIGHTNING_ROUND(state, payload) {
+      state.lightningSession = payload;
     }
   }
 })
