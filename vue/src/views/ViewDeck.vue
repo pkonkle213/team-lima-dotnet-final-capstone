@@ -1,12 +1,26 @@
 <template>
   <div id="cards">
-    <div v-show="!$store.state.activeDeck.length" id="loading">No Cards In Deck!</div>
+    <div v-show="!$store.state.activeDeck.length" id="loading">
+      No Cards In Deck!
+    </div>
 
     <div id="card-list" v-show="$store.state.activeDeck">
       <div v-show="!$store.state.activeDeck.length" class="lds-grid">
-        <div/><div/><div/><div/><div/><div/><div/><div/><div/>
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
       </div>
-      <study-card v-for="card of $store.state.activeDeck" v-bind:key="card.id" v-bind:card="card"/>
+      <study-card
+        v-for="card of $store.state.activeDeck"
+        v-bind:key="card.id"
+        v-bind:card="card"
+      />
     </div>
 
     <div id="side-bar-nav">
@@ -14,14 +28,16 @@
     </div>
 
     <div id="rightPanel">
-      <start-study-session-right-panel id="startStudying" />
-      <img src="../img/d9006bced22dcde87db0dd29364b0c16-removebg-preview.png" alt="Brain" id="brainThink"/>
+      <start-study-session-right-panel v-show="IsDeck" id="startStudying" />
+      <img
+        src="../img/d9006bced22dcde87db0dd29364b0c16-removebg-preview.png"
+        alt="Brain"
+        id="brainThink"
+      />
     </div>
-
-    <div id="image"/>
+    <div id="image" />
   </div>
 </template>
-
 
 <script>
 import StartStudySessionRightPanel from "../components/StartStudySessionRightPanel.vue";
@@ -36,10 +52,19 @@ export default {
     StartStudySessionRightPanel,
   },
 
+  data() {
+    return {
+      IsDeck: false
+    }
+  },
+
   mounted() {
     FlashCardService.fetchDeck(this.$route.params.deckId)
       .then((response) => {
         this.$store.commit("SET_ACTIVE_DECK", response.data);
+        if (response.data.length > 0) {
+          this.IsDeck = true
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -47,7 +72,6 @@ export default {
   },
 };
 </script>
-
 
 <style>
 ::-webkit-scrollbar {
@@ -84,6 +108,18 @@ export default {
   grid-template-columns: 2fr 1.4fr;
   grid-template-areas: "btn brain";
 }
+
+/* #right-panel-empty {
+  height: 100%;
+  width: 100%;
+  background-color: #023047;
+  background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
+  grid-area: studySess;
+
+  display: grid;
+  grid-template-columns: 2fr 1.4fr;
+  grid-template-areas: "btn brain";
+} */
 
 #startStudying {
   grid-area: btn;
@@ -208,12 +244,12 @@ export default {
   animation-delay: -1.6s;
 }
 @keyframes lds-grid {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
     opacity: 0.5;
   }
 }
-
 </style>
