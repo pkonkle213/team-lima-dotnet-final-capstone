@@ -1,5 +1,5 @@
 <template>
-  <div class="deck-and-btn">
+  <div class="deck-and-btn" v-on:mouseover="showButtons()" v-on:mouseleave="hideButtons()">
     <div class="deck">
       <span
         ref="deckName"
@@ -9,7 +9,7 @@
         >{{ deck.name }}</span
       >
     </div>
-    <div class="btns">
+    <div class="btns" v-show="displayButtons">
       <button id="go-btn" v-on:click.prevent="goToDeck()">View</button>
       <button id="delete-btn" v-on:click.prevent="deleteDeck()"></button>
     </div>
@@ -20,6 +20,11 @@
 import FlashCardService from "../services/FlashCardService.js";
 
 export default {
+  data() {
+    return {
+      displayButtons: false
+    }
+  },
   props: {
     deck: Object,
   },
@@ -50,6 +55,12 @@ export default {
       .catch(error => {
         console.log(error)
       })
+    },
+    showButtons(){
+      this.displayButtons = true;
+    },
+    hideButtons() {
+      this.displayButtons = false;
     }
   },
 };
@@ -78,12 +89,17 @@ export default {
     0 20px 1px -9px rgba(0, 0, 0, 0.15);
 }
 
+.deck:hover {
+  cursor: text;
+}
+
 #deck-name {
   width: 400px;
 }
 
 .deck-and-btn {
   display: flex;
+  height: 279px;
   flex-direction: column;
   align-items: center;
   color: black;
@@ -93,7 +109,12 @@ export default {
 .btns {
   display: flex;
   width: 80%;
+  align-self: center;
   justify-content: space-between;
+}
+
+.btns:hover {
+  cursor: pointer;
 }
 
 #deck-name {
@@ -102,7 +123,7 @@ export default {
 }
 
 #go-btn {
-    width: 50px;
+    width: 100px;
     height: 49px;
     background: linear-gradient(#eb5e00 10%, #ff9011 50%);
     color: white;

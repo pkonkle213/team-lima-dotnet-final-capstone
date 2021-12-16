@@ -8,7 +8,8 @@
          ref="newcard"
          type="text"
          name="cardName"
-         v-model="text">
+         v-model="text"
+         v-on:keydown.enter.prevent="saveCard()">
         </textarea>
         <div>
             <button id="newCardButton" type="submit" v-on:click.prevent="saveCard()"> {{ buttonText }} </button>
