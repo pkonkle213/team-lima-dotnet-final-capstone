@@ -6,7 +6,6 @@
             <p><b>Question {{index+1}}: </b>{{$store.state.activeDeck[index].frontText}}</p>
             <button id="answer" class="button" v-on:click.prevent="flipCard">Answer</button>
         </div>
-      
 
         <!-- Once the button is clicked, the answer should show, the user should have
         the option of marking the card as right or wrong -->
@@ -25,29 +24,28 @@
             <p v-if="this.numIncorrect>0">You got {{this.numIncorrect}} question{{this.numIncorrect===1 ? "" : "s" }} incorrect</p>
             <p v-if="this.numCorrect+this.numIncorrect!=0">For a percentage of {{(this.numCorrect/(this.numCorrect+this.numIncorrect)*100).toFixed(2)}}%!</p>
             <div class="doneScreen">
-
                 <div v-for="n in this.listCorrect" v-bind:key="n">
-                    <div v-if="n" class="right"></div>
-                    <div v-if="!n" class="wrong"></div>
+                    <div v-if="n" class="right"/>
+                    <div v-if="!n" class="wrong"/>
                 </div>
                 <!-- <div class="box right" v-for="n in this.numCorrect" v-bind:key="n"></div>
                 <div class="box wrong" v-for="n in this.numIncorrect" v-bind:key="n"></div> -->
             </div>
+
             <div>
-                        <button id="backToDeck" class="button" v-on:click="goToDeck()">Go back to previous screen</button>
-                    </div>
+                <button id="backToDeck" class="button" v-on:click="goToDeck()"> Go back to previous screen </button>
+            </div>
         </div>
     </div>
-            
+
     <button id="endEarly" v-on:click.prevent="done" v-if="!IsDone">End Session?</button>
 
   </section>
 </template>
 
+
 <script>
-
 import Timed from '../StudySessionCardTimed.vue';
-
 export default {
     data() {
         return {
@@ -99,6 +97,7 @@ export default {
     },
 }
 </script>
+
 
 <style lang="scss">
 @import '../styles/colors.scss';
@@ -248,5 +247,4 @@ text-shadow:
     0 0 25px #fff, 
     0 0 30px #fff; 
 }
-
 </style>

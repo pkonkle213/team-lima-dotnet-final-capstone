@@ -43,9 +43,9 @@
   </div>
 </template>
 
+
 <script>
 import authService from "../services/AuthService";
-
 export default {
   name: "login",
   components: {},
@@ -86,8 +86,8 @@ export default {
 };
 </script>
 
-<style>
 
+<style>
 #login {
   margin-top: 65px;
 }
@@ -114,6 +114,4 @@ export default {
 #signInTxt {
   color: #4f596b;
 }
-
-
 </style>

@@ -22,6 +22,7 @@
   </div>
 </template>
 
+
 <script>
 import StartStudySessionRightPanel from "../components/StartStudySessionRightPanel.vue";
 import StudyCard from "../components/StudyCard.vue";
@@ -47,8 +48,8 @@ export default {
 };
 </script>
 
-<style>
 
+<style>
 ::-webkit-scrollbar {
   width: 20px;
 }

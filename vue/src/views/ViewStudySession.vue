@@ -8,6 +8,7 @@
   </div>
 </template>
 
+
 <script>
 import StudySessionCard from "../components/StudySessionCard.vue";
 import Timer from "../components/Timer.vue";
@@ -19,6 +20,7 @@ export default {
   },
 };
 </script>
+
 
 <style>
 #study-session-main {

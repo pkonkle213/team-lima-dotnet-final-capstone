@@ -4,6 +4,7 @@
   </div>
 </template>
 
+
 <script>
 export default {
   data() {
@@ -31,7 +32,10 @@ export default {
 };
 </script>
 
-<style>
+
+<style lang="scss">
+@import "../styles/colors.scss";
+
 body {
   /* background-color: black; */
   font-family: "Roboto", sans-serif;
