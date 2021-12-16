@@ -36,7 +36,7 @@
       <div class="form-group">
         <router-link :to="{ name: 'login' }">Have an account?</router-link>
       </div>
-      <button class="btn btn-primary" type="submit">
+      <button id="createAccount" class="btn btn-primary" type="submit">
         Create Account
       </button>
     </form>
@@ -96,4 +96,26 @@ export default {
 
 
 <style>
+a {
+  color: black;
+  text-decoration: none;
+}
+
+#createAccount {
+    flex-direction: columns;
+    background: linear-gradient(#eb5e00 10%, #ff9011 50%);
+    color: white;
+    border: solid 1px #c44e00;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 #af4600;
+}
+
+#createAccount:hover {
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 25px #fff, 
+      0 0 30px #fff; 
+}
 </style>

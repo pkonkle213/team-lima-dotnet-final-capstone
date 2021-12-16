@@ -57,6 +57,7 @@ export default {
   justify-content: flex-start;
   padding-top: 90px;
   background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
+  font-size: 24px;
 }
 
 #left-side-bar-empty {
