@@ -64,7 +64,7 @@ export default {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#7375eb18, #1f2572);
+  background: radial-gradient(#ffffff 10%, #e4e4e4 50%);
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
