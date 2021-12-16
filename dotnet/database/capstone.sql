@@ -40,7 +40,7 @@ CREATE TABLE Decks (
 )
 
 INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, 'Math','Random Math Questions');
-INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, 'Engrish','Funny questions about Engrish');
+INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, 'English','Funny questions about English');
 INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, 'C Sharp','Trivia about a programming language');
 INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, 'D Flat','Jokes about how terms used for music can be translated into other forms');
 INSERT INTO Decks (user_id, deck_name,deck_description) VALUES (1, '.NET - Module One','Questions from C#');
