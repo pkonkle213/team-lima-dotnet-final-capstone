@@ -84,7 +84,7 @@ body {
 #nav {
   grid-area: nav;
   display: grid;
-  grid-template-columns: 45vw 9vw 45vw;
+  grid-template-columns: 45vw 10vw 45vw;
   // overflow-x: hidden;
   grid-template-areas: 
     "log home viewDecks";
@@ -158,9 +158,6 @@ footer {
 }
 
 
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-}
+
 
 </style>
