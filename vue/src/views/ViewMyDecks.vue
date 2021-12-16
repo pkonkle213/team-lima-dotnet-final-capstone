@@ -40,6 +40,21 @@ export default {
 
 <style>
 
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#7375eb18, #1f2572);
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
 #main-decks {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -49,12 +64,13 @@ export default {
     "emptySidebarLeft cards emptySidebarRight";
 }
 .list {
+  margin-top: 20px;
   height: 100%;
   grid-area: cards;
-  align-self: start;
   display: flex;
+  justify-content: center;
+  align-content: flex-start;
   flex-wrap: wrap;
-  margin-left: 6.5%;
   overflow-y: auto;
 }
 

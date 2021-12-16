@@ -1,5 +1,5 @@
 <template>
-  <div id="test">
+  <div id="test" v-on:mouseover="showButton()" v-on:mouseleave="hideButton()">
     <article class="aCard">
       <div ref="question" class="question">
         <span
@@ -22,7 +22,7 @@
         >
       </div>
     </article>
-    <button id="delete-btn" v-on:click.prevent="deleteCard()"></button>
+    <button id="delete-btn" v-on:click.prevent="deleteCard()" v-show="displayButton"></button>
   </div>
 </template>
 
@@ -41,6 +41,7 @@ export default {
       questionBox: Element,
       answerText: Element,
       answerBox: Element,
+      displayButton: false,
     };
   },
 
@@ -113,6 +114,12 @@ export default {
       element.style.fontSize = `${i - 1}px`;
       // element.style.height = "100%"
     },
+    showButton() {
+      this.displayButton = true
+    },
+    hideButton() {
+      this.displayButton = false
+    }
   },
   computed: {
     face() {
@@ -141,10 +148,15 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 390px;
 }
 
 #delete-btn {
   margin-bottom: 10px;
+}
+
+#delete-btn:hover {
+
 }
 
 .aCard {
@@ -156,6 +168,10 @@ export default {
   overflow: hidden;
   width: 380px;
   height: 300px;
+}
+
+.aCard:hover {
+  cursor: text;
 }
 
 .question {

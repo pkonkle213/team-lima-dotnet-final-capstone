@@ -38,7 +38,7 @@ export default {
     StartStudySessionRightPanel,
   },
 
-  created() {
+  mounted() {
     FlashCardService.fetchDeck(this.$route.params.deckId)
       .then((response) => {
         this.$store.commit("SET_ACTIVE_DECK", response.data);
@@ -52,8 +52,27 @@ export default {
 
 <style>
 
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#7375eb18, #1f2572);
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
 #startStudying {
-  grid-template-areas: studySess;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 #rightPanel {
@@ -109,6 +128,7 @@ export default {
   flex-wrap: wrap;
   margin: 1rem;
   overflow-y: auto;
+  align-content: flex-start;
 }
 
 #side-bar-nav {
