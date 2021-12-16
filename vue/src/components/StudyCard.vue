@@ -2,33 +2,21 @@
   <div id="test" v-on:mouseover="showButton()" v-on:mouseleave="hideButton()">
     <article class="aCard">
       <div ref="question" class="question">
-        <span
-          id="questionText"
-          ref="qText"
-          contenteditable="true"
-          v-on:blur="changeCard()"
-          v-on:keyup="resizeText(questionText, questionBox)"
-          >{{ card.frontText }}</span
-        >
+        <span id="questionText" ref="qText" contenteditable="true" v-on:blur="changeCard()" v-on:keyup="resizeText(questionText, questionBox)">{{ card.frontText }}</span>
       </div>
+
       <div ref="answer" class="answer">
-        <span
-          id="answerText"
-          ref="aText"
-          contenteditable="true"
-          v-on:blur="changeCard()"
-          v-on:keyup="resizeText(answerText, answerBox)"
-          >{{ card.backText }}</span
-        >
+        <span id="answerText" ref="aText" contenteditable="true" v-on:blur="changeCard()" v-on:keyup="resizeText(answerText, answerBox)">{{ card.backText }}</span>
       </div>
     </article>
-    <button id="delete-btn" v-on:click.prevent="deleteCard()" v-show="displayButton"></button>
+
+    <button id="delete-btn" v-on:click.prevent="deleteCard()" v-show="displayButton"/>
   </div>
 </template>
 
+
 <script>
 import FlashCardService from "../services/FlashCardService.js";
-
 export default {
   components: FlashCardService,
   props: {
@@ -44,7 +32,6 @@ export default {
       displayButton: false,
     };
   },
-
   mounted() {
     this.questionBox = this.$refs.question;
     this.questionText = this.$refs.qText;
@@ -72,7 +59,6 @@ export default {
           console.log(error);
         });
     },
-
     deleteCard() {
       FlashCardService.deleteCard(this.card.id)
         .then((response) => {
@@ -92,7 +78,6 @@ export default {
       let textAArea = this.$refs.aText;
       textAArea.style.fontSize = textAArea.style.height / 2 + "px";
     },
-
     resizeText(element, parent) {
       function isOverflown(element) {
         return (
@@ -140,6 +125,7 @@ export default {
   },
 };
 </script>
+
 
 <style lang="scss">
 @import "../styles/colors.scss";
@@ -213,7 +199,6 @@ export default {
   background-color: $answerBg;
   z-index: 1;
 }
-
 
 .aCard:hover #answerText {
   filter: none;

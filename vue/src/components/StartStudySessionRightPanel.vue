@@ -12,10 +12,9 @@
   </div>
 </template>
 
+
 <script>
 import FlashCardService from "../services/FlashCardService.js";
-
-
 export default {
   methods: {
     timed() {
@@ -67,6 +66,7 @@ export default {
   },
 };
 </script>
+
 
 <style lang="scss">
 @import "../styles/colors.scss";

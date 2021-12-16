@@ -1,8 +1,8 @@
 <template>
     <!-- Display the front but on click it toggles to the back (and then front again) -->
     <study-card v-bind:card="card"/>
-  
 </template>
+
 
 <script>
 import StudyCard from './StudyCard.vue';
@@ -29,12 +29,10 @@ export default {
   computed: {
     card() {
       if (this.cardDeck.length <= 0) {
-        
         let message = {
           frontText: "loading...",
           backText: "loading..."
         }
-        
         return message
       }
       if (this.clickNum === 0) {
@@ -48,6 +46,7 @@ export default {
 };
 </script>
 
+
 <style lang="scss">
 @import '../styles/colors.scss';
 
@@ -58,5 +57,4 @@ export default {
   outline: none;
   border: none;
 }
-
 </style>

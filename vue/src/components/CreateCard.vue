@@ -18,6 +18,7 @@
     </div>
 </template>
 
+
 <script>
 import FlashCardService from '../services/FlashCardService.js';
 export default {
@@ -78,6 +79,7 @@ export default {
     },
 }
 </script>
+
 
 <style lang="scss">
 @import '../styles/colors.scss';

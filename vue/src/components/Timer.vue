@@ -4,6 +4,7 @@
   </div>
 </template>
 
+
 <script>
 export default {
   data() {
@@ -32,4 +33,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "../styles/colors.scss";
+
+</style>

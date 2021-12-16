@@ -43,6 +43,7 @@
   </div>
 </template>
 
+
 <script>
 import authService from '../services/AuthService';
 
@@ -93,6 +94,6 @@ export default {
 };
 </script>
 
-<style>
 
+<style>
 </style>
