@@ -1,5 +1,5 @@
 <template>
-  <div id="timer-main">
+  <div class="timer-main">
     {{ countDown }}
   </div>
 </template>
@@ -33,7 +33,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "../styles/colors.scss";
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.timer-main {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 50px;
+  color: orangered;
+}
 
 </style>

@@ -19,8 +19,8 @@
         <p>Did you get the answer right?</p>
         <!-- After selecting if right, store data for how many they got right (# and %)
             and progress to the next question -->
-        <button id="yes" v-on:click.prevent="rightAnswer">Yes</button>
-        <button id="no" v-on:click.prevent="wrongAnswer">No</button>
+        <button id="yes" v-on:click.prevent="rightAnswer()">Yes</button>
+        <button id="no" v-on:click.prevent="wrongAnswer()">No</button>
       </div>
 
       <div v-if="IsDone">
