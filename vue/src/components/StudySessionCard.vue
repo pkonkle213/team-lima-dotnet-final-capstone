@@ -2,10 +2,11 @@
   <section class="studysession">
     <!-- Show the front if the card isn't answered   -->
     <div class="card">
-        <div v-if="showFront && !IsDone">
+        <div id="test-test" v-if="showFront && !IsDone">
             <p><b>Question {{index+1}}: </b>{{$store.state.activeDeck[index].frontText}}</p>
             <button id="answer" class="button" v-on:click.prevent="flipCard">Answer</button>
         </div>
+      
 
         <!-- Once the button is clicked, the answer should show, the user should have
         the option of marking the card as right or wrong -->
@@ -91,10 +92,16 @@ export default {
 <style lang="scss">
 @import '../styles/colors.scss';
 
+#test-test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #answer {
   display: flex;
-  margin-top: 10px;
-  margin-bottom: 7%;
+  // margin-top: 10px;
+  // margin-bottom: 7%;
   width: 110px;
   height: 50px;
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);
@@ -102,7 +109,9 @@ export default {
   border: solid 1px #c44e00;
   border-radius: 7%;
   box-shadow: 0 2px 5px 0 #af4600;
-  grid-area: answer;
+  justify-content: center;
+  align-items: center;
+  // grid-area: answer;
 }
 
 #backToDeck {
@@ -217,6 +226,7 @@ text-shadow:
   border: solid 1px #464646;
   border-radius: 5px;
   box-shadow: 0 2px 5px 0 #555555;
+  justify-self: center;
 }
 
 #endEarly:hover {
