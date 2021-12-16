@@ -1,9 +1,13 @@
 <template>
   <div id="checkBox">
     <button id="start" v-on:click.prevent="startSession()">Study Deck</button>
-    <div id="something-something">
+    <div id="randomizeCheckbox">
       <label id="randomizeLabel" for="checkbox">Randomize Cards?</label>
       <input type="checkbox" id="randomize" v-on:change="random($event)" />
+    </div>
+    <div id="timedCheckbox">
+      <label id="timed" for="timed">🗲Lightning Round?🗲</label>
+      <input type="checkbox" id="timed" v-on:change="timed($event)" />
     </div>
   </div>
 </template>
@@ -11,8 +15,19 @@
 <script>
 import FlashCardService from "../services/FlashCardService.js";
 
+
 export default {
+   data() {
+    return {
+      isTimed: false
+    }
+},
   methods: {
+    timed() {
+      if (event.target.checked) {
+        this.isTimed = true;
+      }
+    },
     random() {
       if (event.target.checked) {
         let maxIndex = this.$store.state.activeDeck.length;
@@ -72,11 +87,24 @@ export default {
   justify-content: center;
 }
 
-#something-something {
+#randomizeCheckbox {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+#timedCheckbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#timed {
+  color: rgb(0, 0, 0);
+  margin: 0px;
+  font-size: 18px;
 }
 
 #randomizeLabel {
