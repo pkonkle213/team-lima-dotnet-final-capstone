@@ -1,10 +1,10 @@
 <template>
 
   <div id="study-session-main">
-    <div id="left-side-bar-empty"></div>
+    <div id="left-side-bar-empty"><img src="../img/cropped_brain.png" id="pic"></div>
     <study-session-card id="session" />
     <timer v-show="this.$store.state.lightningSession" id="timer" />
-    <img src="../img/cropped_brain.jpg" id="pic">
+    <div id="empty-background" v-show="!this.$store.state.lightningSession"/>
   </div>
 </template>
 
@@ -26,6 +26,12 @@ export default {
   grid-template-columns: 25vw 50vw 25vw;
   height: 100%;
   grid-template-areas: "leftBar session timer";
+}
+
+#empty-background {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
 }
 
 #session {
@@ -64,7 +70,6 @@ export default {
 }
 
 #pic {
-  grid-area: leftBar;
   width: 200px;
 }
 </style>

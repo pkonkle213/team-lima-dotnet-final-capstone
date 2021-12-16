@@ -54,24 +54,20 @@
           <!-- <div class="box right" v-for="n in this.numCorrect" v-bind:key="n"></div>
                 <div class="box wrong" v-for="n in this.numIncorrect" v-bind:key="n"></div> -->
         </div>
-        <div>
-          <button id="backToDeck" class="button" v-on:click="goToDeck()">
-            Go back to previous screen
-          </button>
-        </div>
+        <div></div>
       </div>
-      
     </div>
 
-    <button id="endEarly" v-on:click.prevent="done" v-if="!IsDone">
-        End Session?
-      </button>
+    <button id="endEarly" v-on:click.prevent="done()" v-if="!IsDone">
+      End Session?
+    </button>
+    <button id="backToDeck" v-if="IsDone" class="button" v-on:click="goToDeck()">
+      Go back to previous screen
+    </button>
   </section>
 </template>
 
 <script>
-
-
 export default {
   data() {
     return {
@@ -159,16 +155,20 @@ export default {
 }
 
 .studysession {
-  width: 50%;
+  height: 100%;
+  width: 100%;
   text-align: center;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   min-width: 100%;
-  height: 100%;
+  height: 30%;
   border: #ffffff solid 3px;
   text-align: center;
   border-radius: 7px;
@@ -242,7 +242,6 @@ export default {
   border: solid 1px #464646;
   border-radius: 5px;
   box-shadow: 0 2px 5px 0 #555555;
-  
 }
 
 #endEarly:hover {
