@@ -27,21 +27,21 @@ export default {
 }
 
 #start {
-  color: white;
+  /* color: white;
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);
   border: solid 1px #c44e00;
   border-radius: 4%;
   width: 200px;
-  height: 100px;
+  height: 100px; */
 
-  grid-template-areas: start;
+  /* grid-template-areas: start;
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-size: 30px;
   text-align: center;
   border: solid black 1px;
   padding: 25px 10px 3px 10px;
-  border-radius: 5px;
+  border-radius: 5px; */
 }
 
 #start:hover {

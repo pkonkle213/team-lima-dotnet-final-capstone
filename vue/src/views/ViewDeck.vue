@@ -38,7 +38,7 @@ export default {
     StartStudySessionRightPanel,
   },
 
-  created() {
+  mounted() {
     FlashCardService.fetchDeck(this.$route.params.deckId)
       .then((response) => {
         this.$store.commit("SET_ACTIVE_DECK", response.data);
@@ -53,7 +53,11 @@ export default {
 <style>
 
 #startStudying {
-  grid-template-areas: studySess;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 #rightPanel {

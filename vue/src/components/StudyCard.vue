@@ -158,6 +158,10 @@ export default {
   height: 300px;
 }
 
+.aCard:hover {
+  cursor: text;
+}
+
 .question {
   height: 100px;
   display: flex;
