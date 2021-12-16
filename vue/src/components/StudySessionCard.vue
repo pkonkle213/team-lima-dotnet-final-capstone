@@ -60,10 +60,12 @@
           </button>
         </div>
       </div>
-      <button id="endEarly" v-on:click.prevent="done" v-if="!IsDone">
+      
+    </div>
+
+    <button id="endEarly" v-on:click.prevent="done" v-if="!IsDone">
         End Session?
       </button>
-    </div>
   </section>
 </template>
 
@@ -136,6 +138,7 @@ export default {
   box-shadow: 0 2px 5px 0 #af4600;
   justify-content: center;
   align-items: center;
+  justify-self: flex-end;
   // grid-area: answer;
 }
 
@@ -165,15 +168,12 @@ export default {
   display: flex;
   flex-direction: column;
   min-width: 100%;
+  height: 100%;
   border: #ffffff solid 3px;
-  background: linear-gradient(#e2e2e2 10%, #ffffff 70%);
   text-align: center;
-  padding: 2rem;
-  margin: 2rem;
-  margin-top: 0px;
-  border-top: 0px;
   border-radius: 7px;
   align-items: center;
+  gap: 20px;
 }
 
 .right {
@@ -234,16 +234,15 @@ export default {
 }
 
 #endEarly {
-  margin-top: 10px;
-  margin-bottom: 7%;
   width: 140px;
   height: 50px;
+
   background: linear-gradient(#757575 10%, #bdbdbd 50%);
   color: white;
   border: solid 1px #464646;
   border-radius: 5px;
   box-shadow: 0 2px 5px 0 #555555;
-  justify-self: center;
+  
 }
 
 #endEarly:hover {
