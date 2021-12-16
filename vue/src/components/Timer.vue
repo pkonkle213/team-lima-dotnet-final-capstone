@@ -1,5 +1,5 @@
 <template>
-  <div id="countdown">
+  <div id="timer-main">
     {{ countDown }}
   </div>
 </template>
@@ -33,15 +33,3 @@ export default {
 </script>
 
 <style>
-#countdown {
-  display: flex;
-  font-size: 18px;
-  justify-content: center;
-  justify-self: center;
-  padding-top: 20px;
-  text-align: center;
-  height: 70px;
-  width: 200px;
-  margin: 0;
-}
-</style>
