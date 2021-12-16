@@ -72,8 +72,6 @@ export default {
   background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
 }
 
-
-
 .empty-side-right {
   grid-area: emptySidebarRight;
   min-height: 100%;

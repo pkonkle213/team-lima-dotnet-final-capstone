@@ -24,6 +24,7 @@
             <p v-if="this.numIncorrect>0">You got {{this.numIncorrect}} question{{this.numIncorrect===1 ? "" : "s" }} incorrect</p>
             <p v-if="this.numCorrect+this.numIncorrect!=0">For a percentage of {{(this.numCorrect/(this.numCorrect+this.numIncorrect)*100).toFixed(2)}}%!</p>
             <div class="doneScreen">
+
                 <div v-for="n in this.listCorrect" v-bind:key="n">
                     <div v-if="n" class="right"></div>
                     <div v-if="!n" class="wrong"></div>
@@ -31,9 +32,12 @@
                 <!-- <div class="box right" v-for="n in this.numCorrect" v-bind:key="n"></div>
                 <div class="box wrong" v-for="n in this.numIncorrect" v-bind:key="n"></div> -->
             </div>
+            <div>
+                        <button id="backToDeck" class="button" v-on:click="goToDeck()">Go back to previous screen</button>
+                    </div>
         </div>
     </div>
-
+            
     <button id="endEarly" v-on:click.prevent="done" v-if="!IsDone">End Session?</button>
 
   </section>
@@ -75,7 +79,11 @@ export default {
         },
         done() {
             this.IsDone=true;
-        }
+        },
+        goToDeck() {
+            this.$store.state.activeDeck = [];
+            this.$router.push({ name: "ViewDeck", params: { deckId: this.deck.id } });
+    }
     },
 }
 </script>
@@ -84,6 +92,7 @@ export default {
 @import '../styles/colors.scss';
 
 #answer {
+  display: flex;
   margin-top: 10px;
   margin-bottom: 7%;
   width: 110px;
@@ -94,6 +103,16 @@ export default {
   border-radius: 7%;
   box-shadow: 0 2px 5px 0 #af4600;
   grid-area: answer;
+}
+
+#backToDeck {
+    display: flex;
+    flex-direction: columns;
+    background: linear-gradient(#eb5e00 10%, #ff9011 50%);
+    color: white;
+    border: solid 1px #c44e00;
+    border-radius: 7%;
+    box-shadow: 0 2px 5px 0 #af4600;
 }
 
 #answer:hover {
@@ -112,12 +131,15 @@ text-shadow:
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     border: #ffffff solid 3px;
     background: linear-gradient(#e2e2e2 10%, #ffffff 70%);
     text-align: center;
     padding: 2rem;
     margin: 2rem;
     border-radius: 7px;
+    justify-content: center;
 }
 
 .right {
@@ -199,11 +221,11 @@ text-shadow:
 
 #endEarly:hover {
 text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 25px #fff, 
-      0 0 30px #fff; 
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 25px #fff, 
+    0 0 30px #fff; 
 }
 
 </style>

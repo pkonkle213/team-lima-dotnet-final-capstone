@@ -33,6 +33,8 @@ export default {
   border-radius: 4%;
   width: 200px;
   height: 100px;
+  box-shadow: 0 2px 5px 0 #af4600;
+
 
   grid-template-areas: start;
   text-decoration: none;

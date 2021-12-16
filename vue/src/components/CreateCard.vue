@@ -91,6 +91,7 @@ export default {
     box-shadow: 0 2px 5px 0 #af4600;
     text-align: center;
     margin: 10px 0 0 10px;
+    box-shadow: 0 2px 5px 0 #af4600;
 }
 
 #create-card-txt {
@@ -119,6 +120,7 @@ export default {
   width: 380px;
   height: 200px;
   margin: 40px 10px 10px 10px;
+
 }
 
 .frontCard {
