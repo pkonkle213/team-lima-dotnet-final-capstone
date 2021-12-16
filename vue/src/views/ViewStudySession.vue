@@ -3,6 +3,7 @@
     <study-session-card />
     <timer v-show="this.$store.state.lightningSession"/>
   </section>
+  <img src="..\img\cropped_brain.jpg" id="dab">
 </template>
 
 <script>

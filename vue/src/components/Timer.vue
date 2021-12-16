@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="countdown">
     {{ countDown }}
   </div>
 </template>
@@ -14,6 +14,7 @@ export default {
   methods: {
       countDowntimer() {
           if(this.countDown === 0) {
+
               this.countDown = "Time's up!"
           }
           else {
@@ -32,19 +33,15 @@ export default {
 </script>
 
 <style>
-body {
-  /* background-color: black; */
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-}
-
-/* #countdown {
-  background-color: white;
-  display: inline-flex;
-  font-size: 50px;
+#countdown {
+  display: flex;
+  font-size: 18px;
   justify-content: center;
+  justify-self: center;
+  padding-top: 20px;
+  text-align: center;
   height: 70px;
   width: 200px;
   margin: 0;
-} */
+}
 </style>

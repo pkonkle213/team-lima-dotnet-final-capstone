@@ -59,15 +59,6 @@ export default {
             IsDone: false,
         }
     },
-    methods: {
-        timed() {
-            if (isTimed === true)
-            {
-                //add the component timer to the study session and on 0, automatically go to next question
-                //probably count missed question as a wrong or a skipped 
-            }
-        },
-
         flipCard() {
             this.showFront=false;
         },
@@ -96,7 +87,6 @@ export default {
             this.$store.state.activeDeck = [];
             this.$router.back();
     }
-    },
 }
 </script>
 
@@ -111,7 +101,7 @@ export default {
 
 #answer {
   display: flex;
-  // margin-top: 10px;
+  margin-top: 10px;
   // margin-bottom: 7%;
   width: 110px;
   height: 50px;
