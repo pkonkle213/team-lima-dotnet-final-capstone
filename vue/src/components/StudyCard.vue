@@ -143,6 +143,10 @@ export default {
   align-items: center;
 }
 
+#delete-btn {
+  margin-bottom: 10px;
+}
+
 .aCard {
   display: flex;
   flex-direction: column;
