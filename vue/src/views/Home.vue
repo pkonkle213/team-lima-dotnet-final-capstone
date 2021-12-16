@@ -1,6 +1,6 @@
 <template>
   <div id="home-img" class="home">
-    <img src="../img/RE4CA2I.jpeg" alt="Stock Image Lady Studying" id="ladyStudying">
+    <img src="../img/RE4CA2Itall.jpeg" alt="Stock Image Lady Studying" id="ladyStudying">
   </div>
 </template>
 
@@ -13,12 +13,13 @@ export default {
 
 <style>
 .home {
-  max-height: 100%;
-  overflow: hidden;
+  height: 100%;
+  
 }
 
 #ladyStudying {
   width: 100%;
+ 
 } 
 
 </style>
