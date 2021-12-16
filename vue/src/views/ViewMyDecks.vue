@@ -13,6 +13,7 @@
   </div>
 </template>
 
+
 <script>
 import CreateDeck from "../components/CreateDeck.vue";
 import Deck from "../components/Deck.vue";
@@ -38,8 +39,8 @@ export default {
 };
 </script>
 
-<style>
 
+<style>
 ::-webkit-scrollbar {
   width: 20px;
 }
@@ -93,6 +94,4 @@ export default {
   min-height: 100%;
   background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
 }
-
-
 </style>

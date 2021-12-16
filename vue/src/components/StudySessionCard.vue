@@ -4,13 +4,11 @@
     <div class="card">
       <div id="test-test" v-if="showFront && !IsDone">
         <span>
-          <b>Question {{ index + 1 }}: </b
-          >{{ $store.state.activeDeck[index].frontText }}
+          <b>Question {{ index + 1 }}: </b>
+          {{ $store.state.activeDeck[index].frontText }}
         </span>
       </div>
-      <button id="answer" class="button" v-on:click.prevent="flipCard">
-        Answer
-      </button>
+      <button id="answer" class="button" v-on:click.prevent="flipCard"> Answer </button>
 
       <!-- Once the button is clicked, the answer should show, the user should have
         the option of marking the card as right or wrong -->
@@ -25,31 +23,23 @@
 
       <div v-if="IsDone">
         <h4>Welcome to the end!</h4>
+
         <p v-if="this.numCorrect > 0">
-          You got {{ this.numCorrect }} question{{
-            this.numCorrect === 1 ? "" : "s"
-          }}
-          correct
+          You got {{ this.numCorrect }} question {{this.numCorrect === 1 ? "" : "s"}} correct
         </p>
+
         <p v-if="this.numIncorrect > 0">
-          You got {{ this.numIncorrect }} question{{
-            this.numIncorrect === 1 ? "" : "s"
-          }}
-          incorrect
+          You got {{ this.numIncorrect }} question {{ this.numIncorrect === 1 ? "" : "s"}} incorrect
         </p>
+
         <p v-if="this.numCorrect + this.numIncorrect != 0">
-          For a percentage of
-          {{
-            (
-              (this.numCorrect / (this.numCorrect + this.numIncorrect)) *
-              100
-            ).toFixed(2)
-          }}%!
+          For a percentage of {{((this.numCorrect / (this.numCorrect + this.numIncorrect)) * 100).toFixed(2)}}%!
         </p>
+
         <div class="doneScreen">
           <div v-for="n in this.listCorrect" v-bind:key="n">
-            <div v-if="n" class="right"></div>
-            <div v-if="!n" class="wrong"></div>
+            <div v-if="n" class="right"/>
+            <div v-if="!n" class="wrong"/>
           </div>
           <!-- <div class="box right" v-for="n in this.numCorrect" v-bind:key="n"></div>
                 <div class="box wrong" v-for="n in this.numIncorrect" v-bind:key="n"></div> -->
@@ -60,18 +50,16 @@
           </button>
         </div>
       </div>
-      
     </div>
 
     <button id="endEarly" v-on:click.prevent="done" v-if="!IsDone">
-        End Session?
-      </button>
+      End Session?
+    </button>
   </section>
 </template>
 
+
 <script>
-
-
 export default {
   data() {
     return {
@@ -115,6 +103,7 @@ export default {
   },
 };
 </script>
+
 
 <style lang="scss">
 @import "../styles/colors.scss";

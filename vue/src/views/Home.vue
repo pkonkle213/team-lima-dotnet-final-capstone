@@ -4,12 +4,13 @@
   </div>
 </template>
 
+
 <script>
 export default {
   name: "home",
-
 };
 </script>
+
 
 <style>
 .home {
@@ -20,5 +21,4 @@ export default {
 #ladyStudying {
   width: 100%;
 } 
-
 </style>

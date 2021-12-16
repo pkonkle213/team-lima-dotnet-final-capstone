@@ -2,9 +2,11 @@
   <button id="deleteBtn" v-on:click.prevent="deleteCard()">Delete</button>
 </template>
 
+
 <script>
 export default {}
 </script>
+
 
 <style lang="scss">
 @import '../styles/colors.scss';
