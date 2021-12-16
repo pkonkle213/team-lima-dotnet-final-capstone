@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="timer-main">
     {{ countDown }}
   </div>
 </template>
@@ -36,6 +36,11 @@ body {
   /* background-color: black; */
   font-family: "Roboto", sans-serif;
   margin: 0;
+  
+}
+
+#timer-main {
+  
 }
 
 /* #countdown {
