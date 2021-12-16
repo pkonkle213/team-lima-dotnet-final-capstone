@@ -5,11 +5,11 @@
         id="decks"
         v-for="deck of $store.state.userDecks"
         v-bind:key="deck.id"
-        v-bind:deck="deck"
-      />
+        v-bind:deck="deck">
+      </deck>
     </div>
-      <create-deck class="add-deck"/>
-    <div class="empty-side-right"></div>
+    <create-deck class="add-deck"/>
+    <div class="empty-side-right"/>
   </div>
 </template>
 

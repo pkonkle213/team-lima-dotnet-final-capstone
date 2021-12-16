@@ -2,7 +2,7 @@
     <div class="leftBar">
         <p id="create-card-txt">Add a new card to this deck<p>
         <textarea
-        placeholder="Enter text here"
+         placeholder="Enter text here"
          id="frontCard"
          class="frontCard"
          v-bind:class="{'backCard': clickCounter===1}"
@@ -110,17 +110,17 @@ export default {
 
 //are we using # or . frontCard?
 #frontCard {
-  padding-top: 75px;
-  resize: none;
-  text-align: center;
-  align-items: center;
-  font-size: 30px;
-  background-color: rgb(252, 251, 248);
-  border: 1px solid rgb(32, 28, 27);
-  border-radius: 7px;
-  width: 380px;
-  height: 200px;
-  margin: 20px 10px 10px 10px;
+    padding-top: 75px;
+    resize: none;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: rgb(252, 251, 248);
+    border: 1px solid rgb(32, 28, 27);
+    border-radius: 7px;
+    width: 380px;
+    height: 200px;
+    margin: 20px 10px 10px 10px;
 }
 
 #frontCard::placeholder {
@@ -128,38 +128,38 @@ export default {
 }
 
 .frontCard {
-  padding-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(80, 80, 80);
-  border: 1px solid rgb(32, 28, 27);
-  border-radius: 2px;
-  width: 380px;
-  height: 300px;
-  margin: 10px 10px 10px 10px;
-  resize: none;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(252, 251, 248);
+    box-shadow: 0 0 10px 0 rgb(80, 80, 80);
+    border: 1px solid rgb(32, 28, 27);
+    border-radius: 2px;
+    width: 380px;
+    height: 300px;
+    margin: 10px 10px 10px 10px;
+    resize: none;
 }
 
 .backCard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(194, 49, 13);
-  border: 1px solid rgb(32, 28, 27);
-  border-radius: 7px;
-  width: 380px;
-  height: 300px;
-  margin: 10px 10px 10px 10px;
-  resize: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(252, 251, 248);
+    box-shadow: 0 0 10px 0 rgb(194, 49, 13);
+    border: 1px solid rgb(32, 28, 27);
+    border-radius: 7px;
+    width: 380px;
+    height: 300px;
+    margin: 10px 10px 10px 10px;
+    resize: none;
 }
 
 .leftBar {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
 }
 
 </style>

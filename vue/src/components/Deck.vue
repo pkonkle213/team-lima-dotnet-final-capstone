@@ -1,14 +1,9 @@
 <template>
   <div class="deck-and-btn" v-on:mouseover="showButtons()" v-on:mouseleave="hideButtons()">
     <div class="deck">
-      <span
-        ref="deckName"
-        id="deck-name"
-        contenteditable="true"
-        v-on:blur.prevent="changeDeckName()"
-        >{{ deck.name }}</span
-      >
+      <span ref="deckName" id="deck-name" contenteditable="true" v-on:blur.prevent="changeDeckName()">{{ deck.name }}</span>
     </div>
+
     <div class="btns" v-show="displayButtons">
       <button id="go-btn" v-on:click.prevent="goToDeck()">View</button>
       <button id="delete-btn" v-on:click.prevent="deleteDeck()"></button>
@@ -18,7 +13,6 @@
 
 <script>
 import FlashCardService from "../services/FlashCardService.js";
-
 export default {
   data() {
     return {
@@ -66,7 +60,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/colors.scss';
+
 .deck {
   display: flex;
   text-align: center;
@@ -120,19 +116,19 @@ export default {
 }
 
 #go-btn {
-    width: 100px;
-    height: 49px;
-    background: linear-gradient(#eb5e00 10%, #ff9011 50%);
-    color: white;
-    border: solid 1px #c44e00;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px 0 #af4600;
-    text-align: center;
-    margin-top: 10px;
+  width: 100px;
+  height: 49px;
+  background: linear-gradient(#eb5e00 10%, #ff9011 50%);
+  color: white;
+  border: solid 1px #c44e00;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 #af4600;
+  text-align: center;
+  margin-top: 10px;
 }
 
 #go-btn:hover {
-    text-shadow:
+  text-shadow:
   0 0 7px #fff,
   0 0 10px #fff,
   0 0 21px #fff,
@@ -140,18 +136,17 @@ export default {
   0 0 30px #fff; 
 }
 
-
 #delete-btn {
-    width: 45px;
-    height: 49px;
-    background:url(../img/RE4CA2I.jpeg) no-repeat;
-    color: white;
-    border: solid 1px #c44e00;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px 0 #af4600;
-    text-align: center;
-    margin-top: 10px;
-    background:url(../img/Webp.net-resizeimage.png)
+  width: 45px;
+  height: 49px;
+  background:url(../img/RE4CA2I.jpeg) no-repeat;
+  color: white;
+  border: solid 1px #c44e00;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 #af4600;
+  text-align: center;
+  margin-top: 10px;
+  background:url(../img/Webp.net-resizeimage.png)
 }
 
 </style>

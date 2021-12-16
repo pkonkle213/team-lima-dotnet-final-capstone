@@ -19,7 +19,6 @@
 
 <script>
 import FlashCardService from "../services/FlashCardService.js";
-
 export default {
   data() {
     return {
