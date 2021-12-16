@@ -69,7 +69,7 @@ export default {
   margin-left: 6.5%;
   margin-top: 3%;
   gap: 6%;
-  background: linear-gradient(#f1eeee 10%, #ffffff 50%);
+  background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
 }
 
 
@@ -77,7 +77,7 @@ export default {
 .empty-side-right {
   grid-area: emptySidebarRight;
   min-height: 100%;
-  background: linear-gradient(#f1eeee 10%, #ffffff 50%);
+  background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
 }
 
 

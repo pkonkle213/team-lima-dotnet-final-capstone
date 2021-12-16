@@ -94,7 +94,7 @@ body {
     top: 0;
   justify-items: center;
   align-items: center;
-  background: linear-gradient(#eb5e00 10%, #ff9011 80%);
+  background: linear-gradient(#e65c00 10%, #ff9216 80%);
   color: #c7d5e0;
   text-align: center;
   // position: sticky;

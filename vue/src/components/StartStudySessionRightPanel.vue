@@ -2,7 +2,7 @@
     <div id="checkBox">
         <router-link v-bind:to="{ name: 'StudySession' }" id="start">Study Deck</router-link>
         <label id="randomizeLabel" for="checkbox">Randomize Cards</label>
-        <input type="checkbox" id="randomize" v-on:click.prevent="random()">>
+        <input type="checkbox" id="randomize" v-on:click.prevent="random()">
     </div>
 </template>
 
@@ -33,7 +33,8 @@ export default {
 }
 
 #randomizeLabel {
- color: white;
+ color: black;
+ margin-left: 20px;
 }
 
 </style>

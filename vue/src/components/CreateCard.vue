@@ -93,7 +93,7 @@ export default {
 }
 
 #create-card-txt {
-    color: #fff;
+    color: black;
 }
 
 #newCardButton:hover {
@@ -125,7 +125,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: rgb(252, 251, 248);
-  box-shadow: 0 0 10px 0 rgb(23, 23, 26);
+  box-shadow: 0 0 10px 0 rgb(80, 80, 80);
   border: 1px solid rgb(32, 28, 27);
   border-radius: 2px;
   width: 380px;
