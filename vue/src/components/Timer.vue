@@ -15,6 +15,7 @@ export default {
   methods: {
       countDowntimer() {
           if(this.countDown === 0) {
+
               this.countDown = "Time's up!"
           }
           else {
@@ -32,28 +33,7 @@ export default {
 };
 </script>
 
-
 <style lang="scss">
 @import "../styles/colors.scss";
 
-body {
-  /* background-color: black; */
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  
-}
-
-#timer-main {
-  
-}
-
-/* #countdown {
-  background-color: white;
-  display: inline-flex;
-  font-size: 50px;
-  justify-content: center;
-  height: 70px;
-  width: 200px;
-  margin: 0;
-} */
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div id="study-session-main">
-    <div id="left-side-bar-empty"></div>
-    <study-session-card id="session" />
 
+  <div id="study-session-main">
+    <div id="left-side-bar-empty"><img src="../img/cropped_brain.png" id="pic"></div>
+    <study-session-card id="session" />
     <timer v-show="this.$store.state.lightningSession" id="timer" />
     <div id="empty-background" v-show="!this.$store.state.lightningSession"/>
   </div>
@@ -69,5 +69,9 @@ export default {
   justify-content: flex-start;
   padding-top: 90px;
   background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
+}
+
+#pic {
+  width: 200px;
 }
 </style>
