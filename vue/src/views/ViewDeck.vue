@@ -1,29 +1,24 @@
 <template>
   <div id="cards">
-    <div v-show="!$store.state.activeDeck.length" id="loading">
-    </div>
+    <div v-show="!$store.state.activeDeck.length" id="loading">No Cards In Deck!</div>
 
     <div id="card-list" v-show="$store.state.activeDeck">
-    <div v-show="!$store.state.activeDeck.length" class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-
-      <study-card
-        v-for="card of $store.state.activeDeck"
-        v-bind:key="card.id"
-        v-bind:card="card"
-      />
+      <div v-show="!$store.state.activeDeck.length" class="lds-grid">
+        <div/><div/><div/><div/><div/><div/><div/><div/><div/>
+      </div>
+      <study-card v-for="card of $store.state.activeDeck" v-bind:key="card.id" v-bind:card="card"/>
     </div>
+
     <div id="side-bar-nav">
       <side-bar-view id="side-bar-options" />
     </div>
+
     <div id="rightPanel">
       <start-study-session-right-panel id="startStudying" />
-      <img
-        src="../img/d9006bced22dcde87db0dd29364b0c16-removebg-preview.png"
-        alt="Brain"
-        id="brainThink"
-      />
+      <img src="../img/d9006bced22dcde87db0dd29364b0c16-removebg-preview.png" alt="Brain" id="brainThink"/>
     </div>
-    <div id="image"></div>
+
+    <div id="image"/>
   </div>
 </template>
 
