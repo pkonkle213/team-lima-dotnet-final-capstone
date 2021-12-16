@@ -6,8 +6,8 @@
       <input type="checkbox" id="randomize" v-on:change="random($event)" />
     </div>
     <div id="timedCheckbox">
-      <label id="timed" for="timed">🗲Lightning Round?🗲</label>
-      <input type="checkbox" id="timed" v-on:change="timed($event)" />
+      <!-- <label id="timed" for="timed">🗲Lightning Round?🗲</label> -->
+      <!-- <input type="checkbox" id="timed" v-on:change="timed($event)" /> -->
     </div>
   </div>
 </template>
