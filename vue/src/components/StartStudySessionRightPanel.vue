@@ -2,7 +2,7 @@
   <div id="checkBox">
     <button id="start" v-on:click.prevent="startSession()">Study Deck</button>
     <div id="something-something">
-      <label id="randomizeLabel" for="checkbox">Randomize Cards:</label>
+      <label id="randomizeLabel" for="checkbox">Randomize Cards?</label>
       <input type="checkbox" id="randomize" v-on:change="random($event)" />
     </div>
   </div>
@@ -59,10 +59,11 @@ export default {
   color: white;
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);
   border: solid 1px #c44e00;
-  border-radius: 4%;
+  box-shadow: 0 2px 5px 0 #af4600;
+  border-radius: 7px;
   width: 200px;
   height: 100px;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 #checkBox {
@@ -81,5 +82,6 @@ export default {
 #randomizeLabel {
   color: black;
   margin: 0px;
+  font-size: 18px;
 }
 </style>

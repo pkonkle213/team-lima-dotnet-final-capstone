@@ -1,5 +1,6 @@
 <template>
   <div id="home-img" class="home">
+    <img src="../img/RE4CA2I.jpeg" alt="Stock Image Lady Studying" id="ladyStudying">
   </div>
 </template>
 

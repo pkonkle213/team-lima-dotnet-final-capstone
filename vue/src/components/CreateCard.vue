@@ -2,6 +2,7 @@
     <div class="leftBar">
         <p id="create-card-txt">Add a new card to this deck<p>
         <textarea
+        placeholder="Enter text here"
          id="frontCard"
          class="frontCard"
          v-bind:class="{'backCard': clickCounter===1}"
@@ -91,11 +92,11 @@ export default {
     box-shadow: 0 2px 5px 0 #af4600;
     text-align: center;
     margin: 10px 0 0 10px;
-    box-shadow: 0 2px 5px 0 #af4600;
 }
 
 #create-card-txt {
     color: black;
+    font-size: 20px;
 }
 
 #newCardButton:hover {
@@ -109,7 +110,7 @@ export default {
 
 //are we using # or . frontCard?
 #frontCard {
-  padding-top: 70px;
+  padding-top: 75px;
   resize: none;
   text-align: center;
   align-items: center;
@@ -119,11 +120,15 @@ export default {
   border-radius: 7px;
   width: 380px;
   height: 200px;
-  margin: 40px 10px 10px 10px;
+  margin: 20px 10px 10px 10px;
+}
 
+#frontCard::placeholder {
+    color: rgb(192, 192, 192);
 }
 
 .frontCard {
+  padding-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;

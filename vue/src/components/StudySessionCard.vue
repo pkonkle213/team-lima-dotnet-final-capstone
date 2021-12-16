@@ -132,7 +132,7 @@ text-shadow:
 
 .card {
     display: flex;
-    flex-direction: column;
+    flex-direction: colum;
     border: #ffffff solid 3px;
     background: linear-gradient(#e2e2e2 10%, #ffffff 70%);
     text-align: center;
