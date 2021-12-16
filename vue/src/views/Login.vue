@@ -97,7 +97,7 @@ export default {
   background: linear-gradient(#eb5e00 10%, #ff9011 50%);
   color: white;
   border: solid 1px #c44e00;
-  border-radius: 7%;
+  border-radius: 5px;
   box-shadow: 0 2px 5px 0 #af4600;
 }
 
@@ -113,5 +113,10 @@ export default {
 
 #signInTxt {
   color: #4f596b;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
 </style>

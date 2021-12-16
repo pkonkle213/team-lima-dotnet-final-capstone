@@ -58,14 +58,6 @@ export default {
         }
     },
     methods: {
-        timed() {
-            if (isTimed === true)
-            {
-                //add the component timer to the study session and on 0, automatically go to next question
-                //probably count missed question as a wrong or a skipped 
-            }
-        },
-
         flipCard() {
             this.showFront=false;
         },
