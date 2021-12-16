@@ -49,12 +49,13 @@ export default {
     "emptySidebarLeft cards emptySidebarRight";
 }
 .list {
+  margin-top: 20px;
   height: 100%;
   grid-area: cards;
-  align-self: start;
   display: flex;
+  justify-content: center;
+  align-content: flex-start;
   flex-wrap: wrap;
-  margin-left: 6.5%;
   overflow-y: auto;
 }
 

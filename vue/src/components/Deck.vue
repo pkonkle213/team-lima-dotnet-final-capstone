@@ -69,7 +69,6 @@ export default {
 <style>
 .deck {
   display: flex;
-  flex-wrap: wrap;
   text-align: center;
   flex-flow: row wrap;
   justify-content: center;
@@ -80,8 +79,6 @@ export default {
   height: 140px;
   min-width: 270px;
   margin: 10px;
-  margin-top: 30px;
-
   background: linear-gradient(#f1eeee 10%, #ffffff 50%);
 
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee,
@@ -99,9 +96,9 @@ export default {
 
 .deck-and-btn {
   display: flex;
-  height: 279px;
+  height: 230px;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   color: black;
   font-size: 18px;
 }
