@@ -1,38 +1,50 @@
 <template>
-<div>
-    <h3>Time Remaining</h3>
-    <p id="countdown" ref="countdown"></p>
-</div>
+  <div>
+    {{ countDown }}
+  </div>
 </template>
 
 <script>
 export default {
-    methods: {
-        updateCountdown() {
-            const seconds = 30;
-            let count
-            time--;
-            this.countdown = this.$refs.countdown.innerText;
-            }
-        }
-    }
-
+  data() {
+      return {
+          countDown: 10
+      }
+  },
+  methods: {
+      countDowntimer() {
+          if(this.countDown === 0) {
+              this.countDown = "Time's up!"
+          }
+          else {
+              setTimeout(() => {
+                  this.countDown -= 1,
+                  this.countDowntimer()
+              }, 1000)
+          }
+          
+      }
+  },
+  mounted() {
+      this.countDowntimer()
+  }
+};
 </script>
 
 <style>
 body {
-    background-color: black;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
+  /* background-color: black; */
+  font-family: "Roboto", sans-serif;
+  margin: 0;
 }
 
-#countdown {
-    background-color: white;
-    display: inline-flex;
-    font-size: 50px;
-    justify-content: center;
-    height: 70px;
-    width: 200px;
-    margin: 0;
-}
+/* #countdown {
+  background-color: white;
+  display: inline-flex;
+  font-size: 50px;
+  justify-content: center;
+  height: 70px;
+  width: 200px;
+  margin: 0;
+} */
 </style>

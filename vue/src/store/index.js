@@ -26,6 +26,7 @@ export default new Vuex.Store({
     user: currentUser || {}, // If a user is an admin, their user.role will be 'admin'
     activeDeck: [],
     userDecks: [],
+    lightningSession: true,
     activeCard: {
       id: 0,
       frontFace: "",
