@@ -151,12 +151,12 @@ export default {
   height: 390px;
 }
 
-#delete-btn {
-  margin-bottom: 10px;
+#test:hover {
+  cursor: pointer;
 }
 
-#delete-btn:hover {
-
+#delete-btn {
+  margin-bottom: 10px;
 }
 
 .aCard {
