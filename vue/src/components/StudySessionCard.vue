@@ -44,29 +44,21 @@
           <!-- <div class="box right" v-for="n in this.numCorrect" v-bind:key="n"></div>
                 <div class="box wrong" v-for="n in this.numIncorrect" v-bind:key="n"></div> -->
         </div>
-        <div></div>
+        <div/>
       </div>
     </div>
 
-<<<<<<< HEAD
-    <button id="endEarly" v-on:click.prevent="done" v-if="!IsDone">
-      End Session?
-    </button>
-  </section>
-</template>
-
-
-=======
     <button id="endEarly" v-on:click.prevent="done()" v-if="!IsDone">
       End Session?
     </button>
+
     <button id="backToDeck" v-if="IsDone" class="button" v-on:click="goToDeck()">
       Go back to previous screen
     </button>
+
   </section>
 </template>
 
->>>>>>> 3411276878a9c551229bb6da3df196e4ce9f6c5c
 <script>
 export default {
   data() {
