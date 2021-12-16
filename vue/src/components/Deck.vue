@@ -94,7 +94,7 @@ export default {
 }
 
 #deck-name {
-  width: 400px;
+  width: 95%;
 }
 
 .deck-and-btn {
@@ -143,14 +143,6 @@ export default {
   0 0 30px #fff; 
 }
 
-#delete-btn:hover {
-    text-shadow:
-  0 0 7px #fff,
-  0 0 10px #fff,
-  0 0 21px #fff,
-  0 0 25px #fff, 
-  0 0 30px #fff; 
-}
 
 #delete-btn {
     width: 45px;

@@ -60,8 +60,7 @@ export default {
   height: 100%;
   width: 100%;
   background-color: #023047;
-  background: linear-gradient(#013047 30%, #6e8fa0 80%);
-  border-left: solid 1px black;
+  background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
   grid-area: studySess;
 
   display: grid;
@@ -116,8 +115,7 @@ export default {
   display: flex;
   height: 100%;
   background-color: #023047;
-  background: linear-gradient(#013047 30%, #6e8fa0 80%);
-  border-right: solid 1px black;
+  background: linear-gradient(#e6e6e6 10%, #ffffff 50%);
   justify-content: center;
   height: 100%;
 }
